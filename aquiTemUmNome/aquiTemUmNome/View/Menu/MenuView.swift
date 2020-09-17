@@ -28,11 +28,11 @@ class MenuView: UIView {
         setupPlayButton()
         setupPlayButtonConstraints()
 
-        setupStoreButton()
-        setupStoreButtonConstraints()
-
         setupGameCenterButton()
         setupGameCenterButtonConstraints()
+
+        setupStoreButton()
+        setupStoreButtonConstraints()
 
         setupMuteButton()
         setupMuteButtonConstraints()
@@ -86,7 +86,7 @@ class MenuView: UIView {
 
         NSLayoutConstraint.activate([
             storeButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 24),
-            storeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 63),
+            storeButton.trailingAnchor.constraint(equalTo: gameCenterButton.leadingAnchor, constant: -24),
             storeButton.widthAnchor.constraint(equalToConstant: storeButton.bounds.size.width),
             storeButton.heightAnchor.constraint(equalToConstant: storeButton.bounds.size.height)
         ])
@@ -102,9 +102,9 @@ class MenuView: UIView {
 
         NSLayoutConstraint.activate([
             gameCenterButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 52),
-            gameCenterButton.leadingAnchor.constraint(equalTo: storeButton.trailingAnchor, constant: 24),
-            gameCenterButton.widthAnchor.constraint(equalToConstant: storeButton.bounds.size.width),
-            gameCenterButton.heightAnchor.constraint(equalToConstant: storeButton.bounds.size.height)
+            gameCenterButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            gameCenterButton.widthAnchor.constraint(equalToConstant: gameCenterButton.bounds.size.width),
+            gameCenterButton.heightAnchor.constraint(equalToConstant: gameCenterButton.bounds.size.height)
         ])
     }
 
@@ -119,8 +119,8 @@ class MenuView: UIView {
         NSLayoutConstraint.activate([
             muteButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 24),
             muteButton.leadingAnchor.constraint(equalTo: gameCenterButton.trailingAnchor, constant: 24),
-            muteButton.widthAnchor.constraint(equalToConstant: storeButton.bounds.size.width),
-            muteButton.heightAnchor.constraint(equalToConstant: storeButton.bounds.size.height)
+            muteButton.widthAnchor.constraint(equalToConstant: muteButton.bounds.size.width),
+            muteButton.heightAnchor.constraint(equalToConstant: muteButton.bounds.size.height)
         ])
     }
 }
