@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0EF251391F900621BD1 /* Pallettes.swift */; };
+		6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FDE251385EC003FED4B /* ColorPallette.swift */; };
+		6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FE32513861A003FED4B /* EnumColorType.swift */; };
 		5423279925138A4F00E9E691 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279825138A4F00E9E691 /* MenuView.swift */; };
 		5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279D25138B7D00E9E691 /* MenuViewController.swift */; };
 		A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17DF251244D300DC1ADE /* AppDelegate.swift */; };
@@ -21,6 +24,7 @@
 		A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F1818251249DD00DC1ADE /* ProtocolTest.swift */; };
 		A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181B25124A0700DC1ADE /* AnimationTest.swift */; };
 		A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181E25124A3500DC1ADE /* EnumTest.swift */; };
+		A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C08A25138B1B005CC48E /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,9 @@
 /* Begin PBXFileReference section */
 		5423279825138A4F00E9E691 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		5423279D25138B7D00E9E691 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		6E4FC0EF251391F900621BD1 /* Pallettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallettes.swift; sourceTree = "<group>"; };
+		6EC94FDE251385EC003FED4B /* ColorPallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallette.swift; sourceTree = "<group>"; };
+		6EC94FE32513861A003FED4B /* EnumColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorType.swift; sourceTree = "<group>"; };
 		A27F17DC251244D300DC1ADE /* aquiTemUmNome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aquiTemUmNome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27F17DF251244D300DC1ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A27F17E1251244D300DC1ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 		A27F1818251249DD00DC1ADE /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
 		A27F181B25124A0700DC1ADE /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
 		A27F181E25124A3500DC1ADE /* EnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTest.swift; sourceTree = "<group>"; };
+		A296C08A25138B1B005CC48E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				A27F18152512499F00DC1ADE /* ModelTest.swift */,
+				6EC94FDE251385EC003FED4B /* ColorPallette.swift */,
+				6E4FC0EF251391F900621BD1 /* Pallettes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				A27F181B25124A0700DC1ADE /* AnimationTest.swift */,
+				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				A27F181E25124A3500DC1ADE /* EnumTest.swift */,
+				6EC94FE32513861A003FED4B /* EnumColorType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -361,15 +373,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */,
 				A27F1812251247FE00DC1ADE /* VIew.swift in Sources */,
 				5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */,
 				A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
+				6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
 				5423279925138A4F00E9E691 /* MenuView.swift in Sources */,
+				A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */,
 				A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */,
 				A27F18162512499F00DC1ADE /* ModelTest.swift in Sources */,
 				A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */,
+				6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */,
 				A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
