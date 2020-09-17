@@ -55,7 +55,7 @@ class MenuView: UIView {
         icon.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            icon.topAnchor.constraint(equalTo: topAnchor, constant: 74),
+            icon.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -160),
             icon.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
