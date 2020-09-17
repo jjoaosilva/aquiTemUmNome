@@ -19,6 +19,10 @@
 		A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F1818251249DD00DC1ADE /* ProtocolTest.swift */; };
 		A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181B25124A0700DC1ADE /* AnimationTest.swift */; };
 		A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181E25124A3500DC1ADE /* EnumTest.swift */; };
+		D710261525138A71001B1199 /* GameScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710261425138A71001B1199 /* GameScreenView.swift */; };
+		D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710261D25138ADA001B1199 /* GameScreenViewController.swift */; };
+		D77072B92513999300619421 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072B82513999300619421 /* CharacterView.swift */; };
+		D77072BE2513A29C00619421 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072BD2513A29C00619421 /* ObstacleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		A27F1818251249DD00DC1ADE /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
 		A27F181B25124A0700DC1ADE /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
 		A27F181E25124A3500DC1ADE /* EnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTest.swift; sourceTree = "<group>"; };
+		D710261425138A71001B1199 /* GameScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenView.swift; sourceTree = "<group>"; };
+		D710261D25138ADA001B1199 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
+		D77072B82513999300619421 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		D77072BD2513A29C00619421 /* ObstacleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 		A27F180F251247CE00DC1ADE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D710261325138A05001B1199 /* Game */,
 				A27F1811251247FE00DC1ADE /* VIew.swift */,
 			);
 			path = View;
@@ -151,6 +160,7 @@
 		A27F1810251247DB00DC1ADE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D710261C25138A7E001B1199 /* Game */,
 				A27F17E3251244D300DC1ADE /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -186,6 +196,24 @@
 				A27F181E25124A3500DC1ADE /* EnumTest.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		D710261325138A05001B1199 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D710261425138A71001B1199 /* GameScreenView.swift */,
+				D77072B82513999300619421 /* CharacterView.swift */,
+				D77072BD2513A29C00619421 /* ObstacleView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		D710261C25138A7E001B1199 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D710261D25138ADA001B1199 /* GameScreenViewController.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,8 +367,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */,
+				D77072BE2513A29C00619421 /* ObstacleView.swift in Sources */,
 				A27F1812251247FE00DC1ADE /* VIew.swift in Sources */,
 				A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */,
+				D710261525138A71001B1199 /* GameScreenView.swift in Sources */,
+				D77072B92513999300619421 /* CharacterView.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
 				A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */,
