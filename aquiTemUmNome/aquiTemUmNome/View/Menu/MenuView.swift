@@ -10,17 +10,32 @@ import UIKit
 
 class MenuView: UIView {
 
+    var pallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
     var icon = UIImageView()
     var playButton = UIButton()
+    var storeButton = UIButton()
+    var gameCenterButton = UIButton()
+    var muteButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         setupBackground()
+
         setupIcon()
         setupIconConstraints()
+
         setupPlayButton()
         setupPlayButtonConstraints()
+
+        setupStoreButton()
+        setupStoreButtonConstraints()
+
+        setupGameCenterButton()
+        setupGameCenterButtonConstraints()
+
+        setupMuteButton()
+        setupMuteButtonConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -46,10 +61,7 @@ class MenuView: UIView {
     }
 
     func setupPlayButton() {
-        playButton.contentVerticalAlignment = .fill
-        playButton.contentHorizontalAlignment = .fill
-        playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        playButton.tintColor = .white
+        playButton = UIButton(nameIcon: "play.fill", sizeButton: 128, sizeIcon: 80, weightIcon: .bold, backgroundColor: .clear, tintColor: .white)
         self.addSubview(playButton)
     }
 
@@ -59,9 +71,56 @@ class MenuView: UIView {
         NSLayoutConstraint.activate([
             playButton.topAnchor.constraint(equalTo: icon.bottomAnchor, constant: 89),
             playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            playButton.heightAnchor.constraint(equalToConstant: 74),
-            playButton.widthAnchor.constraint(equalToConstant: 68)
+            playButton.widthAnchor.constraint(equalToConstant: playButton.bounds.size.width),
+            playButton.heightAnchor.constraint(equalToConstant: playButton.bounds.size.height)
         ])
     }
 
+    func setupStoreButton() {
+        storeButton = UIButton(nameIcon: "cart.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .thirdColor), tintColor: .white)
+        self.addSubview(storeButton)
+    }
+
+    func setupStoreButtonConstraints() {
+        storeButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            storeButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 24),
+            storeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 63),
+            storeButton.widthAnchor.constraint(equalToConstant: storeButton.bounds.size.width),
+            storeButton.heightAnchor.constraint(equalToConstant: storeButton.bounds.size.height)
+        ])
+    }
+
+    func setupGameCenterButton() {
+        gameCenterButton = UIButton(nameIcon: "star.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .primaryColor), tintColor: .white)
+        self.addSubview(gameCenterButton)
+    }
+
+    func setupGameCenterButtonConstraints() {
+        gameCenterButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            gameCenterButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 52),
+            gameCenterButton.leadingAnchor.constraint(equalTo: storeButton.trailingAnchor, constant: 24),
+            gameCenterButton.widthAnchor.constraint(equalToConstant: storeButton.bounds.size.width),
+            gameCenterButton.heightAnchor.constraint(equalToConstant: storeButton.bounds.size.height)
+        ])
+    }
+
+    func setupMuteButton() {
+        muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .secondaryColor), tintColor: .white)
+        self.addSubview(muteButton)
+    }
+
+    func setupMuteButtonConstraints() {
+        muteButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            muteButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 24),
+            muteButton.leadingAnchor.constraint(equalTo: gameCenterButton.trailingAnchor, constant: 24),
+            muteButton.widthAnchor.constraint(equalToConstant: storeButton.bounds.size.width),
+            muteButton.heightAnchor.constraint(equalToConstant: storeButton.bounds.size.height)
+        ])
+    }
 }
