@@ -19,6 +19,7 @@
 		A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F1818251249DD00DC1ADE /* ProtocolTest.swift */; };
 		A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181B25124A0700DC1ADE /* AnimationTest.swift */; };
 		A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181E25124A3500DC1ADE /* EnumTest.swift */; };
+		A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C08A25138B1B005CC48E /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A27F1818251249DD00DC1ADE /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
 		A27F181B25124A0700DC1ADE /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
 		A27F181E25124A3500DC1ADE /* EnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTest.swift; sourceTree = "<group>"; };
+		A296C08A25138B1B005CC48E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				A27F181B25124A0700DC1ADE /* AnimationTest.swift */,
+				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
+				A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */,
 				A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */,
 				A27F18162512499F00DC1ADE /* ModelTest.swift in Sources */,
 				A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */,
