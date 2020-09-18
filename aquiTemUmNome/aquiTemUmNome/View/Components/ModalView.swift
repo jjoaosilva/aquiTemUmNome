@@ -32,7 +32,7 @@ class ModalView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .clear
     }
 
     required init?(coder: NSCoder) {
