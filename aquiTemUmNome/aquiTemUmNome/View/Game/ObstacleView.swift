@@ -9,12 +9,16 @@
 import UIKit
 
 class ObstacleView: UIView {
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        self.backgroundColor = .red
+    var cor: UIColor = UIColor()
+    convenience init(cor: UIColor) {
+        self.init()
+        self.cor = cor
+        self.backgroundColor = cor
         self.layer.cornerRadius = 8
         self.layer.masksToBounds = true
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

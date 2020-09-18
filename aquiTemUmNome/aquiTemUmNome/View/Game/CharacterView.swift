@@ -9,13 +9,16 @@
 import UIKit
 
 class CharacterView: UIView {
-
+    var cor: UIColor = UIColor()
+    convenience init(cor: UIColor) {
+        self.init()
+        self.cor = cor
+        self.backgroundColor = cor
+        self.layer.cornerRadius = 18.5
+        self.layer.masksToBounds = true
+    }
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        self.backgroundColor = .red
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.layer.cornerRadius = 18.5
-        self.frame.size.height = 37
 //        Adicionar a view
 }
     required init?(coder: NSCoder) {
