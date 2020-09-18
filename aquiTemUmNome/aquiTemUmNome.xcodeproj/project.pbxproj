@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0EF251391F900621BD1 /* Pallettes.swift */; };
+		6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FDE251385EC003FED4B /* ColorPallette.swift */; };
+		6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FE32513861A003FED4B /* EnumColorType.swift */; };
+		5423279925138A4F00E9E691 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279825138A4F00E9E691 /* MenuView.swift */; };
+		5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279D25138B7D00E9E691 /* MenuViewController.swift */; };
 		A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17DF251244D300DC1ADE /* AppDelegate.swift */; };
 		A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17E1251244D300DC1ADE /* SceneDelegate.swift */; };
 		A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17E3251244D300DC1ADE /* ViewController.swift */; };
@@ -25,6 +30,8 @@
 		D77072BE2513A29C00619421 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072BD2513A29C00619421 /* ObstacleView.swift */; };
 		D77072C82514D6B900619421 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072C72514D6B900619421 /* ScoreView.swift */; };
 		D77072D02514D6D400619421 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072CF2514D6D400619421 /* PauseView.swift */; };
+		A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C08A25138B1B005CC48E /* RoundedButton.swift */; };
+		A296C0B72513AC0E005CC48E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C0B62513AC0E005CC48E /* ModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5423279825138A4F00E9E691 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		5423279D25138B7D00E9E691 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		6E4FC0EF251391F900621BD1 /* Pallettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallettes.swift; sourceTree = "<group>"; };
+		6EC94FDE251385EC003FED4B /* ColorPallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallette.swift; sourceTree = "<group>"; };
+		6EC94FE32513861A003FED4B /* EnumColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorType.swift; sourceTree = "<group>"; };
 		A27F17DC251244D300DC1ADE /* aquiTemUmNome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aquiTemUmNome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27F17DF251244D300DC1ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A27F17E1251244D300DC1ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +81,8 @@
 		D77072BD2513A29C00619421 /* ObstacleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
 		D77072C72514D6B900619421 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		D77072CF2514D6D400619421 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
+		A296C08A25138B1B005CC48E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		A296C0B62513AC0E005CC48E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +110,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		542327A22513979000E9E691 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5423279D25138B7D00E9E691 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		542327A3251397B400E9E691 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5423279825138A4F00E9E691 /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		A27F17D3251244D300DC1ADE = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				D710261325138A05001B1199 /* Game */,
+				A296C0B52513ABD5005CC48E /* Components */,
+				542327A3251397B400E9E691 /* Menu */,
 				A27F1811251247FE00DC1ADE /* VIew.swift */,
 			);
 			path = View;
@@ -165,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				D710261C25138A7E001B1199 /* Game */,
+				542327A22513979000E9E691 /* Menu */,
 				A27F17E3251244D300DC1ADE /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -174,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				A27F18152512499F00DC1ADE /* ModelTest.swift */,
+				6EC94FDE251385EC003FED4B /* ColorPallette.swift */,
+				6E4FC0EF251391F900621BD1 /* Pallettes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				A27F181B25124A0700DC1ADE /* AnimationTest.swift */,
+				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A27F181E25124A3500DC1ADE /* EnumTest.swift */,
+				6EC94FE32513861A003FED4B /* EnumColorType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -220,6 +257,12 @@
 				D710261D25138ADA001B1199 /* GameScreenViewController.swift */,
 			);
 			path = Game;
+		A296C0B52513ABD5005CC48E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A296C0B62513AC0E005CC48E /* ModalView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,16 +418,23 @@
 			files = (
 				D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */,
 				D77072BE2513A29C00619421 /* ObstacleView.swift in Sources */,
+				6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */,
 				A27F1812251247FE00DC1ADE /* VIew.swift in Sources */,
+				5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */,
 				A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */,
 				D710261525138A71001B1199 /* GameScreenView.swift in Sources */,
 				D77072B92513999300619421 /* CharacterView.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
+				6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
+				5423279925138A4F00E9E691 /* MenuView.swift in Sources */,
+				A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */,
 				A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */,
+				A296C0B72513AC0E005CC48E /* ModalView.swift in Sources */,
 				A27F18162512499F00DC1ADE /* ModelTest.swift in Sources */,
 				D77072C82514D6B900619421 /* ScoreView.swift in Sources */,
 				A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */,
+				6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */,
 				A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */,
 				D77072D02514D6D400619421 /* PauseView.swift in Sources */,
 			);
