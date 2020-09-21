@@ -257,6 +257,8 @@
 				D710261D25138ADA001B1199 /* GameScreenViewController.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
 		A296C0B52513ABD5005CC48E /* Components */ = {
 			isa = PBXGroup;
 			children = (

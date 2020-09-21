@@ -16,11 +16,11 @@ class ScoreView: UIView {
         scoreName.text = "SCORE:"
         scoreName.textColor = .white
         scoreName.translatesAutoresizingMaskIntoConstraints = false
-        scoreName.font = .systemFont(ofSize: 24, weight: .bold)
+        scoreName.font = .systemFont(ofSize: 29, weight: .semibold)
         let score = UILabel()
         score.textAlignment = .center
         score.textColor = .white
-        score.font = .systemFont(ofSize: 24, weight: .medium)
+        score.font = .systemFont(ofSize: 29, weight: .semibold)
         score.text = "0"
         score.translatesAutoresizingMaskIntoConstraints = false
         addSubview(scoreName)
@@ -28,7 +28,7 @@ class ScoreView: UIView {
         scoreName.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
         scoreName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         scoreName.widthAnchor.constraint(greaterThanOrEqualToConstant: 76).isActive = true
-        score.topAnchor.constraint(equalTo: scoreName.bottomAnchor, constant: 5).isActive = true
+        score.topAnchor.constraint(equalTo: scoreName.bottomAnchor, constant: 2).isActive = true
         score.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
     required init?(coder: NSCoder) {
