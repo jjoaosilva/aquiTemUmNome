@@ -29,4 +29,16 @@ convenience init(nameIcon: String, sizeButton: Int, sizeIcon: Int, weightIcon: U
         self.clipsToBounds = true
         self.backgroundColor = backgroundColor
     }
+
+    func setCustomIcon(nameIcon: String, sizeIcon: Int, weightIcon: UIImage.SymbolWeight, tintColor: UIColor) {
+        let configutationSizeIcon = UIImage.SymbolConfiguration(pointSize: CGFloat(sizeIcon))
+        let confifurationWeightIcon = UIImage.SymbolConfiguration(weight: weightIcon)
+        let configurations = configutationSizeIcon.applying(confifurationWeightIcon)
+
+        let configutationNameIcon =  UIImage(systemName: nameIcon, withConfiguration: configurations)
+        let icon = configutationNameIcon?.withTintColor(tintColor, renderingMode: .alwaysOriginal)
+
+        self.setImage(icon, for: .normal)
+    }
+
 }
