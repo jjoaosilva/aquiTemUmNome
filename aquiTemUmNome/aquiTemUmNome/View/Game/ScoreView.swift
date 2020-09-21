@@ -13,13 +13,13 @@ class ScoreView: UIView {
         super.init(frame: .zero)
         let scoreName = UILabel()
         scoreName.textAlignment = .center
-        scoreName.text = "SCORE:"
-        scoreName.textColor = .white
+        scoreName.text = "SCORE"
+        scoreName.textColor = .label
         scoreName.translatesAutoresizingMaskIntoConstraints = false
         scoreName.font = .systemFont(ofSize: 29, weight: .semibold)
         let score = UILabel()
         score.textAlignment = .center
-        score.textColor = .white
+        score.textColor = .label
         score.font = .systemFont(ofSize: 29, weight: .semibold)
         score.text = "0"
         score.translatesAutoresizingMaskIntoConstraints = false

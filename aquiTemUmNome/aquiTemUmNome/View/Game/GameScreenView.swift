@@ -13,7 +13,7 @@ class GameScreenView: UIView {
     let character = CharacterView.init(cor: .cyan)
     let obstacle = ObstacleView.init(cor: .green)
     let score = ScoreView()
-    let pause = UIButton(nameIcon: "pause", sizeButton: 42, sizeIcon: 29, weightIcon: .bold, backgroundColor: .clear, tintColor: .white)
+    let pause = UIButton(nameIcon: "pause.fill", sizeButton: 42, sizeIcon: 22, weightIcon: .bold, backgroundColor: .clear, tintColor: .label)
     override init(frame: CGRect) {
         super.init(frame: frame)
         character.translatesAutoresizingMaskIntoConstraints = false
@@ -34,11 +34,11 @@ class GameScreenView: UIView {
         character.widthAnchor.constraint(equalToConstant: 37).isActive = true
         //
         score.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        score.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
+        score.topAnchor.constraint(equalTo: self.topAnchor, constant: 34).isActive = true
         score.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100).isActive = true
         //
         pause.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        pause.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
+        pause.topAnchor.constraint(equalTo: self.topAnchor, constant: 34).isActive = true
         pause.heightAnchor.constraint(equalToConstant: pause.bounds.size.height).isActive = true
         pause.widthAnchor.constraint(equalToConstant: pause.bounds.size.width).isActive = true
         //        constraints obstacle
