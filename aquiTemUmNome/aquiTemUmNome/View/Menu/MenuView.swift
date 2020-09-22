@@ -64,7 +64,7 @@ class MenuView: UIView {
     }
 
     func setupPlayButton() {
-        playButton = UIButton(nameIcon: "play.fill", sizeButton: 128, sizeIcon: 80, weightIcon: .bold, backgroundColor: .clear, tintColor: .white)
+        playButton = UIButton(nameIcon: "play.fill", sizeButton: 128, sizeIcon: 80, weightIcon: .bold, backgroundColor: .clear, tintColor: .label)
         self.addSubview(playButton)
     }
 
@@ -80,8 +80,9 @@ class MenuView: UIView {
     }
 
     func setupStoreButton() {
-        storeButton = UIButton(nameIcon: "cart.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .thirdColor), tintColor: .white)
+        storeButton = UIButton(nameIcon: "cart.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .thirdColor), tintColor: .label)
         self.addSubview(storeButton)
+        storeButton.startAnimatingPressActions()
     }
 
     func setupStoreButtonConstraints() {
@@ -96,8 +97,9 @@ class MenuView: UIView {
     }
 
     func setupGameCenterButton() {
-        gameCenterButton = UIButton(nameIcon: "star.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .primaryColor), tintColor: .white)
+        gameCenterButton = UIButton(nameIcon: "star.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .primaryColor), tintColor: .label)
         self.addSubview(gameCenterButton)
+        gameCenterButton.startAnimatingPressActions()
     }
 
     func setupGameCenterButtonConstraints() {
@@ -114,11 +116,12 @@ class MenuView: UIView {
     func setupMuteButton() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .secondaryColor), tintColor: .white)
+            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .secondaryColor), tintColor: .label)
         } else {
-            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .secondaryColor), tintColor: .white)
+            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 68, sizeIcon: 36, weightIcon: .regular, backgroundColor: pallette.getColor(option: .secondaryColor), tintColor: .label)
         }
         self.addSubview(muteButton)
+        muteButton.startAnimatingPressActions()
     }
 
     func setupMuteButtonConstraints() {
@@ -135,9 +138,9 @@ class MenuView: UIView {
     func updateMuteButton() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: 36, weightIcon: .regular, tintColor: .white)
+            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: 36, weightIcon: .regular, tintColor: .label)
         } else {
-            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 36, weightIcon: .regular, tintColor: .white)
+            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 36, weightIcon: .regular, tintColor: .label)
         }
     }
 }

@@ -23,7 +23,6 @@ class MenuViewController: UIViewController {
     }
 
     @objc func muteGame() {
-        menuView.muteButton.startAnimatingPressActions()
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
             UserDefaults.standard.set(false, forKey: "mute")
@@ -34,10 +33,10 @@ class MenuViewController: UIViewController {
     }
 
     @objc func gameCenter() {
-        menuView.gameCenterButton.startAnimatingPressActions()
+        // Go To Game Center
     }
 
     @objc func storeButton() {
-        menuView.storeButton.startAnimatingPressActions()
+        // Go To Store
     }
 }
