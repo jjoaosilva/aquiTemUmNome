@@ -12,7 +12,7 @@ class VIew: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .systemBackground
     }
 
     required init?(coder: NSCoder) {

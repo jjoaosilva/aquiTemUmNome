@@ -14,6 +14,7 @@ class GameScreenView: UIView {
     let obstacle = ObstacleView.init(cor: .green)
     let score = ScoreView()
     let pause = UIButton(nameIcon: "pause.fill", sizeButton: 42, sizeIcon: 22, weightIcon: .bold, backgroundColor: .clear, tintColor: .label)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
@@ -50,6 +51,7 @@ class GameScreenView: UIView {
         character.heightAnchor.constraint(equalToConstant: 37).isActive = true
         character.widthAnchor.constraint(equalToConstant: 37).isActive = true
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

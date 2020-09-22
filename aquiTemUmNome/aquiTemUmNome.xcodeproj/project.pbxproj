@@ -9,9 +9,19 @@
 /* Begin PBXBuildFile section */
 		5423279925138A4F00E9E691 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279825138A4F00E9E691 /* MenuView.swift */; };
 		5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279D25138B7D00E9E691 /* MenuViewController.swift */; };
+		545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */; };
+		6E415AC32514ED8800542A38 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */; };
+		6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */; };
+		6E415B0B2519679F00542A38 /* ShapeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */; };
+		6E415B1325196A6100542A38 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415B1225196A6100542A38 /* Shape.swift */; };
+		6E415B18251971A100542A38 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415B17251971A100542A38 /* Shapes.swift */; };
 		6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0EF251391F900621BD1 /* Pallettes.swift */; };
+		6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0FC2513980C00621BD1 /* StoreView.swift */; };
+		6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC1012513982400621BD1 /* StoreViewController.swift */; };
 		6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FDE251385EC003FED4B /* ColorPallette.swift */; };
 		6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FE32513861A003FED4B /* EnumColorType.swift */; };
+		A24010922518DE10004D80C3 /* EnumCircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */; };
+		A25692BB2514F49200BEBAEB /* AnimatedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25692BA2514F49200BEBAEB /* AnimatedCircleView.swift */; };
 		A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17DF251244D300DC1ADE /* AppDelegate.swift */; };
 		A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17E1251244D300DC1ADE /* SceneDelegate.swift */; };
 		A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F17E3251244D300DC1ADE /* ViewController.swift */; };
@@ -26,6 +36,9 @@
 		A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181E25124A3500DC1ADE /* EnumTest.swift */; };
 		A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C08A25138B1B005CC48E /* RoundedButton.swift */; };
 		A296C0B72513AC0E005CC48E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C0B62513AC0E005CC48E /* ModalView.swift */; };
+		A2C34EC5251A303C002B73AB /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34EC4251A303C002B73AB /* BoardManager.swift */; };
+		A2C34ECA251A39DD002B73AB /* EnumObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */; };
+		A2C34ECF251A3E05002B73AB /* EnumDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */; };
 		D710261525138A71001B1199 /* GameScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710261425138A71001B1199 /* GameScreenView.swift */; };
 		D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710261D25138ADA001B1199 /* GameScreenViewController.swift */; };
 		D77072B92513999300619421 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072B82513999300619421 /* CharacterView.swift */; };
@@ -55,9 +68,19 @@
 /* Begin PBXFileReference section */
 		5423279825138A4F00E9E691 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		5423279D25138B7D00E9E691 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonAnimation.swift; sourceTree = "<group>"; };
+		6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
+		6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E415B1225196A6100542A38 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		6E415B17251971A100542A38 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		6E4FC0EF251391F900621BD1 /* Pallettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallettes.swift; sourceTree = "<group>"; };
+		6E4FC0FC2513980C00621BD1 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		6E4FC1012513982400621BD1 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		6EC94FDE251385EC003FED4B /* ColorPallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallette.swift; sourceTree = "<group>"; };
 		6EC94FE32513861A003FED4B /* EnumColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorType.swift; sourceTree = "<group>"; };
+		A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCircleAnimation.swift; sourceTree = "<group>"; };
+		A25692BA2514F49200BEBAEB /* AnimatedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCircleView.swift; sourceTree = "<group>"; };
 		A27F17DC251244D300DC1ADE /* aquiTemUmNome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aquiTemUmNome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27F17DF251244D300DC1ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A27F17E1251244D300DC1ADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +101,9 @@
 		A27F181E25124A3500DC1ADE /* EnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTest.swift; sourceTree = "<group>"; };
 		A296C08A25138B1B005CC48E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		A296C0B62513AC0E005CC48E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		A2C34EC4251A303C002B73AB /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
+		A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumObstacle.swift; sourceTree = "<group>"; };
+		A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDifficulty.swift; sourceTree = "<group>"; };
 		D710261425138A71001B1199 /* GameScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenView.swift; sourceTree = "<group>"; };
 		D710261D25138ADA001B1199 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		D77072B82513999300619421 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
@@ -128,6 +154,25 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		6E4FC0FA251397AA00621BD1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6E4FC0FC2513980C00621BD1 /* StoreView.swift */,
+				6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */,
+				6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */,
+				6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		6E4FC0FB251397B700621BD1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6E4FC1012513982400621BD1 /* StoreViewController.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		A27F17D3251244D300DC1ADE = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +196,7 @@
 		A27F17DE251244D300DC1ADE /* aquiTemUmNome */ = {
 			isa = PBXGroup;
 			children = (
+				A2C34EC3251A3000002B73AB /* Managers */,
 				A27F181D25124A1600DC1ADE /* Enum */,
 				A27F181A251249F300DC1ADE /* Extensions */,
 				A27F1817251249C900DC1ADE /* Protocols */,
@@ -188,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				D710261325138A05001B1199 /* Game */,
+				6E4FC0FA251397AA00621BD1 /* Store */,
 				A296C0B52513ABD5005CC48E /* Components */,
 				542327A3251397B400E9E691 /* Menu */,
 				A27F1811251247FE00DC1ADE /* VIew.swift */,
@@ -199,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				D710261C25138A7E001B1199 /* Game */,
+				6E4FC0FB251397B700621BD1 /* Store */,
 				542327A22513979000E9E691 /* Menu */,
 				A27F17E3251244D300DC1ADE /* ViewController.swift */,
 			);
@@ -211,6 +259,8 @@
 				A27F18152512499F00DC1ADE /* ModelTest.swift */,
 				6EC94FDE251385EC003FED4B /* ColorPallette.swift */,
 				6E4FC0EF251391F900621BD1 /* Pallettes.swift */,
+				6E415B1225196A6100542A38 /* Shape.swift */,
+				6E415B17251971A100542A38 /* Shapes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,6 +278,7 @@
 			children = (
 				A27F181B25124A0700DC1ADE /* AnimationTest.swift */,
 				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
+				545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +288,9 @@
 			children = (
 				A27F181E25124A3500DC1ADE /* EnumTest.swift */,
 				6EC94FE32513861A003FED4B /* EnumColorType.swift */,
+				A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */,
+				A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */,
+				A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -245,8 +299,17 @@
 			isa = PBXGroup;
 			children = (
 				A296C0B62513AC0E005CC48E /* ModalView.swift */,
+				A25692BA2514F49200BEBAEB /* AnimatedCircleView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A2C34EC3251A3000002B73AB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A2C34EC4251A303C002B73AB /* BoardManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		D710261325138A05001B1199 /* Game */ = {
@@ -423,24 +486,37 @@
 			files = (
 				D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */,
 				D77072BE2513A29C00619421 /* ObstacleView.swift in Sources */,
+				6E415B0B2519679F00542A38 /* ShapeCollectionViewCell.swift in Sources */,
+				6E415AC32514ED8800542A38 /* BoardCollectionViewCell.swift in Sources */,
 				6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */,
+				6E415B1325196A6100542A38 /* Shape.swift in Sources */,
 				A27F1812251247FE00DC1ADE /* VIew.swift in Sources */,
 				5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */,
+				A25692BB2514F49200BEBAEB /* AnimatedCircleView.swift in Sources */,
+				A2C34ECA251A39DD002B73AB /* EnumObstacle.swift in Sources */,
 				A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */,
 				D710261525138A71001B1199 /* GameScreenView.swift in Sources */,
 				D77072B92513999300619421 /* CharacterView.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
 				6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */,
+				545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
 				D7CC15842518DA9100885807 /* PauseViewController.swift in Sources */,
+				A2C34EC5251A303C002B73AB /* BoardManager.swift in Sources */,
+				6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */,
+				6E415B18251971A100542A38 /* Shapes.swift in Sources */,
+				6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */,
 				5423279925138A4F00E9E691 /* MenuView.swift in Sources */,
 				A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */,
 				A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */,
+				A24010922518DE10004D80C3 /* EnumCircleAnimation.swift in Sources */,
 				A296C0B72513AC0E005CC48E /* ModalView.swift in Sources */,
 				A27F18162512499F00DC1ADE /* ModelTest.swift in Sources */,
 				D77072C82514D6B900619421 /* ScoreView.swift in Sources */,
 				A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */,
+				A2C34ECF251A3E05002B73AB /* EnumDifficulty.swift in Sources */,
 				6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */,
+				6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */,
 				A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */,
 				D77072D02514D6D400619421 /* PauseView.swift in Sources */,
 			);
@@ -540,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -595,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
