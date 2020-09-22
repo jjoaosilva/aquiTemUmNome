@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E415AC32514ED8800542A38 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */; };
+		6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */; };
+		6E415B0B2519679F00542A38 /* ShapeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */; };
+		6E415B1325196A6100542A38 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415B1225196A6100542A38 /* Shape.swift */; };
+		6E415B18251971A100542A38 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415B17251971A100542A38 /* Shapes.swift */; };
 		5423279925138A4F00E9E691 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279825138A4F00E9E691 /* MenuView.swift */; };
 		5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279D25138B7D00E9E691 /* MenuViewController.swift */; };
+		545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */; };
 		6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0EF251391F900621BD1 /* Pallettes.swift */; };
+		6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0FC2513980C00621BD1 /* StoreView.swift */; };
+		6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC1012513982400621BD1 /* StoreViewController.swift */; };
 		6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FDE251385EC003FED4B /* ColorPallette.swift */; };
 		6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FE32513861A003FED4B /* EnumColorType.swift */; };
 		A24010922518DE10004D80C3 /* EnumCircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */; };
@@ -48,9 +56,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
+		6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E415B1225196A6100542A38 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		6E415B17251971A100542A38 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		5423279825138A4F00E9E691 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		5423279D25138B7D00E9E691 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonAnimation.swift; sourceTree = "<group>"; };
 		6E4FC0EF251391F900621BD1 /* Pallettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallettes.swift; sourceTree = "<group>"; };
+		6E4FC0FC2513980C00621BD1 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		6E4FC1012513982400621BD1 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		6EC94FDE251385EC003FED4B /* ColorPallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallette.swift; sourceTree = "<group>"; };
 		6EC94FE32513861A003FED4B /* EnumColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorType.swift; sourceTree = "<group>"; };
 		A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCircleAnimation.swift; sourceTree = "<group>"; };
@@ -102,6 +118,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E4FC0FA251397AA00621BD1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6E4FC0FC2513980C00621BD1 /* StoreView.swift */,
+				6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */,
+				6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */,
+				6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		6E4FC0FB251397B700621BD1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6E4FC1012513982400621BD1 /* StoreViewController.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		542327A22513979000E9E691 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +212,7 @@
 		A27F180F251247CE00DC1ADE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E4FC0FA251397AA00621BD1 /* Store */,
 				A296C0B52513ABD5005CC48E /* Components */,
 				542327A3251397B400E9E691 /* Menu */,
 				A27F1811251247FE00DC1ADE /* VIew.swift */,
@@ -187,6 +223,7 @@
 		A27F1810251247DB00DC1ADE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E4FC0FB251397B700621BD1 /* Store */,
 				542327A22513979000E9E691 /* Menu */,
 				A27F17E3251244D300DC1ADE /* ViewController.swift */,
 			);
@@ -199,6 +236,8 @@
 				A27F18152512499F00DC1ADE /* ModelTest.swift */,
 				6EC94FDE251385EC003FED4B /* ColorPallette.swift */,
 				6E4FC0EF251391F900621BD1 /* Pallettes.swift */,
+				6E415B1225196A6100542A38 /* Shape.swift */,
+				6E415B17251971A100542A38 /* Shapes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +255,7 @@
 			children = (
 				A27F181B25124A0700DC1ADE /* AnimationTest.swift */,
 				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
+				545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,14 +430,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E415B0B2519679F00542A38 /* ShapeCollectionViewCell.swift in Sources */,
+				6E415AC32514ED8800542A38 /* BoardCollectionViewCell.swift in Sources */,
 				6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */,
+				6E415B1325196A6100542A38 /* Shape.swift in Sources */,
 				A27F1812251247FE00DC1ADE /* VIew.swift in Sources */,
 				5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */,
 				A25692BB2514F49200BEBAEB /* AnimatedCircleView.swift in Sources */,
 				A27F181C25124A0700DC1ADE /* AnimationTest.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
 				6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */,
+				545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
+				6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */,
+				6E415B18251971A100542A38 /* Shapes.swift in Sources */,
+				6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */,
 				5423279925138A4F00E9E691 /* MenuView.swift in Sources */,
 				A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */,
 				A27F17E0251244D300DC1ADE /* AppDelegate.swift in Sources */,
@@ -406,6 +453,7 @@
 				A27F18162512499F00DC1ADE /* ModelTest.swift in Sources */,
 				A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */,
 				6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */,
+				6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */,
 				A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -559,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
