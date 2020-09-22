@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windownScene.coordinateSpace.bounds)
         window?.windowScene = windownScene
 
-        window?.rootViewController = MenuViewController() // Aqui colocar a sua controller para desenvolvimento sz
+        window?.rootViewController = PauseViewController() // Aqui colocar a sua controller para desenvolvimento sz
         window?.makeKeyAndVisible()
 
         guard let _ = (scene as? UIWindowScene) else { return }

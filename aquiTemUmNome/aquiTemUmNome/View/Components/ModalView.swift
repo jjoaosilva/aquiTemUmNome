@@ -20,16 +20,6 @@ class ModalView: UIView {
         return blurEffectView
     }()
 
-    let modalView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray6
-        view.layer.cornerRadius = 40
-
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        return view
-    }()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
@@ -41,20 +31,9 @@ class ModalView: UIView {
 
     override func layoutSubviews() {
         self.addSubViews()
-        self.setup()
     }
 
     private func addSubViews() {
         self.addSubview(blur)
-        self.addSubview(modalView)
-    }
-
-    private func setup() {
-        NSLayoutConstraint.activate([
-            modalView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            modalView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            modalView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7),
-            modalView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4)
-        ])
-    }
+}
 }
