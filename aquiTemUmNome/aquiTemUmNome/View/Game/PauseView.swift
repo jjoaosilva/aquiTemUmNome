@@ -9,17 +9,11 @@
 import UIKit
 
 class PauseView: UIView {
-//    lazy var blur: ModalView = {
-//        let view = ModalView()
-//        return view
-//    }()
     lazy var blur: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .prominent)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-
         blurEffectView.frame = self.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
         return blurEffectView
     }()
     let modal: UIView = {
@@ -38,9 +32,14 @@ class PauseView: UIView {
     }()
     let homeButton: UIButton = {
         let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemPurple, tintColor: .label)
+        homeButton.addTarget(self, action: #selector(homeAction),
+                             for: .touchUpInside)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         return homeButton
     }()
+    @objc func homeAction() {
+        print("navigation")
+    }
     let speakerButton: UIButton = {
         let speakerButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
         speakerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -59,20 +58,20 @@ class PauseView: UIView {
         modal.addSubview(homeButton)
         modal.addSubview(speakerButton)
         modal.addSubview(restartButton)
-        setup()
+        setupConstraint()
     }
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.addSubview(blur)
         self.backgroundColor = .clear
     }
-    func setup() {
+    func setupConstraint() {
         NSLayoutConstraint.activate([
             modal.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             modal.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             modal.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7),
             modal.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
-//            play
+            //            play
             playButton.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: modal.centerYAnchor, constant: -39.5),
             playButton.heightAnchor.constraint(equalToConstant: playButton.bounds.size.height),
@@ -82,14 +81,14 @@ class PauseView: UIView {
             homeButton.widthAnchor.constraint(equalToConstant: homeButton.bounds.size.width),
             homeButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 17),
             homeButton.leadingAnchor.constraint(equalTo: modal.leadingAnchor, constant: 28),
-            // speaker
+            //            speaker
             speakerButton.heightAnchor.constraint(equalToConstant: speakerButton.bounds.size.height),
             speakerButton.widthAnchor.constraint(equalToConstant: speakerButton.bounds.size.width),
             //            speakerButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.207),
             //            speakerButton.widthAnchor.constraint(equalTo: speakerButton.heightAnchor),
             speakerButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 45),
             speakerButton.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
-            // restart
+            //            restart
             restartButton.heightAnchor.constraint(greaterThanOrEqualToConstant: restartButton.bounds.size.height),
             restartButton.widthAnchor.constraint(equalToConstant: restartButton.bounds.size.width),
             restartButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 17),
