@@ -15,6 +15,8 @@ class BoardManager {
     private var xPositions: [CGFloat]
     private var obstacleWidth: CGFloat
     private var dificulty: Difficulty
+    private var charactersPositions: [CGFloat]
+    private var position: Int = 2
 
     // TODO: pegar cores da persistencia quando estiver feita
     let standardPallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
@@ -23,17 +25,22 @@ class BoardManager {
         self.screenWidth = screenWidth
         self.obstacleWidth = screenWidth/5
         self.xPositions = [CGFloat]()
+        self.charactersPositions = [CGFloat]()
         self.dificulty = .easy
 
         for position in 0...4 {
-            xPositions.append(CGFloat(position) * self.obstacleWidth)
+            let leading = CGFloat(position) * self.obstacleWidth
+            xPositions.append(leading)
+
+            let characterPosition = (leading + obstacleWidth)/2
+            charactersPositions.append(characterPosition)
         }
     }
 
     private func isPrime(_ number: Int) -> Bool {
         return number > 1 && !(2..<number).contains { number % $0 == 0 }
     }
-    
+
     func getDificultt() -> Difficulty {
         return self.dificulty
     }
@@ -85,7 +92,7 @@ class BoardManager {
 
         return self.isPrime(randomNumber) ? .switchColor : .regular
     }
-    
+
     func manageDificulty(with score: Int) {
         switch score {
         case 0...50:
@@ -95,5 +102,22 @@ class BoardManager {
         default:
             self.dificulty = .hard
         }
+    }
+
+    func moveCharacter(movement: Movement, xCurrent: CGFloat) -> CGFloat {
+        switch movement {
+        case .left:
+            let newPosition = position - 1
+            if newPosition >= 0 {
+                position = newPosition
+            }
+        case .right:
+            let newPosition = position + 1
+
+            if newPosition <= 4 {
+                position = newPosition
+            }
+        }
+        return charactersPositions[position]
     }
 }

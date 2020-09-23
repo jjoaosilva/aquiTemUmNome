@@ -39,7 +39,7 @@ extension UIView {
         let animation = CABasicAnimation(keyPath: "position")
         animation.fromValue = self.frame
         animation.toValue = [newX, newY]
-        animation.duration = 0.7
+        animation.duration = 0.35
         self.layer.add(animation, forKey: "position")
         self.frame = CGRect(x: CGFloat(newX), y: CGFloat(newY), width: self.frame.width, height: self.frame.height)
     }

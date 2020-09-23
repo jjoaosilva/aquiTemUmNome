@@ -155,6 +155,7 @@ extension AnimatedCircleView: CAAnimationDelegate {
         case .complete:
             self.typeAnimation = .idle
             self.timeAnimation = 0
+
         case .infinity:
             self.configureColors()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

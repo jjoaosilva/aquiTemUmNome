@@ -10,7 +10,7 @@ import Foundation
 
 //this is the standard color pallette in the game, it has 5 colors
 
-enum ColorType: Int{
+enum ColorType: Int {
     case primaryColor
     case secondaryColor
     case thirdColor
