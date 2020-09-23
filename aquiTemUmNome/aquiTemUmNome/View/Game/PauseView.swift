@@ -23,40 +23,58 @@ class PauseView: UIView {
         modalView.translatesAutoresizingMaskIntoConstraints = false
         return modalView
     }()
+    let circle: AnimatedCircleView = {
+        let circle = AnimatedCircleView(lineWidth: 5)
+        circle.translatesAutoresizingMaskIntoConstraints = false
+        circle.infinityAnimation(durationPerCycle: 3)
+        return circle
+    }()
     let playButton: UIButton = {
         let playButton = UIButton(nameIcon: "play.fill", sizeButton: 95, sizeIcon: 55, weightIcon: .bold, backgroundColor: .clear, tintColor: .label)
-        playButton.layer.borderWidth = 4
-        playButton.layer.borderColor = .init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         playButton.translatesAutoresizingMaskIntoConstraints = false
+        playButton.startAnimatingPressActions()
         return playButton
     }()
     let homeButton: UIButton = {
         let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemPurple, tintColor: .label)
-        homeButton.addTarget(self, action: #selector(homeAction),
-                             for: .touchUpInside)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
+        homeButton.startAnimatingPressActions()
         return homeButton
     }()
-    @objc func homeAction() {
-        print("navigation")
-    }
-    let speakerButton: UIButton = {
-        let speakerButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
-        speakerButton.translatesAutoresizingMaskIntoConstraints = false
-        return speakerButton
+    let muteButton: UIButton = {
+        let status = UserDefaults.standard.bool(forKey: "mute")
+        let muteButton: UIButton
+        if status {
+            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
+        } else {
+            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
+        }
+        muteButton.translatesAutoresizingMaskIntoConstraints = false
+        muteButton.startAnimatingPressActions()
+        return muteButton
     }()
+    func updateMute() {
+        let status = UserDefaults.standard.bool(forKey: "mute")
+        if status {
+            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
+        } else {
+            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
+        }
+    }
     let restartButton: UIButton = {
         let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemGreen, tintColor: .label)
         restartButton.translatesAutoresizingMaskIntoConstraints = false
+        restartButton.startAnimatingPressActions()
         return restartButton
     }()
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addSubview(blur)
         self.addSubview(modal)
+        modal.addSubview(circle)
         modal.addSubview(playButton)
         modal.addSubview(homeButton)
-        modal.addSubview(speakerButton)
+        modal.addSubview(muteButton)
         modal.addSubview(restartButton)
         setupConstraint()
     }
@@ -76,23 +94,27 @@ class PauseView: UIView {
             playButton.centerYAnchor.constraint(equalTo: modal.centerYAnchor, constant: -39.5),
             playButton.heightAnchor.constraint(equalToConstant: playButton.bounds.size.height),
             playButton.widthAnchor.constraint(equalToConstant: playButton.bounds.size.width),
+            //            circle
+            circle.centerXAnchor.constraint(equalTo: playButton.centerXAnchor),
+            circle.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
+            circle.heightAnchor.constraint(equalTo: playButton.heightAnchor),
             //            home
             homeButton.heightAnchor.constraint(greaterThanOrEqualToConstant: homeButton.bounds.size.height),
             homeButton.widthAnchor.constraint(equalToConstant: homeButton.bounds.size.width),
             homeButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 17),
             homeButton.leadingAnchor.constraint(equalTo: modal.leadingAnchor, constant: 28),
             //            speaker
-            speakerButton.heightAnchor.constraint(equalToConstant: speakerButton.bounds.size.height),
-            speakerButton.widthAnchor.constraint(equalToConstant: speakerButton.bounds.size.width),
+            muteButton.heightAnchor.constraint(equalToConstant: muteButton.bounds.size.height),
+            muteButton.widthAnchor.constraint(equalToConstant: muteButton.bounds.size.width),
             //            speakerButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.207),
             //            speakerButton.widthAnchor.constraint(equalTo: speakerButton.heightAnchor),
-            speakerButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 45),
-            speakerButton.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
+            muteButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 45),
+            muteButton.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
             //            restart
             restartButton.heightAnchor.constraint(greaterThanOrEqualToConstant: restartButton.bounds.size.height),
             restartButton.widthAnchor.constraint(equalToConstant: restartButton.bounds.size.width),
             restartButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 17),
-            restartButton.leadingAnchor.constraint(greaterThanOrEqualTo: speakerButton.trailingAnchor, constant: 19),
+            restartButton.leadingAnchor.constraint(greaterThanOrEqualTo: muteButton.trailingAnchor, constant: 19),
             restartButton.trailingAnchor.constraint(equalTo: modal.trailingAnchor, constant: -28)
         ])
     }
