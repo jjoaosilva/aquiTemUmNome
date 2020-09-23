@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5423279925138A4F00E9E691 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279825138A4F00E9E691 /* MenuView.swift */; };
 		5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423279D25138B7D00E9E691 /* MenuViewController.swift */; };
+		5434EEF9251B7801008DEEFA /* GameAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434EEF8251B7801008DEEFA /* GameAnimations.swift */; };
 		545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */; };
 		6E415AC32514ED8800542A38 /* BoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */; };
 		6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		5423279825138A4F00E9E691 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		5423279D25138B7D00E9E691 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		5434EEF8251B7801008DEEFA /* GameAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAnimations.swift; sourceTree = "<group>"; };
 		545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonAnimation.swift; sourceTree = "<group>"; };
 		6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E415AC72518DA0A00542A38 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				A27F181B25124A0700DC1ADE /* AnimationTest.swift */,
 				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
 				545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */,
+				5434EEF8251B7801008DEEFA /* GameAnimations.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				A27F18162512499F00DC1ADE /* ModelTest.swift in Sources */,
 				D77072C82514D6B900619421 /* ScoreView.swift in Sources */,
 				A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */,
+				5434EEF9251B7801008DEEFA /* GameAnimations.swift in Sources */,
 				A2C34ECF251A3E05002B73AB /* EnumDifficulty.swift in Sources */,
 				6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */,
 				6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */,
