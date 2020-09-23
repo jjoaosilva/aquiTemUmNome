@@ -19,6 +19,11 @@ class MenuView: UIView {
     var gameCenterButton = UIButton()
     var muteButton = UIButton()
 
+    let circle: AnimatedCircleView = {
+        let circle = AnimatedCircleView(lineWidth: 5)
+        return circle
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -38,6 +43,9 @@ class MenuView: UIView {
 
         setupMuteButton()
         setupMuteButtonConstraints()
+
+        setupCircle()
+        setupCircleConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -142,5 +150,21 @@ class MenuView: UIView {
         } else {
             muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 36, weightIcon: .regular, tintColor: .label)
         }
+    }
+
+    func setupCircle() {
+        self.addSubview(self.circle)
+    }
+
+    func setupCircleConstraints() {
+        self.circle.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            circle.centerXAnchor.constraint(equalTo: self.playButton.centerXAnchor),
+            circle.centerYAnchor.constraint(equalTo: self.playButton.centerYAnchor),
+            circle.heightAnchor.constraint(equalTo: self.playButton.heightAnchor)
+        ])
+
+        self.circle.infinityAnimation(durationPerCycle: 3)
     }
 }
