@@ -15,8 +15,8 @@ class BoardManager {
     private var xPositions: [CGFloat]
     private var obstacleWidth: CGFloat
     private var dificulty: Difficulty
-    private var charactersPositions: [CGFloat]
-    private var position: Int = 2
+    var charactersPositions: [CGFloat]
+    var position: Int = 2
 
     // TODO: pegar cores da persistencia quando estiver feita
     let standardPallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
@@ -32,8 +32,8 @@ class BoardManager {
             let leading = CGFloat(position) * self.obstacleWidth
             xPositions.append(leading)
 
-            let characterPosition = (leading + obstacleWidth)/2
-            charactersPositions.append(characterPosition)
+            let characterPosition = (leading + obstacleWidth*CGFloat(position + 1))/2 // Calculo dos centros
+            charactersPositions.append(characterPosition - (screenWidth*0.1)/2) // Calculo dos centros - desconto do tamano do obstaculo
         }
     }
 
