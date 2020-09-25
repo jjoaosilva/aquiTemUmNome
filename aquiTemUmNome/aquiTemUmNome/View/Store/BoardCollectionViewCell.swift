@@ -25,7 +25,7 @@ class BoardCollectionViewCell: UICollectionViewCell {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "Coin")
+        img.image = UIImage(named: "coin")
         return img
     }()
     let backgroundShape: UIView = {

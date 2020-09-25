@@ -19,12 +19,19 @@ class StoreViewController: UIViewController {
         storeView.tableView.bounces = false
         storeView.tableView.separatorStyle = .none
         self.view = storeView
+        storeView.backButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
         //mockup
         let standardPallete = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
         palletes.addPallete(pallette: standardPallete)
         shapes.mockup()
     }
-
+    @objc func backMenu() {
+        let menuController = UINavigationController(rootViewController: MenuViewController())
+        menuController.modalPresentationStyle = .fullScreen
+        menuController.isNavigationBarHidden = true
+        menuController.modalTransitionStyle = .crossDissolve
+        present(menuController, animated: true, completion: nil)
+    }
 }
 extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
