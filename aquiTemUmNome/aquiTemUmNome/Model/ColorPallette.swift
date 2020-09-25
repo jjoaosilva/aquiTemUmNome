@@ -5,16 +5,27 @@
 //  Created by Hiago Chagas on 17/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
 //
-// swiftlint:disable line_length
+// swiftlint:disable line_length identifier_name
 import UIKit
 
 class ColorPallette {
+    private var id: String
     private var primaryColor: UIColor
     private var secondaryColor: UIColor
     private var thirdColor: UIColor
     private var fourthColor: UIColor
     private var fifthColor: UIColor
+    init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor, id: Int) {
+        self.id = String(id)
+        self.primaryColor = primaryColor
+        self.secondaryColor = secondaryColor
+        self.thirdColor = thirdColor
+        self.fourthColor = fourthColor
+        self.fifthColor = fifthColor
+    }
+    //TODO-: this is the standard pallette, need to me removed
     init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor) {
+        self.id = String(0)
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         self.thirdColor = thirdColor
@@ -36,5 +47,8 @@ class ColorPallette {
         case .fifthColor:
             return self.fifthColor
         }
+    }
+    func getID() -> String {
+        return id
     }
 }

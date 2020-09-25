@@ -19,6 +19,8 @@
 		6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0EF251391F900621BD1 /* Pallettes.swift */; };
 		6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC0FC2513980C00621BD1 /* StoreView.swift */; };
 		6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FC1012513982400621BD1 /* StoreViewController.swift */; };
+		6E9FF8DA251CBF0A006B5D96 /* PalletteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF8D9251CBF0A006B5D96 /* PalletteManager.swift */; };
+		6E9FF8DF251CBFE4006B5D96 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF8DE251CBFE4006B5D96 /* CustomColors.swift */; };
 		6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FDE251385EC003FED4B /* ColorPallette.swift */; };
 		6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FE32513861A003FED4B /* EnumColorType.swift */; };
 		A24010922518DE10004D80C3 /* EnumCircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */; };
@@ -79,6 +81,8 @@
 		6E4FC0EF251391F900621BD1 /* Pallettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallettes.swift; sourceTree = "<group>"; };
 		6E4FC0FC2513980C00621BD1 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		6E4FC1012513982400621BD1 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		6E9FF8D9251CBF0A006B5D96 /* PalletteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalletteManager.swift; sourceTree = "<group>"; };
+		6E9FF8DE251CBFE4006B5D96 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		6EC94FDE251385EC003FED4B /* ColorPallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallette.swift; sourceTree = "<group>"; };
 		6EC94FE32513861A003FED4B /* EnumColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorType.swift; sourceTree = "<group>"; };
 		A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCircleAnimation.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 				A296C08A25138B1B005CC48E /* RoundedButton.swift */,
 				545F807F2514FCE3006B209A /* MenuButtonAnimation.swift */,
 				5434EEF8251B7801008DEEFA /* GameAnimations.swift */,
+				6E9FF8DE251CBFE4006B5D96 /* CustomColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				A2C34EC4251A303C002B73AB /* BoardManager.swift */,
+				6E9FF8D9251CBF0A006B5D96 /* PalletteManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 			files = (
 				D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */,
 				D77072BE2513A29C00619421 /* ObstacleView.swift in Sources */,
+				6E9FF8DA251CBF0A006B5D96 /* PalletteManager.swift in Sources */,
 				6E415B0B2519679F00542A38 /* ShapeCollectionViewCell.swift in Sources */,
 				6E415AC32514ED8800542A38 /* BoardCollectionViewCell.swift in Sources */,
 				6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */,
@@ -502,6 +509,7 @@
 				D77072B92513999300619421 /* CharacterView.swift in Sources */,
 				A27F1819251249DD00DC1ADE /* ProtocolTest.swift in Sources */,
 				6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */,
+				6E9FF8DF251CBFE4006B5D96 /* CustomColors.swift in Sources */,
 				545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
 				D7CC15842518DA9100885807 /* PauseViewController.swift in Sources */,
@@ -730,7 +738,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = aquiTemUmNomeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,7 +759,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = aquiTemUmNomeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

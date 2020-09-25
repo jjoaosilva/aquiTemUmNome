@@ -8,7 +8,7 @@
 
 import UIKit
 
-// swiftlint:disable line_length unused_optional_binding identifier_name
+// swiftlint:disable line_length identifier_name
 
 class ViewController: UIViewController, UICollisionBehaviorDelegate {
 
