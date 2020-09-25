@@ -47,6 +47,7 @@
 		D77072C82514D6B900619421 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072C72514D6B900619421 /* ScoreView.swift */; };
 		D77072D02514D6D400619421 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77072CF2514D6D400619421 /* PauseView.swift */; };
 		D7CC15842518DA9100885807 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CC15832518DA9100885807 /* PauseViewController.swift */; };
+		D7CC15C8251E259500885807 /* PauseViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CC15C7251E259500885807 /* PauseViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		D77072C72514D6B900619421 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		D77072CF2514D6D400619421 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		D7CC15832518DA9100885807 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		D7CC15C7251E259500885807 /* PauseViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 			children = (
 				A27F1801251244D600DC1ADE /* aquiTemUmNomeUITests.swift */,
 				A27F1803251244D600DC1ADE /* Info.plist */,
+				D7CC15C7251E259500885807 /* PauseViewUITests.swift */,
 			);
 			path = aquiTemUmNomeUITests;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27F1802251244D600DC1ADE /* aquiTemUmNomeUITests.swift in Sources */,
+				D7CC15C8251E259500885807 /* PauseViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +734,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = aquiTemUmNomeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,7 +755,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = aquiTemUmNomeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
