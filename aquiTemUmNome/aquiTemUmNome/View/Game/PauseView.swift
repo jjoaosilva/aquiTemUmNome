@@ -56,9 +56,9 @@ class PauseView: UIView {
     func updateMute() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
-        } else {
             muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
+        } else {
+            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
         }
     }
     let restartButton: UIButton = {
