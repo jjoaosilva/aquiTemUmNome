@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import aquiTemUmNome
-
+// swiftlint:disable line_length
 class MenuUITests: XCTestCase {
 
     override func setUpWithError() throws {
