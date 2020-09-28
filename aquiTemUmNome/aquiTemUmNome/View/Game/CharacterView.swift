@@ -14,6 +14,7 @@ class CharacterView: UIView {
 
     convenience init(cor: UIColor, screenWidth: CGFloat) {
         self.init()
+
         self.cor = cor
         self.backgroundColor = cor
         self.layer.masksToBounds = true

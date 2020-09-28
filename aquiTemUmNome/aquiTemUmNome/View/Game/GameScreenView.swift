@@ -11,12 +11,17 @@ import UIKit
 
 class GameScreenView: UIView {
     lazy var character: CharacterView = {
-        let charView = CharacterView.init(cor: .cyan, screenWidth: self.bounds.size.width)
+        let charView = CharacterView(cor: .cyan, screenWidth: self.bounds.size.width)
         charView.translatesAutoresizingMaskIntoConstraints = false
         return charView
     }()
 
-//    let obstacle = ObstacleView.init(cor: .green)
+//    lazy var obstacle: ObstacleView = {
+//        let obstacle = ObstacleView(cor: .gray, screenWidth: self.bounds.size.width)
+//        obstacle.translatesAutoresizingMaskIntoConstraints = false
+//        return obstacle
+//    }()
+
     let score: ScoreView = {
         let scoreView = ScoreView()
         scoreView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,14 +47,18 @@ class GameScreenView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    var collider: UICollisionBehavior = UICollisionBehavior()
 
     override func layoutSubviews() {
         super.layoutSubviews()
+
         self.addSubviews()
         self.setupScoreConstraints()
         self.setupPauseConstraints()
         self.setupTapViewsConstraints()
         self.setupCharacterPosition()
+//        self.setupObstaclePosition()
     }
 
     private func addSubviews() {
@@ -58,6 +67,8 @@ class GameScreenView: UIView {
         self.addSubview(self.pause)
         self.addSubview(self.score)
         self.addSubview(self.character)
+
+//        self.addSubview(self.obstacle)
     }
 
     private func setupScoreConstraints() {
@@ -100,6 +111,16 @@ class GameScreenView: UIView {
         self.character.frame = CGRect(x: xPosition, y: yPosition, width: self.character.bounds.size.width, height: self.character.bounds.size.height)
     }
 
+    func createNewObstacle(with color: UIColor, set position: CGFloat, size: CGFloat, animator: UIDynamicAnimator, acceleration: CGFloat) {
+        let obstacle = ObstacleView(cor: color, size: size)
+        obstacle.translatesAutoresizingMaskIntoConstraints = false
+
+        self.addSubview(obstacle)
+        obstacle.frame = CGRect(x: position, y: -size, width: size, height: size)
+        obstacle.addObstacleAnimation(animator: animator, acceleration: acceleration)
+        self.collider = self.character.addCollisionAnimation(animator: animator, items: [self.character, obstacle])
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
@@ -111,9 +132,10 @@ class GameScreenView: UIView {
 }
 
 extension GameScreenView {
-    func moveCharacter(with xPosition: Int) {
+    func moveCharacter(with xPosition: Int, animator: UIDynamicAnimator) {
+        
         let yPosition = self.bounds.size.height - self.bounds.size.height*0.05 - self.character.bounds.size.width
-
+        
         self.character.addMoveBallAnimation(newX: xPosition, newY: Int(yPosition))
     }
 }

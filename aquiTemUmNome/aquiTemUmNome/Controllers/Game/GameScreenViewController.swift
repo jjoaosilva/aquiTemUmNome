@@ -8,7 +8,7 @@
 
 import UIKit
 
-// swiftlint:disable line_length
+// swiftlint:disable line_length identifier_name
 
 class GameScreenViewController: UIViewController {
 
@@ -27,6 +27,7 @@ class GameScreenViewController: UIViewController {
     }()
 
     var boardManager: BoardManager?
+    lazy var animator: UIDynamicAnimator = UIDynamicAnimator(referenceView: self.view)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +39,26 @@ class GameScreenViewController: UIViewController {
         self.boardManager = BoardManager(screenWidth: self.view.bounds.size.width)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.mainView.collider.collisionDelegate = self
+        self.createObstacle()
+    }
+
+    private func createObstacle() {
+        let obstacle = self.boardManager?.getObstacle()
+        let width = self.boardManager?.getObstacleWidth()
+        let gravity = self.boardManager?.getDificultt().gravity
+
+        self.mainView.createNewObstacle(with: obstacle!.1, set: obstacle!.0, size: width!, animator: self.animator, acceleration: CGFloat(gravity ?? 0.3))
+    }
+
     @objc func tapLeft(recognizer: UITapGestureRecognizer) {
         if recognizer.state == UIGestureRecognizer.State.ended {
 
             let position = self.boardManager?.moveCharacter(movement: .left, xCurrent: self.mainView.character.frame.origin.x)
 
-            self.mainView.moveCharacter(with: Int(position!))
+            self.mainView.moveCharacter(with: Int(position!), animator: self.animator)
         }
     }
 
@@ -51,7 +66,13 @@ class GameScreenViewController: UIViewController {
         if recognizer.state == UIGestureRecognizer.State.ended {
             let position = self.boardManager?.moveCharacter(movement: .right, xCurrent: self.mainView.character.frame.origin.x)
 
-            self.mainView.moveCharacter(with: Int(position!))
+            self.mainView.moveCharacter(with: Int(position!), animator: self.animator)
         }
+    }
+}
+
+extension GameScreenViewController: UICollisionBehaviorDelegate {
+    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
+        print("BATEU \(identifier)")
     }
 }
