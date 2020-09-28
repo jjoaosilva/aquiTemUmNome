@@ -30,7 +30,7 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             viewController.modalBuyBoardView.fifthView.backgroundColor = palletes[indexPath.row].getColor(option: .fifthColor)
             viewController.indexPath = indexPath
         let modalBuyBoard = UINavigationController(rootViewController: viewController)
-            modalBuyBoard.modalPresentationStyle = .fullScreen
+            modalBuyBoard.modalPresentationStyle = .overFullScreen
             modalBuyBoard.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             modalBuyBoard.navigationBar.shadowImage = UIImage()
         self.present(modalBuyBoard, animated: true, completion: nil)

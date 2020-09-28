@@ -12,8 +12,8 @@ class StoreTableViewCell: UITableViewCell {
     let collectionViewController: StoreCollectionViewController = {
         let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        layout.estimatedItemSize = .zero
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = .zero
         let cView = StoreCollectionViewController(collectionViewLayout: layout)
             cView.view.backgroundColor = .clear
         return cView

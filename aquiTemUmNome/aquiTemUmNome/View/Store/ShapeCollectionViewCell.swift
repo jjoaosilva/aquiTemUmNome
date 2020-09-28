@@ -53,8 +53,6 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         shapeImageView.centerYAnchor.constraint(equalTo: roundView.centerYAnchor).isActive = true
         shapeImageView.centerXAnchor.constraint(equalTo: roundView.centerXAnchor).isActive = true
     }
-    override func prepareForReuse() {
-    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
