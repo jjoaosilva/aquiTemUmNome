@@ -69,13 +69,12 @@ class PauseView: UIView {
     }()
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.addSubview(blur)
         self.addSubview(modal)
-        modal.addSubview(circle)
-        modal.addSubview(playButton)
-        modal.addSubview(homeButton)
-        modal.addSubview(muteButton)
-        modal.addSubview(restartButton)
+        self.addSubview(circle)
+        self.addSubview(playButton)
+        self.addSubview(homeButton)
+        self.addSubview(muteButton)
+        self.addSubview(restartButton)
         setupConstraint()
     }
     override init(frame: CGRect) {
