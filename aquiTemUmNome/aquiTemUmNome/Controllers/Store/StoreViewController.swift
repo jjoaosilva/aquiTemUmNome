@@ -4,13 +4,13 @@
 //
 //  Created by Hiago Chagas on 17/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-//  swiftlint:disable force_cast line_length control_statement
+//  swiftlint:disable force_cast control_statement line_length
 
 import UIKit
 
 class StoreViewController: UIViewController {
     let storeView = StoreView()
-    let palletes = Palletes()
+    let palletes = PallettesRepository().readAllItems()
     let shapes = Shapes()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,9 @@ class StoreViewController: UIViewController {
         storeView.tableView.separatorStyle = .none
         self.view = storeView
         //mockup
-        let standardPallete = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
-        palletes.addPallete(pallette: standardPallete)
+//        PallettesRepository().createNewItem(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .magenta)
+//        PallettesRepository().createNewItem(primaryColor: .customLightBlue, secondaryColor: .customMossGreen, thirdColor: .customOrange, fourthColor: .customDarkBlue, fifthColor: .customPink)
+//        PallettesRepository().createNewItem(primaryColor: .black, secondaryColor: .white, thirdColor: .gray, fourthColor: .darkGray, fifthColor: .systemGray2, price: 80)
         shapes.mockup()
     }
 
@@ -57,11 +58,11 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! StoreTableViewCell
-        cell.section = indexPath.section
+        cell.collectionViewController.section = indexPath.section
         if(indexPath.section == 1) {
-            cell.palletes = palletes.getPalletts()
+            cell.collectionViewController.palletes = palletes
         } else {
-            cell.shapes = shapes.getShapes()
+            cell.collectionViewController.shapes = shapes.getShapes()
         }
         cell.backgroundColor = .clear
         return cell

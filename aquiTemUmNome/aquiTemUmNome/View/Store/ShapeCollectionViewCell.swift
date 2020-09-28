@@ -38,8 +38,8 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(roundView)
         roundView.translatesAutoresizingMaskIntoConstraints = false
-        roundView.leftAnchor.constraint(equalTo: super.leftAnchor, constant: 10).isActive = true
-        roundView.topAnchor.constraint(equalTo: super.topAnchor, constant: 10).isActive = true
+        roundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        roundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         addSubview(coinsLabel)
         coinsLabel.translatesAutoresizingMaskIntoConstraints = false
         coinsLabel.topAnchor.constraint(equalTo: roundView.bottomAnchor, constant: 8).isActive = true
@@ -52,7 +52,8 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         shapeImageView.translatesAutoresizingMaskIntoConstraints = false
         shapeImageView.centerYAnchor.constraint(equalTo: roundView.centerYAnchor).isActive = true
         shapeImageView.centerXAnchor.constraint(equalTo: roundView.centerXAnchor).isActive = true
-
+    }
+    override func prepareForReuse() {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

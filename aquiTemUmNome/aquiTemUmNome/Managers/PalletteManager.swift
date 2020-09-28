@@ -13,11 +13,11 @@ class PalletteManager {
     private var activePalletteID: String {
         return UserDefaults.standard.string(forKey: "activePalletteID") ?? "activePalleteID could not be found"
     }
-    private let palletes = Palletes().getPalletts()
+    private let palletes = PallettesRepository().readAllItems()
     public func getActivePallette() -> ColorPallette {
         let activeID = activePalletteID
         for pallete in palletes {
-            if(pallete.getID() == activeID) {
+            if(pallete.getID().uuidString == activeID) {
                 return pallete
             }
         }
@@ -27,8 +27,8 @@ class PalletteManager {
     //this func sets the ActivePallete, mainly used in the store. if the pallete could be set, returns true
     public func setActivePallete(palleteID: String) -> Bool {
         for pallete in palletes {
-            if (pallete.getID() == palleteID) {
-                UserDefaults.standard.setValue(palleteID, forKey: "activePalleteID")
+            if (pallete.getID().uuidString == palleteID) {
+                UserDefaults.standard.setValue(palleteID, forKey: "activePalletteID")
                 return true
             }
         }

@@ -8,47 +8,60 @@
 // swiftlint:disable line_length identifier_name
 import UIKit
 
-class ColorPallette {
-    private var id: String
-    private var primaryColor: UIColor
-    private var secondaryColor: UIColor
-    private var thirdColor: UIColor
-    private var fourthColor: UIColor
-    private var fifthColor: UIColor
-    init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor, id: Int) {
-        self.id = String(id)
-        self.primaryColor = primaryColor
-        self.secondaryColor = secondaryColor
-        self.thirdColor = thirdColor
-        self.fourthColor = fourthColor
-        self.fifthColor = fifthColor
-    }
-    //TODO-: this is the standard pallette, need to me removed
-    init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor) {
-        self.id = String(0)
-        self.primaryColor = primaryColor
-        self.secondaryColor = secondaryColor
-        self.thirdColor = thirdColor
-        self.fourthColor = fourthColor
-        self.fifthColor = fifthColor
+class ColorPallette: Codable {
+    private var id: UUID
+    private var primaryColor: Color = Color()
+    private var secondaryColor: Color = Color()
+    private var thirdColor: Color = Color()
+    private var fourthColor: Color = Color()
+    private var fifthColor: Color = Color()
+    private var isBought = false
+    private var price: Int?
+    init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor, price: Int = 50) {
+        self.id = UUID()
+        self.primaryColor.red = primaryColor.redValue as CGFloat
+        self.primaryColor.blue = primaryColor.blueValue as CGFloat
+        self.primaryColor.green = primaryColor.greenValue as CGFloat
+        self.secondaryColor.red = secondaryColor.redValue as CGFloat
+        self.secondaryColor.blue = secondaryColor.blueValue as CGFloat
+        self.secondaryColor.green = secondaryColor.greenValue as CGFloat
+        self.thirdColor.red = thirdColor.redValue as CGFloat
+        self.thirdColor.blue = thirdColor.blueValue as CGFloat
+        self.thirdColor.green = thirdColor.greenValue as CGFloat
+        self.fourthColor.red = fourthColor.redValue as CGFloat
+        self.fourthColor.blue = fourthColor.blueValue as CGFloat
+        self.fourthColor.green = fourthColor.greenValue as CGFloat
+        self.fifthColor.red = fifthColor.redValue as CGFloat
+        self.fifthColor.blue = fifthColor.blueValue as CGFloat
+        self.fifthColor.green = fifthColor.greenValue as CGFloat
+        self.price = price
     }
     //you can choose this function to get an specific color by its type
     //ex: pallette.getColor(ColorType.thirdOption)
     func getColor(option: ColorType) -> UIColor {
         switch option {
         case .primaryColor:
-            return self.primaryColor
+            return UIColor(red: primaryColor.red, green: primaryColor.green, blue: primaryColor.blue, alpha: 1)
         case .secondaryColor:
-            return self.secondaryColor
+            return UIColor(red: secondaryColor.red, green: secondaryColor.green, blue: secondaryColor.blue, alpha: 1)
         case .thirdColor:
-            return self.thirdColor
+            return UIColor(red: thirdColor.red, green: thirdColor.green, blue: thirdColor.blue, alpha: 1)
         case .fourthColor:
-            return self.fourthColor
+            return UIColor(red: fourthColor.red, green: fourthColor.green, blue: fourthColor.blue, alpha: 1)
         case .fifthColor:
-            return self.fifthColor
+            return UIColor(red: fifthColor.red, green: fifthColor.green, blue: fifthColor.blue, alpha: 1)
         }
     }
-    func getID() -> String {
+    func getID() -> UUID {
         return id
+    }
+    func getPrice() -> Int {
+        return self.price ?? -50
+    }
+    func getBoughtState() -> Bool {
+        return isBought
+    }
+    func setBoughtState(state: Bool) {
+        self.isBought = state
     }
 }

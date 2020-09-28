@@ -8,7 +8,7 @@
 
 import UIKit
 
-// swiftlint:disable line_length
+// swiftlint:disable line_length control_statement
 
 class AnimatedCircleView: UIView {
 
@@ -99,8 +99,9 @@ class AnimatedCircleView: UIView {
 
     private func doAnimation(with duration: Float) {
         let animation = configureAnimation(fromValue: 0, toValue: 1, duration: TimeInterval(duration))
-
-        self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
+        if(self.typeAnimation == .infinity) {
+            self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
+        }
         self.circle.add(animation, forKey: "StrokeEnd")
     }
 

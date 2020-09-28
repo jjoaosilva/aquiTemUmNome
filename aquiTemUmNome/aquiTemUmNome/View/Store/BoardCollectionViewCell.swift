@@ -4,11 +4,12 @@
 //
 //  Created by Hiago Chagas on 18/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-//
+// swiftlint:disable control_statement
 
 import UIKit
 
 class BoardCollectionViewCell: UICollectionViewCell {
+    var pallete: ColorPallette?
     let roundView: UIView = {
         let round = UIView()
         round.heightAnchor.constraint(equalToConstant: 107).isActive = true
@@ -44,8 +45,8 @@ class BoardCollectionViewCell: UICollectionViewCell {
     func setupView() {
         addSubview(roundView)
         roundView.translatesAutoresizingMaskIntoConstraints = false
-        roundView.leftAnchor.constraint(equalTo: super.leftAnchor, constant: 10).isActive = true
-        roundView.topAnchor.constraint(equalTo: super.topAnchor, constant: 10).isActive = true
+        roundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        roundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         addSubview(coinsLabel)
         coinsLabel.translatesAutoresizingMaskIntoConstraints = false
         coinsLabel.topAnchor.constraint(equalTo: roundView.bottomAnchor, constant: 8).isActive = true

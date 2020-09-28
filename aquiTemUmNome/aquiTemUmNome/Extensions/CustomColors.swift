@@ -15,3 +15,9 @@ extension UIColor {
     static let customDarkBlue = UIColor(red: 6/255, green: 12/255, blue: 255/255, alpha: 1)
     static let customPink = UIColor(red: 255/255, green: 1/255, blue: 237/255, alpha: 1)
 }
+extension UIColor {
+    var redValue: CGFloat { return CIColor(color: self).red }
+    var greenValue: CGFloat { return CIColor(color: self).green }
+    var blueValue: CGFloat { return CIColor(color: self).blue }
+    var alphaValue: CGFloat { return CIColor(color: self).alpha }
+}
