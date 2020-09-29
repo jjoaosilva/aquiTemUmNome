@@ -40,8 +40,8 @@ extension UIView {
         animation.fromValue = self.frame
         animation.toValue = [newX, newY]
         animation.duration = 0.2
+
         self.layer.add(animation, forKey: "position")
         self.frame = CGRect(x: CGFloat(newX), y: CGFloat(newY), width: self.frame.width, height: self.frame.height)
     }
-
 }

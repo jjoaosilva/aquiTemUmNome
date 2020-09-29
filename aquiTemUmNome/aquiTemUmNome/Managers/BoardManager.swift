@@ -17,6 +17,7 @@ class BoardManager {
     private var dificulty: Difficulty
     var charactersPositions: [CGFloat]
     var position: Int = 2
+    var lastPosition: Int = 0
 
     // TODO: pegar cores da persistencia quando estiver feita
     let standardPallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
@@ -44,6 +45,10 @@ class BoardManager {
     func getDificultt() -> Difficulty {
         return self.dificulty
     }
+    
+    func setDificultt(difficulty: Difficulty) {
+        self.dificulty = difficulty
+    }
 
     func getObstacleWidth() -> CGFloat {
         return self.obstacleWidth
@@ -58,8 +63,16 @@ class BoardManager {
     }
 
     func getRandomPosition() -> CGFloat {
-        let randomPosition = Int.random(in: 0...4)
+        var randomPosition = Int.random(in: 0...4)
 
+        if lastPosition == randomPosition {
+            if randomPosition + 1 > 4 {
+                randomPosition -= 1
+            } else {
+                randomPosition += 1
+            }
+        }
+        lastPosition = randomPosition
         return self.xPositions[randomPosition]
     }
 
@@ -91,17 +104,6 @@ class BoardManager {
         let randomNumber = Int.random(in: 3...100)
 
         return self.isPrime(randomNumber) ? .switchColor : .regular
-    }
-
-    func manageDificulty(with score: Int) {
-        switch score {
-        case 0...50:
-            self.dificulty = .easy
-        case 51...150:
-            self.dificulty = .normal
-        default:
-            self.dificulty = .hard
-        }
     }
 
     func moveCharacter(movement: Movement, xCurrent: CGFloat) -> CGFloat {

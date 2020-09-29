@@ -12,6 +12,28 @@ class ObstacleView: UIView {
 
     var cor: UIColor = UIColor()
 
+    weak var boundsDelegate: ViewBoundsObservingDelegate?
+
+    public override var bounds: CGRect {
+        willSet {
+            boundsDelegate?.boundsWillChange(self)
+        }
+        didSet {
+            print("Y: ", self.frame.origin.y)
+            boundsDelegate?.boundsDidChange(self)
+        }
+    }
+
+    public override var frame: CGRect {
+        willSet {
+            boundsDelegate?.boundsWillChange(self)
+        }
+        didSet {
+            print("Y: ", frame.origin.y)
+            boundsDelegate?.boundsDidChange(self)
+        }
+    }
+
     convenience init(cor: UIColor, size: CGFloat) {
         self.init()
 
@@ -28,5 +50,9 @@ class ObstacleView: UIView {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print(#function)
     }
 }

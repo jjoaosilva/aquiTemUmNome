@@ -11,7 +11,7 @@ import UIKit
 
 class GameScreenView: UIView {
     lazy var character: CharacterView = {
-        let charView = CharacterView(cor: .cyan, screenWidth: self.bounds.size.width)
+        let charView = CharacterView(cor: .systemRed, screenWidth: self.bounds.size.width)
         charView.translatesAutoresizingMaskIntoConstraints = false
         return charView
     }()
@@ -47,8 +47,11 @@ class GameScreenView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     var collider: UICollisionBehavior = UICollisionBehavior()
+
+    var allObstacles: [UICollisionBehavior] = [UICollisionBehavior]()
+    var delegate: UICollisionBehaviorDelegate?
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -118,7 +121,11 @@ class GameScreenView: UIView {
         self.addSubview(obstacle)
         obstacle.frame = CGRect(x: position, y: -size, width: size, height: size)
         obstacle.addObstacleAnimation(animator: animator, acceleration: acceleration)
+        
         self.collider = self.character.addCollisionAnimation(animator: animator, items: [self.character, obstacle])
+
+        collider.collisionDelegate = self.delegate!
+        self.allObstacles.append(collider)
     }
 
     override init(frame: CGRect) {
@@ -133,9 +140,29 @@ class GameScreenView: UIView {
 
 extension GameScreenView {
     func moveCharacter(with xPosition: Int, animator: UIDynamicAnimator) {
-        
+
         let yPosition = self.bounds.size.height - self.bounds.size.height*0.05 - self.character.bounds.size.width
-        
-        self.character.addMoveBallAnimation(newX: xPosition, newY: Int(yPosition))
+
+        for behavior in self.allObstacles {
+            animator.removeBehavior(behavior)
+        }
+
+       self.character.addMoveBallAnimation(newX: xPosition, newY: Int(yPosition))
+
+        for behavior in self.allObstacles {
+            animator.addBehavior(behavior)
+        }
     }
+}
+
+// TODO remover isso do codigo
+extension GameScreenView: ViewBoundsObservingDelegate {
+    func boundsWillChange(_ view: UIView) {
+        print(view)
+    }
+    
+    func boundsDidChange(_ view: UIView) {
+        print(view)
+    }
+
 }

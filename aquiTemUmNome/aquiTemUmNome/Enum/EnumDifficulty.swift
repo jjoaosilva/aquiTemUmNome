@@ -18,9 +18,20 @@ enum Difficulty {
         case .easy:
             return 0.1
         case .normal:
-            return 0.3
+            return 0.15
         case .hard:
+            return 0.2
+        }
+    }
+
+    var timeFrame: TimeInterval {
+        switch self {
+        case .easy:
             return 0.8
+        case .normal:
+            return 0.6
+        case .hard:
+            return 0.4
         }
     }
 }
