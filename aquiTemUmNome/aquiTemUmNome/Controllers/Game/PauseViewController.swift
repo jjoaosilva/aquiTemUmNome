@@ -19,11 +19,7 @@ class PauseViewController: UIViewController {
         pauseView.restartButton.addTarget(self, action: #selector(self.restartGame), for: .touchUpInside)
     }
     @objc func backGame() {
-        let continueController = UINavigationController(rootViewController: GameScreenViewController())
-        continueController.modalPresentationStyle = .fullScreen
-        continueController.isNavigationBarHidden = true
-        continueController.modalTransitionStyle = .crossDissolve
-        present(continueController, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     @objc func backMenu() {
         let menuController = UINavigationController(rootViewController: MenuViewController())
@@ -44,8 +40,7 @@ class PauseViewController: UIViewController {
     @objc func restartGame() {
         let restartController = UINavigationController(rootViewController: GameScreenViewController())
         restartController.modalPresentationStyle = .fullScreen
-        restartController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        restartController.navigationBar.shadowImage = UIImage()
+        restartController.isNavigationBarHidden = true
         present(restartController, animated: true, completion: nil)
     }
 }
