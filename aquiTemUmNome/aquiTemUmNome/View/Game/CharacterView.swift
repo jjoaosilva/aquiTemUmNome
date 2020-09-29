@@ -16,6 +16,8 @@ class CharacterView: UIView {
         self.backgroundColor = cor
         self.layer.cornerRadius = 18.5
         self.layer.masksToBounds = true
+        self.bounds.size.height = 37
+        self.bounds.size.width = 37
     }
     override init(frame: CGRect) {
         super.init(frame: .zero)

@@ -53,7 +53,7 @@ class MenuView: UIView {
     }
 
     func setupBackground() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .systemGray6
         //self.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1.0)
     }
 

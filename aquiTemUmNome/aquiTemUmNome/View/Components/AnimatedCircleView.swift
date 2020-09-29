@@ -9,9 +9,12 @@
 import UIKit
 
 // swiftlint:disable line_length
-
+protocol AnimatedCircleViewDelegate: class {
+    func didEndAnimation()
+}
 class AnimatedCircleView: UIView {
-
+    weak var delegate: AnimatedCircleViewDelegate?
+    
     let circle: CAShapeLayer = {
         var circle = CAShapeLayer()
         circle.strokeColor = UIColor.systemYellow.cgColor
@@ -155,6 +158,8 @@ extension AnimatedCircleView: CAAnimationDelegate {
         case .complete:
             self.typeAnimation = .idle
             self.timeAnimation = 0
+//            aqui termina a animação
+            self.delegate?.didEndAnimation()
         case .infinity:
             self.configureColors()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

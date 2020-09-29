@@ -38,9 +38,10 @@ class PauseViewController: UIViewController {
         pauseView.updateMute()
     }
     @objc func restartGame() {
-        let restartController = UINavigationController(rootViewController: GameScreenViewController())
+        let restartController = UINavigationController(rootViewController: ReadyViewController())
         restartController.modalPresentationStyle = .fullScreen
         restartController.isNavigationBarHidden = true
+        restartController.modalTransitionStyle = .crossDissolve
         present(restartController, animated: true, completion: nil)
     }
 }
