@@ -56,9 +56,9 @@ class PauseView: UIView {
     func updateMute() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
-        } else {
             muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
+        } else {
+            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
         }
     }
     let restartButton: UIButton = {
@@ -69,13 +69,12 @@ class PauseView: UIView {
     }()
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.addSubview(blur)
         self.addSubview(modal)
-        modal.addSubview(circle)
-        modal.addSubview(playButton)
-        modal.addSubview(homeButton)
-        modal.addSubview(muteButton)
-        modal.addSubview(restartButton)
+        self.addSubview(circle)
+        self.addSubview(playButton)
+        self.addSubview(homeButton)
+        self.addSubview(muteButton)
+        self.addSubview(restartButton)
         setupConstraint()
     }
     override init(frame: CGRect) {
