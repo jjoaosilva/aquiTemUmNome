@@ -9,21 +9,20 @@
 import UIKit
 
 class ReadyViewController: UIViewController {
-    let ready = ReadyView()
+    lazy var ready: ReadyView = {
+       return ReadyView(delegate: self)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ready.circle.delegate = self
         self.view = ready
     }
 }
 extension ReadyViewController: AnimatedCircleViewDelegate {
     func didEndAnimation() {
-        let delay = 3.0
-        let duration = 0.25
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: { () -> Void in
-            self.ready.ready.text = "GO!"
-//            UIView.animate(withDuration: duration, animations: { () -> Void in
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration, execute: { () -> Void in
+        let duration = 0.40
+        self.ready.ready.text = "GO!"
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration, execute: { () -> Void in
             let gameController = UINavigationController(rootViewController: GameScreenViewController())
             gameController.modalPresentationStyle = .fullScreen
             gameController.isNavigationBarHidden = true
@@ -31,7 +30,5 @@ extension ReadyViewController: AnimatedCircleViewDelegate {
             self.present(gameController, animated: true, completion: nil)
 
     })
-        }
-    )
-    }
+}
 }

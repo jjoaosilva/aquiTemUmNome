@@ -153,7 +153,6 @@ class AnimatedCircleView: UIView {
 extension AnimatedCircleView: CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-
         switch self.typeAnimation {
         case .complete:
             self.typeAnimation = .idle

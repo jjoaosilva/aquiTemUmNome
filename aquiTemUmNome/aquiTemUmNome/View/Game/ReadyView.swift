@@ -48,9 +48,14 @@ class ReadyView: UIView {
         addSubview(character)
         constraints()
     }
+//    setando para passar o delegate quando terminar a animação
+    init(delegate: AnimatedCircleViewDelegate) {
+        super.init(frame: .zero)
+        circle.delegate = delegate
+        self.backgroundColor = .systemGray6
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemGray6
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
