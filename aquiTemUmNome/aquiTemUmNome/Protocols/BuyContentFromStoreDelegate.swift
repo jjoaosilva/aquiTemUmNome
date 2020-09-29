@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol BuyContentFromStoreDelegate {
+protocol BuyContentFromStoreDelegate: class {
     func buyAction(_ indexPath: IndexPath)
 }

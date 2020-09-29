@@ -4,7 +4,7 @@
 //
 //  Created by Hiago Chagas on 18/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-// swiftlint:disable control_statement
+
 
 import UIKit
 
@@ -42,6 +42,7 @@ class BoardCollectionViewCell: UICollectionViewCell {
     let fourthView = UIView()
     let fifthView = UIView()
     let stackView = UIStackView()
+    let circle = AnimatedCircleView(lineWidth: 5, circleColor: .systemGreen, shadowColor: .clear)
     func setupView() {
         addSubview(roundView)
         roundView.translatesAutoresizingMaskIntoConstraints = false

@@ -11,7 +11,7 @@ import UIKit
 class ModalBuyBoardViewController: UIViewController {
     let modalBuyBoardView = ModalBuyBoardView()
     var indexPath: IndexPath?
-    var delegate: BuyContentFromStoreDelegate?
+    weak var delegate: BuyContentFromStoreDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         modalBuyBoardView.cancelButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)

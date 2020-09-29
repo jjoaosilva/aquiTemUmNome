@@ -16,7 +16,12 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
     let shapeCollectionCellID = "ShapeCollectionViewCellID"
     //delegate function
     func buyAction(_ indexPath: IndexPath) {
-        print("bought at ", indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as! BoardCollectionViewCell
+        cell.pallete?.setBoughtState(state: true)
+        PallettesRepository().update(item: cell.pallete!)
+        deanimateBoardCollectionView()
+        animateBoardCell(cell)
+        _ = PalletteManager().setActivePallete(palleteID: cell.pallete?.getID().uuidString ?? "Could not update the pallete")
         collectionView.reloadItems(at: [indexPath])
     }
     func presentModalBoard(_ pallette: ColorPallette, indexPath: IndexPath) {
@@ -36,15 +41,21 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
         self.present(modalBuyBoard, animated: true, completion: nil)
     }
     func animateBoardCell(_ cell: BoardCollectionViewCell) {
-        let circle = AnimatedCircleView(lineWidth: 5, circleColor: .systemGreen, shadowColor: .clear)
-        cell.addSubview(circle)
-        circle.translatesAutoresizingMaskIntoConstraints = false
+        cell.addSubview(cell.circle)
+        cell.circle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            circle.centerXAnchor.constraint(equalTo: cell.roundView.centerXAnchor),
-            circle.centerYAnchor.constraint(equalTo: cell.roundView.centerYAnchor),
-            circle.heightAnchor.constraint(equalTo: cell.roundView.heightAnchor)
+            cell.circle.centerXAnchor.constraint(equalTo: cell.roundView.centerXAnchor),
+            cell.circle.centerYAnchor.constraint(equalTo: cell.roundView.centerYAnchor),
+            cell.circle.heightAnchor.constraint(equalTo: cell.roundView.heightAnchor)
         ])
-        circle.completeAnimation(with: 1)
+        cell.circle.completeAnimation(with: 0.8)
+    }
+    func deanimateBoardCollectionView() {
+        for row in 0..<collectionView.numberOfItems(inSection: 0) {
+            let cell = collectionView.cellForItem(at: IndexPath(row: row, section: 0)) as! BoardCollectionViewCell
+            cell.circle.removeFromSuperview()
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +72,9 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             if(cell.pallete!.getBoughtState() == false) {
                 //gets if the user bought the Item
                 presentModalBoard(cell.pallete!, indexPath: indexPath)
-
             } else {
                 //animation fill
+                deanimateBoardCollectionView()
                 animateBoardCell(cell)
                 _ = PalletteManager().setActivePallete(palleteID: cell.pallete?.getID().uuidString ?? "Could not update the pallete")
             }
@@ -82,6 +93,7 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
     //filling the collectionView
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (section == 1) {
+            let activePallete = PalletteManager().getActivePallette()
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: boardCollectionCellID, for: indexPath) as! BoardCollectionViewCell
                 cell.coinsLabel.text = String(palletes[indexPath.row].getPrice())
                 cell.primaryView.backgroundColor = palletes[indexPath.row].getColor(option: .primaryColor)
@@ -93,6 +105,9 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
                 if (cell.pallete?.getBoughtState()) == true {
                     cell.coinsLabel.isHidden = true
                     cell.coinImage.isHidden = true
+                    if(cell.pallete?.getID() == activePallete.getID()) {
+                        animateBoardCell(cell)
+                    }
                 }
             return cell
         } else {
