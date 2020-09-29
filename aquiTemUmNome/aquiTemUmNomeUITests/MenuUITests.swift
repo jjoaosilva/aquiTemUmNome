@@ -31,8 +31,8 @@ class MenuUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let app = XCUIApplication()
-        app.buttons["volume high"].tap()
         app.buttons["mute"].tap()
+        app.buttons["volume high"].tap()
         app.buttons["favorite"].tap()
         app.buttons["shopping cart"].tap()
         app.buttons["reply"].tap()
