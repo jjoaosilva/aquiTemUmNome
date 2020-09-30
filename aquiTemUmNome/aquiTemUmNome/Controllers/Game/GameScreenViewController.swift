@@ -64,8 +64,14 @@ class GameScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = mainView
+        mainView.pause.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
     }
-
+    @objc func pauseGame() {
+        let pauseController = UINavigationController(rootViewController: PauseViewController())
+        pauseController.modalPresentationStyle = .overFullScreen
+        pauseController.isNavigationBarHidden = true
+        present(pauseController, animated: true, completion: nil)
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.boardManager = BoardManager(screenWidth: self.view.bounds.size.width)
     }

@@ -21,6 +21,7 @@ extension UIView {
     }
 
     func addCollisionAnimation(animator: UIDynamicAnimator, items: [UIView]) -> UICollisionBehavior {
+
         if items[0].backgroundColor != items[1].backgroundColor {
             var collider: UICollisionBehavior!
 

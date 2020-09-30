@@ -21,8 +21,7 @@ class BoardManager {
     var position: Int = 2
     var lastPosition: Int = 0
 
-    // TODO: pegar cores da persistencia quando estiver feita
-    let standardPallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
+    let standardPallette = PalletteManager().getActivePallette()
 
     init(screenWidth: CGFloat) {
         self.screenWidth = screenWidth

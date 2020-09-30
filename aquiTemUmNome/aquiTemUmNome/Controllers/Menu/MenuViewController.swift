@@ -15,13 +15,20 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        menuView.playButton.addTarget(self, action: #selector(self.playGame), for: .touchUpInside)
         menuView.muteButton.addTarget(self, action: #selector(self.muteGame), for: .touchUpInside)
         menuView.gameCenterButton.addTarget(self, action: #selector(self.gameCenter), for: .touchUpInside)
         menuView.storeButton.addTarget(self, action: #selector(self.storeButton), for: .touchUpInside)
 
         self.view = menuView
     }
-
+    @objc func playGame() {
+        let readyController = UINavigationController(rootViewController: ReadyViewController())
+        readyController.modalPresentationStyle = .fullScreen
+        readyController.isNavigationBarHidden = true
+        readyController.modalTransitionStyle = .crossDissolve
+        present(readyController, animated: true, completion: nil)
+    }
     @objc func muteGame() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
@@ -37,6 +44,10 @@ class MenuViewController: UIViewController {
     }
 
     @objc func storeButton() {
-        // Go To Store
+        let storeController = UINavigationController(rootViewController: StoreViewController())
+        storeController.modalPresentationStyle = .fullScreen
+        storeController.isNavigationBarHidden = true
+        storeController.modalTransitionStyle = .crossDissolve
+        present(storeController, animated: true, completion: nil)
     }
 }

@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol BoardManagerDelegate {
+protocol BoardManagerDelegate: class {
     func consigureBoardManage(sizeCharacter: CGFloat)
 }

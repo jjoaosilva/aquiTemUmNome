@@ -11,16 +11,12 @@ import UIKit
 
 class GameScreenView: UIView {
     lazy var character: CharacterView = {
-        let charView = CharacterView(cor: .systemRed, screenWidth: self.bounds.size.width)
+        let color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
+
+        let charView = CharacterView(cor: color, screenWidth: self.bounds.size.width)
         charView.translatesAutoresizingMaskIntoConstraints = false
         return charView
     }()
-
-//    lazy var obstacle: ObstacleView = {
-//        let obstacle = ObstacleView(cor: .gray, screenWidth: self.bounds.size.width)
-//        obstacle.translatesAutoresizingMaskIntoConstraints = false
-//        return obstacle
-//    }()
 
     let score: ScoreView = {
         let scoreView = ScoreView()
@@ -137,7 +133,7 @@ class GameScreenView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .systemGray6
     }
 
     required init?(coder: NSCoder) {
