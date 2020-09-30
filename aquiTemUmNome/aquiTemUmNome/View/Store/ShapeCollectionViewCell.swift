@@ -9,6 +9,7 @@
 import UIKit
 
 class ShapeCollectionViewCell: UICollectionViewCell {
+    var shape: Shape?
     let roundView: UIView = {
         let round = UIView()
         round.heightAnchor.constraint(equalToConstant: 107).isActive = true
@@ -25,7 +26,7 @@ class ShapeCollectionViewCell: UICollectionViewCell {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "coin")
+        img.image = UIImage(named: "Coin")
         return img
     }()
     let shapeImageView: UIImageView = {
@@ -34,12 +35,13 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         img.widthAnchor.constraint(equalToConstant: 56).isActive = true
         return img
     }()
+    let circle = AnimatedCircleView(lineWidth: 5, circleColor: .systemGreen, shadowColor: .clear)
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(roundView)
         roundView.translatesAutoresizingMaskIntoConstraints = false
-        roundView.leftAnchor.constraint(equalTo: super.leftAnchor, constant: 10).isActive = true
-        roundView.topAnchor.constraint(equalTo: super.topAnchor, constant: 10).isActive = true
+        roundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        roundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         addSubview(coinsLabel)
         coinsLabel.translatesAutoresizingMaskIntoConstraints = false
         coinsLabel.topAnchor.constraint(equalTo: roundView.bottomAnchor, constant: 8).isActive = true
@@ -52,7 +54,6 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         shapeImageView.translatesAutoresizingMaskIntoConstraints = false
         shapeImageView.centerYAnchor.constraint(equalTo: roundView.centerYAnchor).isActive = true
         shapeImageView.centerXAnchor.constraint(equalTo: roundView.centerXAnchor).isActive = true
-
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

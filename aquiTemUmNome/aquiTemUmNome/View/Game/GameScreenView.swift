@@ -17,7 +17,7 @@ class GameScreenView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .systemGray6
         character.translatesAutoresizingMaskIntoConstraints = false
         obstacle.translatesAutoresizingMaskIntoConstraints = false
         score.translatesAutoresizingMaskIntoConstraints = false

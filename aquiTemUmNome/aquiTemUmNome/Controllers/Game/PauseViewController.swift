@@ -12,7 +12,7 @@ class PauseViewController: UIViewController {
     let pauseView = PauseView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = pauseView     
+        self.view = pauseView
         pauseView.muteButton.addTarget(self, action: #selector(self.muteGame), for: .touchUpInside)
         pauseView.homeButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
         pauseView.playButton.addTarget(self, action: #selector(self.backGame), for: .touchUpInside)
@@ -38,9 +38,10 @@ class PauseViewController: UIViewController {
         pauseView.updateMute()
     }
     @objc func restartGame() {
-        let restartController = UINavigationController(rootViewController: GameScreenViewController())
+        let restartController = UINavigationController(rootViewController: ReadyViewController())
         restartController.modalPresentationStyle = .fullScreen
         restartController.isNavigationBarHidden = true
+        restartController.modalTransitionStyle = .crossDissolve
         present(restartController, animated: true, completion: nil)
     }
 }

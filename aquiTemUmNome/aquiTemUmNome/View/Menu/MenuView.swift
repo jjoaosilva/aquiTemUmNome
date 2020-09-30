@@ -11,8 +11,8 @@ import UIKit
 // swiftlint:disable line_length
 
 class MenuView: UIView {
-
-    var pallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
+    var palleteManager = PalletteManager()
+    var pallette: ColorPallette!
     var icon = UIImageView()
     var playButton = UIButton()
     var storeButton = UIButton()
@@ -26,7 +26,9 @@ class MenuView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        //uncomment to test the second pallete
+        //_ = palleteManager.setActivePallete(palleteID: "1")
+        self.pallette = setupPallette()
         setupBackground()
 
         setupIcon()
@@ -51,9 +53,11 @@ class MenuView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    func setupPallette() -> ColorPallette {
+        return palleteManager.getActivePallette()
+    }
     func setupBackground() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .systemGray6
         //self.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1.0)
     }
 

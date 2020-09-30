@@ -31,6 +31,7 @@ class PauseViewUITests: XCTestCase {
         XCTAssertTrue(playButton.isHittable)
         playButton.tap()
         let pauseGame = app.buttons["pause"]
+        _ = pauseGame.waitForExistence(timeout: 3.25)
         XCTAssertTrue(pauseGame.isHittable)
         pauseGame.tap()
         playButton.tap()
@@ -41,11 +42,12 @@ class PauseViewUITests: XCTestCase {
         goHome.tap()
 //        reset
         playButton.tap()
-        pauseGame.tap()
-        let resetGame = app.buttons["arrow.counterclockwise"]
-        XCTAssertTrue(resetGame.isHittable)
-        resetGame.tap()
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//        _ = pauseGame.waitForExistence(timeout: 3.25)
+//        pauseGame.tap()
+//        let resetGame = app.buttons["arrow.counterclockwise"]
+//        XCTAssertTrue(resetGame.isHittable)
+//        resetGame.tap()
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
 
     }
 

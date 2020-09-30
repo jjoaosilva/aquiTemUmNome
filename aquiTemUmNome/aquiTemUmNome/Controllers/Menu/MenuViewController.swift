@@ -23,11 +23,11 @@ class MenuViewController: UIViewController {
         self.view = menuView
     }
     @objc func playGame() {
-        let gameController = UINavigationController(rootViewController: GameScreenViewController())
-        gameController.modalPresentationStyle = .fullScreen
-        gameController.isNavigationBarHidden = true
-        gameController.modalTransitionStyle = .crossDissolve
-        present(gameController, animated: true, completion: nil)
+        let readyController = UINavigationController(rootViewController: ReadyViewController())
+        readyController.modalPresentationStyle = .fullScreen
+        readyController.isNavigationBarHidden = true
+        readyController.modalTransitionStyle = .crossDissolve
+        present(readyController, animated: true, completion: nil)
     }
     @objc func muteGame() {
         let status = UserDefaults.standard.bool(forKey: "mute")
