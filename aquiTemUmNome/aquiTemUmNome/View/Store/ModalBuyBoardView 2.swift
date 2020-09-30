@@ -18,7 +18,7 @@ class ModalBuyBoardView: UIView {
     }()
     let modal: UIView = {
        let modalView = UIView()
-       modalView.backgroundColor = .systemGray5
+       modalView.backgroundColor = .systemGray6
        modalView.layer.cornerRadius = 40
        modalView.translatesAutoresizingMaskIntoConstraints = false
        return modalView

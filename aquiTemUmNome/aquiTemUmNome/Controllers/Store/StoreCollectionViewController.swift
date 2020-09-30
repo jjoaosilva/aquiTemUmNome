@@ -98,6 +98,7 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
         collectionView.register(BoardCollectionViewCell.self, forCellWithReuseIdentifier: boardCollectionCellID)
         collectionView.register(ShapeCollectionViewCell.self, forCellWithReuseIdentifier: shapeCollectionCellID)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
     }
     //click on cell
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -154,6 +155,8 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
                     cell.coinImage.isHidden = true
                     if(cell.pallete?.getID() == activePallete.getID()) {
                         animateBoardCell(cell)
+                    } else {
+                        cell.circle.removeFromSuperview()
                     }
                 }
             return cell
@@ -168,6 +171,8 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
                 cell.coinImage.isHidden = true
                 if(cell.shape?.getID() == activeShape.getID()) {
                     animateShapeCell(cell)
+                } else {
+                    cell.circle.removeFromSuperview()
                 }
             }
             return cell

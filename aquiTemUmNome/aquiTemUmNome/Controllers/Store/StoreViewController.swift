@@ -4,7 +4,7 @@
 //
 //  Created by Hiago Chagas on 17/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-//  swiftlint:disable force_cast control_statement line_length
+//  swiftlint:disable force_cast control_statement 
 
 import UIKit
 
@@ -20,14 +20,6 @@ class StoreViewController: UIViewController {
         storeView.tableView.separatorStyle = .none
         self.view = storeView
         storeView.backButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
-//        //palletes mockup
-//        _ = PallettesRepository().createNewItem(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .magenta, boughtState: true)
-//        _ = PallettesRepository().createNewItem(primaryColor: .customLightBlue, secondaryColor: .customMossGreen, thirdColor: .customOrange, fourthColor: .customDarkBlue, fifthColor: .customPink)
-//        //shapes mockup
-//        _ = ShapesRepository().createNewItem(name: "Ball", symbol: "circle.fill", price: 50, boughtState: true)
-//        _ = ShapesRepository().createNewItem(name: "Star", symbol: "star.fill", price: 90)
-//        _ = ShapesRepository().createNewItem(name: "Shield", symbol: "shield.fill", price: 80)
-//        _ = ShapesRepository().createNewItem(name: "Hexagon", symbol: "hexagon.fill", price: 70)
     }
     @objc func backMenu() {
         let menuController = UINavigationController(rootViewController: MenuViewController())

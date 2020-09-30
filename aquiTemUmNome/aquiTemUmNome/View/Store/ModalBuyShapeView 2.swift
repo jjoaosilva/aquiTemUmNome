@@ -1,14 +1,15 @@
 //
-//  ModalBuyBoardView.swift
+//  ModalBuyShapeView.swift
 //  aquiTemUmNome
 //
-//  Created by Hiago Chagas on 26/09/20.
+//  Created by Hiago Chagas on 29/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
 // swiftlint:disable line_length
 
 import UIKit
 
-class ModalBuyBoardView: UIView {
+class ModalBuyShapeView: UIView {
+
     lazy var blur: UIVisualEffectView = {
        let blurEffect = UIBlurEffect(style: .prominent)
        let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -18,7 +19,7 @@ class ModalBuyBoardView: UIView {
     }()
     let modal: UIView = {
        let modalView = UIView()
-       modalView.backgroundColor = .systemGray5
+       modalView.backgroundColor = .systemGray6
        modalView.layer.cornerRadius = 40
        modalView.translatesAutoresizingMaskIntoConstraints = false
        return modalView
@@ -42,13 +43,6 @@ class ModalBuyBoardView: UIView {
         img.image = UIImage(named: "Coin")
         return img
     }()
-    let backgroundShape: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
-        view.heightAnchor.constraint(equalToConstant: 58).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        return view
-    }()
     let cancelButton: UIButton = {
             let btn = UIButton(nameIcon: "xmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemRed, tintColor: .label)
             btn.translatesAutoresizingMaskIntoConstraints = false
@@ -61,34 +55,18 @@ class ModalBuyBoardView: UIView {
             btn.startAnimatingPressActions()
             return btn
         }()
-    let primaryView = UIView()
-    let secondaryView = UIView()
-    let thirdView = UIView()
-    let fourthView = UIView()
-    let fifthView = UIView()
-    let stackView = UIStackView()
+    let shapeImage = UIImageView()
     func setupModalView() {
         addSubview(roundView)
         roundView.translatesAutoresizingMaskIntoConstraints = false
         roundView.centerXAnchor.constraint(equalTo: modal.centerXAnchor).isActive = true
         roundView.topAnchor.constraint(equalTo: modal.topAnchor, constant: 24).isActive = true
-        addSubview(backgroundShape)
-        backgroundShape.translatesAutoresizingMaskIntoConstraints = false
-        backgroundShape.centerYAnchor.constraint(equalTo: roundView.centerYAnchor).isActive = true
-        backgroundShape.centerXAnchor.constraint(equalTo: roundView.centerXAnchor).isActive = true
-        addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.addArrangedSubview(primaryView)
-        stackView.addArrangedSubview(secondaryView)
-        stackView.addArrangedSubview(thirdView)
-        stackView.addArrangedSubview(fourthView)
-        stackView.addArrangedSubview(fifthView)
-        stackView.leftAnchor.constraint(equalTo: backgroundShape.leftAnchor, constant: 4).isActive = true
-        stackView.rightAnchor.constraint(equalTo: backgroundShape.rightAnchor, constant: -4).isActive = true
-        stackView.topAnchor.constraint(equalTo: backgroundShape.topAnchor, constant: 3).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: backgroundShape.bottomAnchor, constant: -3).isActive = true
+        addSubview(shapeImage)
+        shapeImage.translatesAutoresizingMaskIntoConstraints = false
+        shapeImage.centerXAnchor.constraint(equalTo: roundView.centerXAnchor).isActive = true
+        shapeImage.centerYAnchor.constraint(equalTo: roundView.centerYAnchor).isActive = true
+        shapeImage.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        shapeImage.heightAnchor.constraint(equalToConstant: 56).isActive = true
         addSubview(coinImage)
         coinImage.translatesAutoresizingMaskIntoConstraints = false
         coinImage.rightAnchor.constraint(equalTo: roundView.centerXAnchor, constant: -5).isActive = true
