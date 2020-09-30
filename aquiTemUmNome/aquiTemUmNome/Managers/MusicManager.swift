@@ -153,7 +153,7 @@ class MusicManager {
         self.isPlaying = false
         self.audioPlayer = nil
     }
-    
+
     func getCurrentTime() -> TimeInterval {
         return self.audioPlayer?.currentTime ?? 0
     }
