@@ -19,7 +19,7 @@ class GameOverView: UIView {
     }()
     let modal: UIView = {
         let modalView = UIView()
-        modalView.backgroundColor = .systemGray6
+        modalView.backgroundColor = .systemGray5
         modalView.layer.cornerRadius = 40
         modalView.translatesAutoresizingMaskIntoConstraints = false
         return modalView
