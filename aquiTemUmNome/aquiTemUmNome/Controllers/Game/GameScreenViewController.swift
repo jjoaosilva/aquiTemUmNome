@@ -13,7 +13,7 @@ import UIKit
 class GameScreenViewController: UIViewController {
 
     lazy var mainView: GameScreenView = {
-        let gameView = GameScreenView()
+        let gameView = GameScreenView(frame: self.view.frame)
 
         let singleTapLeft: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapLeft))
         singleTapLeft.numberOfTapsRequired = 1
@@ -101,20 +101,15 @@ class GameScreenViewController: UIViewController {
     }
 
     @objc func tapLeft(recognizer: UITapGestureRecognizer) {
-//        print(#function)
-        print("Fora do tap")
         if recognizer.state == UIGestureRecognizer.State.ended {
             let position = self.boardManager?.moveCharacter(movement: .left, xCurrent: self.mainView.character.frame.origin.x)
-            queueMove.sync {
-                self.mainView.moveCharacter(with: Int(position!), animator: self.animator)
-            }
+            self.mainView.moveCharacter(with: Int(position!), animator: self.animator)
         }
     }
 
     @objc func tapRight(recognizer: UITapGestureRecognizer) {
         if recognizer.state == UIGestureRecognizer.State.ended {
             let position = self.boardManager?.moveCharacter(movement: .right, xCurrent: self.mainView.character.frame.origin.x)
-
             self.mainView.moveCharacter(with: Int(position!), animator: self.animator)
         }
     }

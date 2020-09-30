@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable line_length
+
 extension UIView {
 
     func addObstacleAnimation(animator: UIDynamicAnimator, acceleration: CGFloat) {
@@ -36,12 +38,8 @@ extension UIView {
     }
 
     func addMoveBallAnimation(newX: Int, newY: Int) {
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.fromValue = self.frame
-        animation.toValue = [newX, newY]
-        animation.duration = 0.2
-
-        self.layer.add(animation, forKey: "position")
-        self.frame = CGRect(x: CGFloat(newX), y: CGFloat(newY), width: self.frame.width, height: self.frame.height)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.frame = CGRect(origin: CGPoint(x: newX, y: newY), size: CGSize(width: self.frame.width, height: self.frame.height))
+        })
     }
 }

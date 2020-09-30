@@ -51,19 +51,26 @@ class GameScreenView: UIView {
     var collider: UICollisionBehavior = UICollisionBehavior()
 
     var allObstacles: [UICollisionBehavior] = [UICollisionBehavior]()
-    var delegate: UICollisionBehaviorDelegate?
+    weak var delegate: UICollisionBehaviorDelegate?
+    var constraintsHasBeenSeted: Bool = false
 
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        self.addSubviews()
-        self.setupScoreConstraints()
-        self.setupPauseConstraints()
-        self.setupTapViewsConstraints()
-        self.setupCharacterPosition()
+        if !self.constraintsHasBeenSeted {
+            self.addSubviews()
+            self.setupScoreConstraints()
+            self.setupPauseConstraints()
+            self.setupTapViewsConstraints()
+            self.setupCharacterPosition()
+            self.constraintsHasBeenSeted = true
+        }
 //        self.setupObstaclePosition()
     }
 
+    override func addConstraint(_ constraint: NSLayoutConstraint) {
+        super.addConstraint(constraint)
+
+    }
     private func addSubviews() {
         self.addSubview(self.leftView)
         self.addSubview(self.rightView)
@@ -121,7 +128,7 @@ class GameScreenView: UIView {
         self.addSubview(obstacle)
         obstacle.frame = CGRect(x: position, y: -size, width: size, height: size)
         obstacle.addObstacleAnimation(animator: animator, acceleration: acceleration)
-        
+
         self.collider = self.character.addCollisionAnimation(animator: animator, items: [self.character, obstacle])
 
         collider.collisionDelegate = self.delegate!
@@ -153,16 +160,4 @@ extension GameScreenView {
             animator.addBehavior(behavior)
         }
     }
-}
-
-// TODO remover isso do codigo
-extension GameScreenView: ViewBoundsObservingDelegate {
-    func boundsWillChange(_ view: UIView) {
-        print(view)
-    }
-    
-    func boundsDidChange(_ view: UIView) {
-        print(view)
-    }
-
 }

@@ -37,7 +37,6 @@
 		A27F181F25124A3500DC1ADE /* EnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F181E25124A3500DC1ADE /* EnumTest.swift */; };
 		A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C08A25138B1B005CC48E /* RoundedButton.swift */; };
 		A296C0B72513AC0E005CC48E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296C0B62513AC0E005CC48E /* ModalView.swift */; };
-		A2BFF58925222A43004C9766 /* ViewBoundsObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFF58825222A43004C9766 /* ViewBoundsObserving.swift */; };
 		A2C34EC5251A303C002B73AB /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34EC4251A303C002B73AB /* BoardManager.swift */; };
 		A2C34ECA251A39DD002B73AB /* EnumObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */; };
 		A2C34ECF251A3E05002B73AB /* EnumDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */; };
@@ -104,7 +103,6 @@
 		A27F181E25124A3500DC1ADE /* EnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumTest.swift; sourceTree = "<group>"; };
 		A296C08A25138B1B005CC48E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		A296C0B62513AC0E005CC48E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		A2BFF58825222A43004C9766 /* ViewBoundsObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBoundsObserving.swift; sourceTree = "<group>"; };
 		A2C34EC4251A303C002B73AB /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
 		A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumObstacle.swift; sourceTree = "<group>"; };
 		A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDifficulty.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				A27F1818251249DD00DC1ADE /* ProtocolTest.swift */,
-				A2BFF58825222A43004C9766 /* ViewBoundsObserving.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -507,7 +504,6 @@
 				6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */,
 				545F80802514FCE3006B209A /* MenuButtonAnimation.swift in Sources */,
 				A27F17E4251244D300DC1ADE /* ViewController.swift in Sources */,
-				A2BFF58925222A43004C9766 /* ViewBoundsObserving.swift in Sources */,
 				A2C34EC5251A303C002B73AB /* BoardManager.swift in Sources */,
 				6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */,
 				6E415B18251971A100542A38 /* Shapes.swift in Sources */,

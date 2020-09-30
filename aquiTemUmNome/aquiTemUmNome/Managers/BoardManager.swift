@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// swiftlint:disable line_length
+
 class BoardManager {
 
     private let screenWidth: CGFloat
@@ -45,7 +47,7 @@ class BoardManager {
     func getDificultt() -> Difficulty {
         return self.dificulty
     }
-    
+
     func setDificultt(difficulty: Difficulty) {
         self.dificulty = difficulty
     }
