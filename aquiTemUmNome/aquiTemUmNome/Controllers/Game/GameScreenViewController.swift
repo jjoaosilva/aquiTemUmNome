@@ -12,6 +12,8 @@ import UIKit
 
 class GameScreenViewController: UIViewController {
 
+    let musicManager = MusicManager.shared
+
     lazy var mainView: GameScreenView = {
         let gameView = GameScreenView(frame: self.view.frame)
 
@@ -46,8 +48,14 @@ class GameScreenViewController: UIViewController {
                 self.boardManager?.setDificultt(difficulty: .easy)
             case 51...100:
                 self.boardManager?.setDificultt(difficulty: .normal)
+                if score == 52 {
+                    musicManager.playEasyMusic()
+                }
             default:
                 self.boardManager?.setDificultt(difficulty: .hard)
+                if score == 102 {
+                    musicManager.playMediumMusic()
+                }
             }
 
             self.timeFrame = self.boardManager?.getDificultt().timeFrame ?? 1

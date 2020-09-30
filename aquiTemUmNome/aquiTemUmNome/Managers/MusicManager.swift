@@ -13,6 +13,7 @@ import AVFoundation
 class MusicManager {
     private var audioPlayer: AVAudioPlayer? = AVAudioPlayer()
     private var isPlaying = false
+    public static let shared = MusicManager()
 
     func playIntro() {
         let sound = Bundle.main.path(forResource: "aquiTemUmaIntro", ofType: "mp3")
@@ -22,6 +23,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -30,6 +32,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -53,6 +56,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -61,6 +65,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -84,6 +89,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -92,6 +98,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -115,6 +122,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)
@@ -123,6 +131,7 @@ class MusicManager {
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                 self.isPlaying = true
+                self.audioPlayer?.numberOfLoops = 999999
                 self.audioPlayer?.play()
             } catch {
                 print(error)

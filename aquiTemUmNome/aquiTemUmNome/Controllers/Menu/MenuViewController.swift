@@ -11,6 +11,7 @@ import UIKit
 class MenuViewController: UIViewController {
 
     let menuView = MenuView()
+    let musicManager = MusicManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class MenuViewController: UIViewController {
         menuView.storeButton.addTarget(self, action: #selector(self.storeButton), for: .touchUpInside)
 
         self.view = menuView
+        musicManager.playIntro()
     }
     @objc func playGame() {
         let readyController = UINavigationController(rootViewController: ReadyViewController())
@@ -37,6 +39,7 @@ class MenuViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: "mute")
         }
         menuView.updateMuteButton()
+        musicManager.playIntro()
     }
 
     @objc func gameCenter() {
