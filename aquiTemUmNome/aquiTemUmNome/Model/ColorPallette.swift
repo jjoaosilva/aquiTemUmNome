@@ -17,7 +17,7 @@ class ColorPallette: Codable {
     private var fifthColor: Color = Color()
     private var isBought = false
     private var price: Int?
-    init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor, price: Int = 50) {
+    init(primaryColor: UIColor, secondaryColor: UIColor, thirdColor: UIColor, fourthColor: UIColor, fifthColor: UIColor, price: Int = 50, boughtState: Bool = false) {
         self.id = UUID()
         self.primaryColor.red = primaryColor.redValue as CGFloat
         self.primaryColor.blue = primaryColor.blueValue as CGFloat
@@ -35,6 +35,7 @@ class ColorPallette: Codable {
         self.fifthColor.blue = fifthColor.blueValue as CGFloat
         self.fifthColor.green = fifthColor.greenValue as CGFloat
         self.price = price
+        self.isBought = boughtState
     }
     //you can choose this function to get an specific color by its type
     //ex: pallette.getColor(ColorType.thirdOption)

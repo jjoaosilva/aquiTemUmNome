@@ -11,11 +11,20 @@ import UIKit
 class StoreCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, BuyContentFromStoreDelegate {
     var section: Int?
     var palletes = PallettesRepository().readAllItems()
-    var shapes: [Shape]?
+    var shapes = ShapesRepository().readAllItems()
     let boardCollectionCellID = "BoardCollectionViewCellID"
     let shapeCollectionCellID = "ShapeCollectionViewCellID"
     //delegate function
-    func buyAction(_ indexPath: IndexPath) {
+    func buyShapeAction(_ indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ShapeCollectionViewCell
+        cell.shape?.setBoughtState(state: true)
+        ShapesRepository().update(item: cell.shape!)
+        deanimateShapeCollectionView()
+        animateShapeCell(cell)
+        _ = ShapeManager().setActiveShape(shapeID: cell.shape?.getID().uuidString ?? "Could not update the Shape")
+        collectionView.reloadItems(at: [indexPath])
+    }
+    func buyBoardAction(_ indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! BoardCollectionViewCell
         cell.pallete?.setBoughtState(state: true)
         PallettesRepository().update(item: cell.pallete!)
@@ -40,6 +49,18 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             modalBuyBoard.navigationBar.shadowImage = UIImage()
         self.present(modalBuyBoard, animated: true, completion: nil)
     }
+    func presentModalShape(_ shape: Shape, indexPath: IndexPath) {
+        let viewController = ModalBuyShapeViewController()
+        viewController.delegate = self
+        viewController.modalBuyShapeView.coinsLabel.text = String(shapes[indexPath.row].getPrice())
+        viewController.modalBuyShapeView.shapeImage.image = UIImage(systemName: shapes[indexPath.row].getSymbolName())
+        viewController.indexPath = indexPath
+        let modalBuyShape = UINavigationController(rootViewController: viewController)
+            modalBuyShape.modalPresentationStyle = .overFullScreen
+            modalBuyShape.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            modalBuyShape.navigationBar.shadowImage = UIImage()
+        self.present(modalBuyShape, animated: true, completion: nil)
+    }
     func animateBoardCell(_ cell: BoardCollectionViewCell) {
         cell.addSubview(cell.circle)
         cell.circle.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +76,22 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             let cell = collectionView.cellForItem(at: IndexPath(row: row, section: 0)) as! BoardCollectionViewCell
             cell.circle.removeFromSuperview()
         }
-
+    }
+    func animateShapeCell(_ cell: ShapeCollectionViewCell) {
+        cell.addSubview(cell.circle)
+        cell.circle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cell.circle.centerXAnchor.constraint(equalTo: cell.roundView.centerXAnchor),
+            cell.circle.centerYAnchor.constraint(equalTo: cell.roundView.centerYAnchor),
+            cell.circle.heightAnchor.constraint(equalTo: cell.roundView.heightAnchor)
+        ])
+        cell.circle.completeAnimation(with: 0.8)
+    }
+    func deanimateShapeCollectionView() {
+        for row in 0..<collectionView.numberOfItems(inSection: 0) {
+            let cell = collectionView.cellForItem(at: IndexPath(row: row, section: 0)) as? ShapeCollectionViewCell
+            cell?.circle.removeFromSuperview()
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +106,7 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             let cell = collectionView.cellForItem(at: indexPath) as! BoardCollectionViewCell
             //this is what happens when the user clicks on a board that wasnt bought yet
             if(cell.pallete!.getBoughtState() == false) {
-                //gets if the user bought the Item
+                //presents the modal
                 presentModalBoard(cell.pallete!, indexPath: indexPath)
             } else {
                 //animation fill
@@ -78,16 +114,27 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
                 animateBoardCell(cell)
                 _ = PalletteManager().setActivePallete(palleteID: cell.pallete?.getID().uuidString ?? "Could not update the pallete")
             }
-        }
+        } else {
         //shape collection
+            let cell = collectionView.cellForItem(at: indexPath) as! ShapeCollectionViewCell
+            //this is what happens when the user clicks on a shape that wanst bought yet
+            if(cell.shape?.getBoughtState() == false) {
+                //present buy modal shape
+                presentModalShape(cell.shape!, indexPath: indexPath)
+            } else {
+                //animation fill
+                deanimateShapeCollectionView()
+                animateShapeCell(cell)
+                _ = ShapeManager().setActiveShape(shapeID: cell.shape?.getID().uuidString ?? "Could not update the shape")
+            }
+        }
     }
     //number of items in each section of collectionview
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(palletes.count)
         if(self.section == 1) {
             return (palletes.count)
         } else {
-            return (shapes?.count) ?? 0
+            return (shapes.count)
         }
     }
     //filling the collectionView
@@ -111,9 +158,18 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
                 }
             return cell
         } else {
+            let activeShape = ShapeManager().getActiveShape()
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shapeCollectionCellID, for: indexPath) as! ShapeCollectionViewCell
-                cell.coinsLabel.text = String(shapes?[indexPath.row].price ?? 0)
-                cell.shapeImageView.image = shapes?[indexPath.row].symbol
+            cell.coinsLabel.text = String(shapes[indexPath.row].getPrice())
+            cell.shapeImageView.image = UIImage(systemName: shapes[indexPath.row].getSymbolName())
+            cell.shape = shapes[indexPath.row]
+            if (cell.shape?.getBoughtState() == true) {
+                cell.coinsLabel.isHidden = true
+                cell.coinImage.isHidden = true
+                if(cell.shape?.getID() == activeShape.getID()) {
+                    animateShapeCell(cell)
+                }
+            }
             return cell
         }
     }

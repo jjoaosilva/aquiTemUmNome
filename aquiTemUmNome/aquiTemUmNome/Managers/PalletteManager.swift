@@ -4,7 +4,7 @@
 //
 //  Created by Hiago Chagas on 24/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-// swiftlint:disable control_statement
+// swiftlint:disable control_statement line_length
 
 import Foundation
 
@@ -22,7 +22,7 @@ class PalletteManager {
             }
         }
         //if the active pallette could not be found, it returns the standard one
-        return palletes[0]
+        return ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .magenta)
     }
     //this func sets the ActivePallete, mainly used in the store. if the pallete could be set, returns true
     public func setActivePallete(palleteID: String) -> Bool {

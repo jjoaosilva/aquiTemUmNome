@@ -11,7 +11,7 @@ import UIKit
 class StoreViewController: UIViewController {
     let storeView = StoreView()
     let palletes = PallettesRepository().readAllItems()
-    let shapes = Shapes()
+    let shapes = ShapesRepository().readAllItems()
     override func viewDidLoad() {
         super.viewDidLoad()
         storeView.tableView.delegate = self
@@ -20,11 +20,14 @@ class StoreViewController: UIViewController {
         storeView.tableView.separatorStyle = .none
         self.view = storeView
         storeView.backButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
-        //mockup
-//        PallettesRepository().createNewItem(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .magenta)
-//        PallettesRepository().createNewItem(primaryColor: .customLightBlue, secondaryColor: .customMossGreen, thirdColor: .customOrange, fourthColor: .customDarkBlue, fifthColor: .customPink)
-//        PallettesRepository().createNewItem(primaryColor: .black, secondaryColor: .white, thirdColor: .gray, fourthColor: .darkGray, fifthColor: .systemGray2, price: 80)
-        shapes.mockup()
+//        //palletes mockup
+//        _ = PallettesRepository().createNewItem(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .magenta, boughtState: true)
+//        _ = PallettesRepository().createNewItem(primaryColor: .customLightBlue, secondaryColor: .customMossGreen, thirdColor: .customOrange, fourthColor: .customDarkBlue, fifthColor: .customPink)
+//        //shapes mockup
+//        _ = ShapesRepository().createNewItem(name: "Ball", symbol: "circle.fill", price: 50, boughtState: true)
+//        _ = ShapesRepository().createNewItem(name: "Star", symbol: "star.fill", price: 90)
+//        _ = ShapesRepository().createNewItem(name: "Shield", symbol: "shield.fill", price: 80)
+//        _ = ShapesRepository().createNewItem(name: "Hexagon", symbol: "hexagon.fill", price: 70)
     }
     @objc func backMenu() {
         let menuController = UINavigationController(rootViewController: MenuViewController())
@@ -69,7 +72,7 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
         if(indexPath.section == 1) {
             cell.collectionViewController.palletes = palletes
         } else {
-            cell.collectionViewController.shapes = shapes.getShapes()
+            cell.collectionViewController.shapes = shapes
         }
         cell.backgroundColor = .clear
         return cell

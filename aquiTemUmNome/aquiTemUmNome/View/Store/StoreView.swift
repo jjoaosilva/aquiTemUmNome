@@ -26,7 +26,7 @@ class StoreView: UIView {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "coin")
+        img.image = UIImage(named: "Coin")
         return img
     }()
     let tableView: UITableView = {

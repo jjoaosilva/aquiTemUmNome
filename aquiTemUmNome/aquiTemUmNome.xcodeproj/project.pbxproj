@@ -29,6 +29,10 @@
 		6E9FF92C25200EE5006B5D96 /* ModalBuyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF92B25200EE5006B5D96 /* ModalBuyBoardView.swift */; };
 		6E9FF9312520B25D006B5D96 /* StoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF9302520B25D006B5D96 /* StoreCollectionViewController.swift */; };
 		6E9FF9422522135A006B5D96 /* BuyContentFromStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF9412522135A006B5D96 /* BuyContentFromStoreDelegate.swift */; };
+		6E9FF95625237BD6006B5D96 /* ShapesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF95525237BD6006B5D96 /* ShapesRepository.swift */; };
+		6E9FF95B2523C532006B5D96 /* ShapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF95A2523C532006B5D96 /* ShapeManager.swift */; };
+		6E9FF9602523CA3B006B5D96 /* ModalBuyShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF95F2523CA3B006B5D96 /* ModalBuyShapeView.swift */; };
+		6E9FF9652523CAA6006B5D96 /* ModalBuyShapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FF9642523CAA6006B5D96 /* ModalBuyShapeViewController.swift */; };
 		6EC94FDF251385EC003FED4B /* ColorPallette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FDE251385EC003FED4B /* ColorPallette.swift */; };
 		6EC94FE42513861A003FED4B /* EnumColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC94FE32513861A003FED4B /* EnumColorType.swift */; };
 		A24010922518DE10004D80C3 /* EnumCircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */; };
@@ -100,6 +104,10 @@
 		6E9FF92B25200EE5006B5D96 /* ModalBuyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBuyBoardView.swift; sourceTree = "<group>"; };
 		6E9FF9302520B25D006B5D96 /* StoreCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewController.swift; sourceTree = "<group>"; };
 		6E9FF9412522135A006B5D96 /* BuyContentFromStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyContentFromStoreDelegate.swift; sourceTree = "<group>"; };
+		6E9FF95525237BD6006B5D96 /* ShapesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesRepository.swift; sourceTree = "<group>"; };
+		6E9FF95A2523C532006B5D96 /* ShapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeManager.swift; sourceTree = "<group>"; };
+		6E9FF95F2523CA3B006B5D96 /* ModalBuyShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBuyShapeView.swift; sourceTree = "<group>"; };
+		6E9FF9642523CAA6006B5D96 /* ModalBuyShapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBuyShapeViewController.swift; sourceTree = "<group>"; };
 		6EC94FDE251385EC003FED4B /* ColorPallette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallette.swift; sourceTree = "<group>"; };
 		6EC94FE32513861A003FED4B /* EnumColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorType.swift; sourceTree = "<group>"; };
 		A24010912518DE10004D80C3 /* EnumCircleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCircleAnimation.swift; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 				6E415AC22514ED8800542A38 /* BoardCollectionViewCell.swift */,
 				6E415B0A2519679F00542A38 /* ShapeCollectionViewCell.swift */,
 				6E9FF92B25200EE5006B5D96 /* ModalBuyBoardView.swift */,
+				6E9FF95F2523CA3B006B5D96 /* ModalBuyShapeView.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -196,6 +205,7 @@
 				6E4FC1012513982400621BD1 /* StoreViewController.swift */,
 				6E9FF9302520B25D006B5D96 /* StoreCollectionViewController.swift */,
 				6E9FF92625200DB2006B5D96 /* ModalBuyBoardViewController.swift */,
+				6E9FF9642523CAA6006B5D96 /* ModalBuyShapeViewController.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -300,6 +310,7 @@
 				6E415B1225196A6100542A38 /* Shape.swift */,
 				6E415B17251971A100542A38 /* Shapes.swift */,
 				6E9FF8F8251E5C9F006B5D96 /* PalletesRepository.swift */,
+				6E9FF95525237BD6006B5D96 /* ShapesRepository.swift */,
 				6E9FF8FD251E6C7F006B5D96 /* Color.swift */,
 			);
 			path = Model;
@@ -352,6 +363,7 @@
 			children = (
 				A2C34EC4251A303C002B73AB /* BoardManager.swift */,
 				6E9FF8D9251CBF0A006B5D96 /* PalletteManager.swift */,
+				6E9FF95A2523C532006B5D96 /* ShapeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -538,6 +550,7 @@
 				6E415B1325196A6100542A38 /* Shape.swift in Sources */,
 				A27F1812251247FE00DC1ADE /* VIew.swift in Sources */,
 				5423279E25138B7D00E9E691 /* MenuViewController.swift in Sources */,
+				6E9FF95B2523C532006B5D96 /* ShapeManager.swift in Sources */,
 				6E9FF9312520B25D006B5D96 /* StoreCollectionViewController.swift in Sources */,
 				A25692BB2514F49200BEBAEB /* AnimatedCircleView.swift in Sources */,
 				A2C34ECA251A39DD002B73AB /* EnumObstacle.swift in Sources */,
@@ -557,6 +570,7 @@
 				6E9FF8ED251E5A30006B5D96 /* FileHelper.swift in Sources */,
 				6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */,
 				6E415B18251971A100542A38 /* Shapes.swift in Sources */,
+				6E9FF95625237BD6006B5D96 /* ShapesRepository.swift in Sources */,
 				6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */,
 				5423279925138A4F00E9E691 /* MenuView.swift in Sources */,
 				A296C08B25138B1B005CC48E /* RoundedButton.swift in Sources */,
@@ -569,8 +583,10 @@
 				5434EEF9251B7801008DEEFA /* GameAnimations.swift in Sources */,
 				A2C34ECF251A3E05002B73AB /* EnumDifficulty.swift in Sources */,
 				6E9FF9422522135A006B5D96 /* BuyContentFromStoreDelegate.swift in Sources */,
+				6E9FF9602523CA3B006B5D96 /* ModalBuyShapeView.swift in Sources */,
 				6E4FC0F0251391F900621BD1 /* Pallettes.swift in Sources */,
 				6E4FC0FD2513980C00621BD1 /* StoreView.swift in Sources */,
+				6E9FF9652523CAA6006B5D96 /* ModalBuyShapeViewController.swift in Sources */,
 				A27F17E2251244D300DC1ADE /* SceneDelegate.swift in Sources */,
 				D77072D02514D6D400619421 /* PauseView.swift in Sources */,
 			);

@@ -9,6 +9,7 @@
 import UIKit
 
 class ShapeCollectionViewCell: UICollectionViewCell {
+    var shape: Shape?
     let roundView: UIView = {
         let round = UIView()
         round.heightAnchor.constraint(equalToConstant: 107).isActive = true
@@ -25,7 +26,7 @@ class ShapeCollectionViewCell: UICollectionViewCell {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "coin")
+        img.image = UIImage(named: "Coin")
         return img
     }()
     let shapeImageView: UIImageView = {
@@ -34,6 +35,7 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         img.widthAnchor.constraint(equalToConstant: 56).isActive = true
         return img
     }()
+    let circle = AnimatedCircleView(lineWidth: 5, circleColor: .systemGreen, shadowColor: .clear)
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(roundView)

@@ -5,7 +5,6 @@
 //  Created by Hiago Chagas on 18/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
 
-
 import UIKit
 
 class BoardCollectionViewCell: UICollectionViewCell {
@@ -26,7 +25,7 @@ class BoardCollectionViewCell: UICollectionViewCell {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "coin")
+        img.image = UIImage(named: "Coin")
         return img
     }()
     let backgroundShape: UIView = {

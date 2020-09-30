@@ -9,5 +9,6 @@
 import Foundation
 
 protocol BuyContentFromStoreDelegate: class {
-    func buyAction(_ indexPath: IndexPath)
+    func buyBoardAction(_ indexPath: IndexPath)
+    func buyShapeAction(_ indexPath: IndexPath)
 }

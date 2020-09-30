@@ -4,7 +4,7 @@
 //
 //  Created by Hiago Chagas on 20/08/20.
 //  Copyright © 2020 Hiago Chagas. All rights reserved.
-//
+// swiftlint:disable control_statement
 import Foundation
 //this is the responsbible for getting the data from sandbox archives
 //also known as FileManager

@@ -1,28 +1,30 @@
 //
-//  ModalBuyBoardViewController.swift
+//  ModalBuyShapeViewController.swift
 //  aquiTemUmNome
 //
-//  Created by Hiago Chagas on 26/09/20.
+//  Created by Hiago Chagas on 29/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
+//
 
 import UIKit
 
-class ModalBuyBoardViewController: UIViewController {
-    let modalBuyBoardView = ModalBuyBoardView()
+class ModalBuyShapeViewController: UIViewController {
+    let modalBuyShapeView = ModalBuyShapeView()
     var indexPath: IndexPath?
     weak var delegate: BuyContentFromStoreDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalBuyBoardView.cancelButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)
-        modalBuyBoardView.buyButton.addTarget(self, action: #selector(buyButtonAction), for: .touchUpInside)
-        self.view = modalBuyBoardView
+        modalBuyShapeView.cancelButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)
+        modalBuyShapeView.buyButton.addTarget(self, action: #selector(buyButtonAction), for: .touchUpInside)
+        self.view = modalBuyShapeView
         // Do any additional setup after loading the view.
     }
     @objc func cancelButtonAction() {
         dismiss(animated: true, completion: nil)
     }
     @objc func buyButtonAction() {
-        delegate?.buyBoardAction(indexPath!)
+        delegate?.buyShapeAction(indexPath!)
         dismiss(animated: true, completion: nil)
     }
+
 }
