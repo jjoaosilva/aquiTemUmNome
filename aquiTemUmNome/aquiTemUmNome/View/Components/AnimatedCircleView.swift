@@ -8,9 +8,13 @@
 
 import UIKit
 
-// swiftlint:disable line_length
+// swiftlint:disable control_statement
+protocol AnimatedCircleViewDelegate: class {
+    func didEndAnimation()
+}
 
 class AnimatedCircleView: UIView {
+    weak var delegate: AnimatedCircleViewDelegate?
 
     let circle: CAShapeLayer = {
         var circle = CAShapeLayer()
@@ -37,8 +41,8 @@ class AnimatedCircleView: UIView {
     private var timeAnimation: Float = 0
     private var colorType: ColorType = .primaryColor
     private var circleColor: ColorType = .primaryColor
-    // TODO: pegar cores da persistencia quando estiver feita
-    let standardPallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
+
+    let standardPallette = PalletteManager().getActivePallette()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -99,8 +103,9 @@ class AnimatedCircleView: UIView {
 
     private func doAnimation(with duration: Float) {
         let animation = configureAnimation(fromValue: 0, toValue: 1, duration: TimeInterval(duration))
-
-        self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
+        if(self.typeAnimation == .infinity) {
+            self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
+        }
         self.circle.add(animation, forKey: "StrokeEnd")
     }
 
@@ -150,11 +155,13 @@ class AnimatedCircleView: UIView {
 extension AnimatedCircleView: CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-
         switch self.typeAnimation {
         case .complete:
             self.typeAnimation = .idle
             self.timeAnimation = 0
+//            aqui termina a animação
+            self.delegate?.didEndAnimation()
+
         case .infinity:
             self.configureColors()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

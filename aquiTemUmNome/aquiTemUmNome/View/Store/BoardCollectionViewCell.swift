@@ -4,11 +4,11 @@
 //
 //  Created by Hiago Chagas on 18/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-//
 
 import UIKit
 
 class BoardCollectionViewCell: UICollectionViewCell {
+    var pallete: ColorPallette?
     let roundView: UIView = {
         let round = UIView()
         round.heightAnchor.constraint(equalToConstant: 107).isActive = true
@@ -25,7 +25,7 @@ class BoardCollectionViewCell: UICollectionViewCell {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "coin")
+        img.image = UIImage(named: "Coin")
         return img
     }()
     let backgroundShape: UIView = {
@@ -41,11 +41,12 @@ class BoardCollectionViewCell: UICollectionViewCell {
     let fourthView = UIView()
     let fifthView = UIView()
     let stackView = UIStackView()
+    let circle = AnimatedCircleView(lineWidth: 5, circleColor: .systemGreen, shadowColor: .clear)
     func setupView() {
         addSubview(roundView)
         roundView.translatesAutoresizingMaskIntoConstraints = false
-        roundView.leftAnchor.constraint(equalTo: super.leftAnchor, constant: 10).isActive = true
-        roundView.topAnchor.constraint(equalTo: super.topAnchor, constant: 10).isActive = true
+        roundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        roundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         addSubview(coinsLabel)
         coinsLabel.translatesAutoresizingMaskIntoConstraints = false
         coinsLabel.topAnchor.constraint(equalTo: roundView.bottomAnchor, constant: 8).isActive = true

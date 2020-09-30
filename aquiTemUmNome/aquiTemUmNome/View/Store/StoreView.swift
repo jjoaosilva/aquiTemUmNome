@@ -26,7 +26,7 @@ class StoreView: UIView {
     }()
     let coinImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "coin")
+        img.image = UIImage(named: "Coin")
         return img
     }()
     let tableView: UITableView = {
@@ -38,7 +38,7 @@ class StoreView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(backButton)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .systemGray6
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true

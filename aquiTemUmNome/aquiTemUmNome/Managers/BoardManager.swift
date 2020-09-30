@@ -9,33 +9,46 @@
 import Foundation
 import UIKit
 
+// swiftlint:disable line_length
+
 class BoardManager {
 
     private let screenWidth: CGFloat
     private var xPositions: [CGFloat]
     private var obstacleWidth: CGFloat
     private var dificulty: Difficulty
+    var charactersPositions: [CGFloat]
+    var position: Int = 2
+    var lastPosition: Int = 0
 
-    // TODO: pegar cores da persistencia quando estiver feita
-    let standardPallette = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
+    let standardPallette = PalletteManager().getActivePallette()
 
     init(screenWidth: CGFloat) {
         self.screenWidth = screenWidth
         self.obstacleWidth = screenWidth/5
         self.xPositions = [CGFloat]()
+        self.charactersPositions = [CGFloat]()
         self.dificulty = .easy
 
         for position in 0...4 {
-            xPositions.append(CGFloat(position) * self.obstacleWidth)
+            let leading = CGFloat(position) * self.obstacleWidth
+            xPositions.append(leading)
+
+            let characterPosition = (leading + obstacleWidth*CGFloat(position + 1))/2 // Calculo dos centros
+            charactersPositions.append(characterPosition - (screenWidth*0.1)/2) // Calculo dos centros - desconto do tamano do obstaculo
         }
     }
 
     private func isPrime(_ number: Int) -> Bool {
         return number > 1 && !(2..<number).contains { number % $0 == 0 }
     }
-    
+
     func getDificultt() -> Difficulty {
         return self.dificulty
+    }
+
+    func setDificultt(difficulty: Difficulty) {
+        self.dificulty = difficulty
     }
 
     func getObstacleWidth() -> CGFloat {
@@ -51,8 +64,16 @@ class BoardManager {
     }
 
     func getRandomPosition() -> CGFloat {
-        let randomPosition = Int.random(in: 0...4)
+        var randomPosition = Int.random(in: 0...4)
 
+        if lastPosition == randomPosition {
+            if randomPosition + 1 > 4 {
+                randomPosition -= 1
+            } else {
+                randomPosition += 1
+            }
+        }
+        lastPosition = randomPosition
         return self.xPositions[randomPosition]
     }
 
@@ -85,15 +106,21 @@ class BoardManager {
 
         return self.isPrime(randomNumber) ? .switchColor : .regular
     }
-    
-    func manageDificulty(with score: Int) {
-        switch score {
-        case 0...50:
-            self.dificulty = .easy
-        case 51...150:
-            self.dificulty = .normal
-        default:
-            self.dificulty = .hard
+
+    func moveCharacter(movement: Movement, xCurrent: CGFloat) -> CGFloat {
+        switch movement {
+        case .left:
+            let newPosition = position - 1
+            if newPosition >= 0 {
+                position = newPosition
+            }
+        case .right:
+            let newPosition = position + 1
+
+            if newPosition <= 4 {
+                position = newPosition
+            }
         }
+        return charactersPositions[position]
     }
 }

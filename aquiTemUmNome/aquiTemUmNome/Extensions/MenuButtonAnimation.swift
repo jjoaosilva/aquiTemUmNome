@@ -8,6 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable line_length
+
 extension UIButton {
 
     func startAnimatingPressActions() {

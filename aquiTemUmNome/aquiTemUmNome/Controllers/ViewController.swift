@@ -8,7 +8,7 @@
 
 import UIKit
 
-// swiftlint:disable line_length unused_optional_binding identifier_name
+// swiftlint:disable line_length identifier_name
 
 class ViewController: UIViewController, UICollisionBehaviorDelegate {
 
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         view.addSubview(ball)
 
         animator = UIDynamicAnimator(referenceView: view)
-        box.addObstacleAnimation(animator: animator, acceleration: 0.1)
+//        box.addObstacleAnimation(animator: animator, acceleration: 0.1)
         ball.addMoveBallAnimation(newX: 170, newY: 500)
 
         collider = ball.addCollisionAnimation(animator: animator, items: [ball, box])
