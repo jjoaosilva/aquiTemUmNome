@@ -4,14 +4,14 @@
 //
 //  Created by Hiago Chagas on 17/09/20.
 //  Copyright © 2020 aquiTemUmNomeOrganization. All rights reserved.
-//  swiftlint:disable force_cast control_statement 
+//  swiftlint:disable force_cast line_length control_statement
 
 import UIKit
 
 class StoreViewController: UIViewController {
     let storeView = StoreView()
-    let palletes = PallettesRepository().readAllItems()
-    let shapes = ShapesRepository().readAllItems()
+    let palletes = Palletes()
+    let shapes = Shapes()
     override func viewDidLoad() {
         super.viewDidLoad()
         storeView.tableView.delegate = self
@@ -19,15 +19,12 @@ class StoreViewController: UIViewController {
         storeView.tableView.bounces = false
         storeView.tableView.separatorStyle = .none
         self.view = storeView
-        storeView.backButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
+        //mockup
+        let standardPallete = ColorPallette(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .systemPurple)
+        palletes.addPallete(pallette: standardPallete)
+        shapes.mockup()
     }
-    @objc func backMenu() {
-        let menuController = UINavigationController(rootViewController: MenuViewController())
-        menuController.modalPresentationStyle = .fullScreen
-        menuController.isNavigationBarHidden = true
-        menuController.modalTransitionStyle = .crossDissolve
-        present(menuController, animated: true, completion: nil)
-    }
+
 }
 extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,11 +57,11 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! StoreTableViewCell
-        cell.collectionViewController.section = indexPath.section
+        cell.section = indexPath.section
         if(indexPath.section == 1) {
-            cell.collectionViewController.palletes = palletes
+            cell.palletes = palletes.getPalletts()
         } else {
-            cell.collectionViewController.shapes = shapes
+            cell.shapes = shapes.getShapes()
         }
         cell.backgroundColor = .clear
         return cell

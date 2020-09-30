@@ -38,7 +38,7 @@ class StoreView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(backButton)
-        self.backgroundColor = .systemGray6
+        self.backgroundColor = .systemBackground
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true

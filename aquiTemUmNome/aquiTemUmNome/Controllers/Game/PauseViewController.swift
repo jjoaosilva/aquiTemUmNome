@@ -12,7 +12,7 @@ class PauseViewController: UIViewController {
     let pauseView = PauseView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = pauseView     
+        self.view = pauseView
         pauseView.muteButton.addTarget(self, action: #selector(self.muteGame), for: .touchUpInside)
         pauseView.homeButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
         pauseView.playButton.addTarget(self, action: #selector(self.backGame), for: .touchUpInside)

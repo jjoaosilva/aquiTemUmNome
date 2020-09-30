@@ -12,7 +12,6 @@ enum Difficulty {
     case easy
     case normal
     case hard
-    
     var gravity: Float {
         switch self {
         case .easy:

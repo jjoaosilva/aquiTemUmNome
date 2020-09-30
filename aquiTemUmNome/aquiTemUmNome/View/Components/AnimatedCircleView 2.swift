@@ -8,14 +8,10 @@
 
 import UIKit
 
-// swiftlint:disable line_length control_statement
-protocol AnimatedCircleViewDelegate: class {
-    func didEndAnimation()
-}
+// swiftlint:disable line_length
 
 class AnimatedCircleView: UIView {
-    weak var delegate: AnimatedCircleViewDelegate?
-    
+
     let circle: CAShapeLayer = {
         var circle = CAShapeLayer()
         circle.strokeColor = UIColor.systemYellow.cgColor
@@ -103,9 +99,8 @@ class AnimatedCircleView: UIView {
 
     private func doAnimation(with duration: Float) {
         let animation = configureAnimation(fromValue: 0, toValue: 1, duration: TimeInterval(duration))
-        if(self.typeAnimation == .infinity) {
-            self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
-        }
+
+        self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
         self.circle.add(animation, forKey: "StrokeEnd")
     }
 
@@ -155,12 +150,11 @@ class AnimatedCircleView: UIView {
 extension AnimatedCircleView: CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+
         switch self.typeAnimation {
         case .complete:
             self.typeAnimation = .idle
             self.timeAnimation = 0
-//            aqui termina a animação
-            self.delegate?.didEndAnimation()
         case .infinity:
             self.configureColors()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
