@@ -36,7 +36,7 @@ class PauseView: UIView {
         return playButton
     }()
     let homeButton: UIButton = {
-        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemPurple, tintColor: .label)
+        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: PalletteManager().getActivePallette().getColor(option: .fifthColor), tintColor: .label)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.startAnimatingPressActions()
         return homeButton
@@ -45,9 +45,9 @@ class PauseView: UIView {
         let status = UserDefaults.standard.bool(forKey: "mute")
         let muteButton: UIButton
         if status {
-            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
+            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: PalletteManager().getActivePallette().getColor(option: .secondaryColor), tintColor: .label)
         } else {
-            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
+            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: PalletteManager().getActivePallette().getColor(option: .secondaryColor), tintColor: .label)
         }
         muteButton.translatesAutoresizingMaskIntoConstraints = false
         muteButton.startAnimatingPressActions()
@@ -56,17 +56,28 @@ class PauseView: UIView {
     func updateMute() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
+            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: (Int(muteButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
         } else {
-            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: 24, weightIcon: .regular, tintColor: .label)
+            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: (Int(muteButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
         }
     }
     let restartButton: UIButton = {
-        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemGreen, tintColor: .label)
+        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: PalletteManager().getActivePallette().getColor(option: .fourthColor), tintColor: .label)
         restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.startAnimatingPressActions()
         return restartButton
     }()
+    func updateCornerRadius() {
+        muteButton.layer.cornerRadius = muteButton.bounds.size.width / 2
+        homeButton.layer.cornerRadius = homeButton.bounds.size.width / 2
+        restartButton.layer.cornerRadius = restartButton.bounds.size.width / 2
+        playButton.layer.cornerRadius = playButton.bounds.size.width / 2
+
+        playButton.setCustomIcon(nameIcon: "play.fill", sizeIcon: (Int(playButton.bounds.size.width) / 2) + 5, weightIcon: .regular, tintColor: .label)
+        homeButton.setCustomIcon(nameIcon: "house", sizeIcon: (Int(homeButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
+        restartButton.setCustomIcon(nameIcon: "arrow.counterclockwise", sizeIcon: (Int(homeButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
+        updateMute()
+    }
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addSubview(modal)
@@ -76,6 +87,7 @@ class PauseView: UIView {
         self.addSubview(muteButton)
         self.addSubview(restartButton)
         setupConstraint()
+        updateCornerRadius()
     }
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -91,29 +103,29 @@ class PauseView: UIView {
             //            play
             playButton.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: modal.centerYAnchor, constant: -39.5),
-            playButton.heightAnchor.constraint(equalToConstant: playButton.bounds.size.height),
-            playButton.widthAnchor.constraint(equalToConstant: playButton.bounds.size.width),
+//            playButton.heightAnchor.constraint(equalToConstant: playButton.bounds.size.height),
+//            playButton.widthAnchor.constraint(equalToConstant: playButton.bounds.size.width),
+            playButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.351),
+            playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor),
             //            circle
             circle.centerXAnchor.constraint(equalTo: playButton.centerXAnchor),
             circle.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
             circle.heightAnchor.constraint(equalTo: playButton.heightAnchor),
             //            home
-            homeButton.heightAnchor.constraint(greaterThanOrEqualToConstant: homeButton.bounds.size.height),
-            homeButton.widthAnchor.constraint(equalToConstant: homeButton.bounds.size.width),
+            homeButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.207),
+            homeButton.widthAnchor.constraint(equalTo: homeButton.heightAnchor),
             homeButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 17),
             homeButton.leadingAnchor.constraint(equalTo: modal.leadingAnchor, constant: 28),
             //            speaker
-            muteButton.heightAnchor.constraint(equalToConstant: muteButton.bounds.size.height),
-            muteButton.widthAnchor.constraint(equalToConstant: muteButton.bounds.size.width),
-            //            speakerButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.207),
-            //            speakerButton.widthAnchor.constraint(equalTo: speakerButton.heightAnchor),
+                        muteButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.207),
+                        muteButton.widthAnchor.constraint(equalTo: muteButton.heightAnchor),
             muteButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 45),
             muteButton.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
             //            restart
-            restartButton.heightAnchor.constraint(greaterThanOrEqualToConstant: restartButton.bounds.size.height),
-            restartButton.widthAnchor.constraint(equalToConstant: restartButton.bounds.size.width),
+            restartButton.heightAnchor.constraint(equalTo: modal.heightAnchor, multiplier: 0.207),
+            restartButton.widthAnchor.constraint(equalTo: restartButton.heightAnchor),
             restartButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 17),
-            restartButton.leadingAnchor.constraint(greaterThanOrEqualTo: muteButton.trailingAnchor, constant: 19),
+//            restartButton.leadingAnchor.constraint(greaterThanOrEqualTo: muteButton.trailingAnchor, constant: 19),
             restartButton.trailingAnchor.constraint(equalTo: modal.trailingAnchor, constant: -28)
         ])
     }

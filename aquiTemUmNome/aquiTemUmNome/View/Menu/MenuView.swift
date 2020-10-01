@@ -169,6 +169,6 @@ class MenuView: UIView {
             circle.heightAnchor.constraint(equalTo: self.playButton.heightAnchor)
         ])
 
-        self.circle.infinityAnimation(durationPerCycle: 3)
+        self.circle.infinityAnimation(durationPerCycle: 2)
     }
 }

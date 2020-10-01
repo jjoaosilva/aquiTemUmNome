@@ -69,7 +69,7 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             cell.circle.centerYAnchor.constraint(equalTo: cell.roundView.centerYAnchor),
             cell.circle.heightAnchor.constraint(equalTo: cell.roundView.heightAnchor)
         ])
-        cell.circle.completeAnimation(with: 0.8)
+        cell.circle.completeAnimation(with: 0.5)
     }
     func deanimateBoardCollectionView() {
         for row in 0..<collectionView.numberOfItems(inSection: 0) {
@@ -85,7 +85,7 @@ class StoreCollectionViewController: UICollectionViewController, UICollectionVie
             cell.circle.centerYAnchor.constraint(equalTo: cell.roundView.centerYAnchor),
             cell.circle.heightAnchor.constraint(equalTo: cell.roundView.heightAnchor)
         ])
-        cell.circle.completeAnimation(with: 0.8)
+        cell.circle.completeAnimation(with: 0.5)
     }
     func deanimateShapeCollectionView() {
         for row in 0..<collectionView.numberOfItems(inSection: 0) {

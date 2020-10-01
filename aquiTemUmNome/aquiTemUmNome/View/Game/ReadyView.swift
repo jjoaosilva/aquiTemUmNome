@@ -11,7 +11,22 @@ import UIKit
 class ReadyView: UIView {
 
     let circle: AnimatedCircleView = {
-        let color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
+        let random = Int.random(in: 1...5)
+        let color: UIColor
+        switch random{
+        case 1:
+            color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
+        case 2:
+            color = PalletteManager().getActivePallette().getColor(option: .secondaryColor)
+        case 3:
+            color = PalletteManager().getActivePallette().getColor(option: .thirdColor)
+        case 4:
+            color = PalletteManager().getActivePallette().getColor(option: .fourthColor)
+        case 5:
+            color = PalletteManager().getActivePallette().getColor(option: .fifthColor)
+        default:
+            color = .systemTeal
+        }
         let circle = AnimatedCircleView(lineWidth: 5, circleColor: color, shadowColor: .clear)
         circle.translatesAutoresizingMaskIntoConstraints = false
         circle.completeAnimation(with: 3)
