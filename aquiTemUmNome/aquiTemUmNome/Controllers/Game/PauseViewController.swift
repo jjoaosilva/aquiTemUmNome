@@ -10,6 +10,9 @@ import UIKit
 
 class PauseViewController: UIViewController {
     let pauseView = PauseView()
+    let musicManager = MusicManager.shared
+    weak var delegate: PauseDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = pauseView
@@ -18,9 +21,13 @@ class PauseViewController: UIViewController {
         pauseView.playButton.addTarget(self, action: #selector(self.backGame), for: .touchUpInside)
         pauseView.restartButton.addTarget(self, action: #selector(self.restartGame), for: .touchUpInside)
     }
+
     @objc func backGame() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.delegate?.returnGame()
+        })
     }
+
     @objc func backMenu() {
         let menuController = UINavigationController(rootViewController: MenuViewController())
         menuController.modalPresentationStyle = .fullScreen
@@ -28,6 +35,7 @@ class PauseViewController: UIViewController {
         menuController.modalTransitionStyle = .crossDissolve
         present(menuController, animated: true, completion: nil)
     }
+
     @objc func muteGame() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
@@ -37,6 +45,7 @@ class PauseViewController: UIViewController {
         }
         pauseView.updateMute()
     }
+
     @objc func restartGame() {
         let restartController = UINavigationController(rootViewController: ReadyViewController())
         restartController.modalPresentationStyle = .fullScreen

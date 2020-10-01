@@ -46,7 +46,9 @@ class GameScreenView: UIView {
 
     var collider: UICollisionBehavior = UICollisionBehavior()
 
-    var allObstacles: [UICollisionBehavior] = [UICollisionBehavior]()
+    var allObstaclesColliders: [UICollisionBehavior] = [UICollisionBehavior]()
+    var allObstaclesGravities: [UIGravityBehavior] = [UIGravityBehavior]()
+    
     weak var delegate: UICollisionBehaviorDelegate?
     var constraintsHasBeenSeted: Bool = false
 
@@ -123,12 +125,24 @@ class GameScreenView: UIView {
 
         self.addSubview(obstacle)
         obstacle.frame = CGRect(x: position, y: -size, width: size, height: size)
-        obstacle.addObstacleAnimation(animator: animator, acceleration: acceleration)
+        let gravityBehavior = obstacle.addObstacleAnimation(animator: animator, acceleration: acceleration)
+        self.allObstaclesGravities.append(gravityBehavior)
 
         self.collider = self.character.addCollisionAnimation(animator: animator, items: [self.character, obstacle])
 
         collider.collisionDelegate = self.delegate!
-        self.allObstacles.append(collider)
+        self.allObstaclesColliders.append(collider)
+    }
+
+    func removeBehaviorsObstacle(animator: UIDynamicAnimator) {
+        animator.removeAllBehaviors()
+    }
+
+    func addBehaviorsObstacle(animator: UIDynamicAnimator) {
+        for index in 0..<self.allObstaclesColliders.count {
+            animator.addBehavior(self.allObstaclesGravities[index])
+            animator.addBehavior(self.allObstaclesColliders[index])
+        }
     }
 
     override init(frame: CGRect) {
@@ -146,13 +160,13 @@ extension GameScreenView {
 
         let yPosition = self.bounds.size.height - self.bounds.size.height*0.05 - self.character.bounds.size.width
 
-        for behavior in self.allObstacles {
+        for behavior in self.allObstaclesColliders {
             animator.removeBehavior(behavior)
         }
 
        self.character.addMoveBallAnimation(newX: xPosition, newY: Int(yPosition))
 
-        for behavior in self.allObstacles {
+        for behavior in self.allObstaclesColliders {
             animator.addBehavior(behavior)
         }
     }

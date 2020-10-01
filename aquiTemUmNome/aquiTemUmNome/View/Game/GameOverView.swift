@@ -17,6 +17,7 @@ class GameOverView: UIView {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return blurEffectView
     }()
+
     let modal: UIView = {
         let modalView = UIView()
         modalView.backgroundColor = .systemGray5
@@ -24,6 +25,7 @@ class GameOverView: UIView {
         modalView.translatesAutoresizingMaskIntoConstraints = false
         return modalView
     }()
+
     func modalConstraints() {
         NSLayoutConstraint.activate([
             modal.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -32,6 +34,7 @@ class GameOverView: UIView {
             modal.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4)
         ])
     }
+
     let gameOverLabel: UILabel = {
         let label = UILabel()
         label.text = "GAME OVER"
@@ -40,6 +43,7 @@ class GameOverView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+
     func gameOverLabelConstraints() {
         NSLayoutConstraint.activate([
             gameOverLabel.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
@@ -47,6 +51,7 @@ class GameOverView: UIView {
 //            gameOverLabel.topAnchor.constraint(equalTo: modal.topAnchor, constant: 17)
         ])
     }
+
     let finalScore: UILabel = {
         let score = UILabel()
         score.text = "SCORE: 15"
@@ -55,32 +60,38 @@ class GameOverView: UIView {
         score.translatesAutoresizingMaskIntoConstraints = false
         return score
     }()
+
     func finalScoreConstraints() {
         NSLayoutConstraint.activate([
             finalScore.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
             finalScore.centerYAnchor.constraint(equalTo: modal.centerYAnchor, constant: -44)
         ])
     }
+
     let bestScore: UILabel = {
         let score = UILabel()
-        score.text = "BEST: 15"
+        score.text = ""
         score.font = .systemFont(ofSize: 29, weight: .semibold)
         score.textColor = .label
         score.translatesAutoresizingMaskIntoConstraints = false
         return score
     }()
+
     func bestScoreConstraints() {
         NSLayoutConstraint.activate([
             bestScore.centerXAnchor.constraint(equalTo: modal.centerXAnchor),
             bestScore.centerYAnchor.constraint(equalTo: modal.centerYAnchor, constant: -13)
         ])
     }
+
     let homeButton: UIButton = {
-        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemPurple, tintColor: .label)
+        let color = PalletteManager().getActivePallette().getColor(option: .fifthColor)
+        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.startAnimatingPressActions()
         return homeButton
     }()
+
     func homeConstraints() {
         NSLayoutConstraint.activate([
             homeButton.heightAnchor.constraint(greaterThanOrEqualToConstant: homeButton.bounds.size.height),
@@ -89,12 +100,15 @@ class GameOverView: UIView {
             homeButton.trailingAnchor.constraint(equalTo: modal.centerXAnchor, constant: -8)
         ])
     }
+
     let restartButton: UIButton = {
-        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemGreen, tintColor: .label)
+        let color = PalletteManager().getActivePallette().getColor(option: .fourthColor)
+        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
         restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.startAnimatingPressActions()
         return restartButton
     }()
+
     func restartConstraints() {
         NSLayoutConstraint.activate([
             restartButton.heightAnchor.constraint(greaterThanOrEqualToConstant: restartButton.bounds.size.height),
@@ -104,6 +118,7 @@ class GameOverView: UIView {
 
         ])
     }
+
     override func layoutSubviews() {
         addSubview(blur)
         addSubview(modal)
@@ -119,10 +134,12 @@ class GameOverView: UIView {
         homeConstraints()
         restartConstraints()
     }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

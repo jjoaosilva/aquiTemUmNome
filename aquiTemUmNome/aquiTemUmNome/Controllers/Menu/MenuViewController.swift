@@ -24,6 +24,7 @@ class MenuViewController: UIViewController {
         self.view = menuView
         musicManager.playIntro()
     }
+
     @objc func playGame() {
         let readyController = UINavigationController(rootViewController: ReadyViewController())
         readyController.modalPresentationStyle = .fullScreen
@@ -31,6 +32,7 @@ class MenuViewController: UIViewController {
         readyController.modalTransitionStyle = .crossDissolve
         present(readyController, animated: true, completion: nil)
     }
+
     @objc func muteGame() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {

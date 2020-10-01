@@ -36,18 +36,20 @@ class PauseView: UIView {
         return playButton
     }()
     let homeButton: UIButton = {
-        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemPurple, tintColor: .label)
+        let color = PalletteManager().getActivePallette().getColor(option: .fifthColor)
+        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.startAnimatingPressActions()
         return homeButton
     }()
     let muteButton: UIButton = {
+        let color = PalletteManager().getActivePallette().getColor(option: .secondaryColor)
         let status = UserDefaults.standard.bool(forKey: "mute")
         let muteButton: UIButton
         if status {
-            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
+            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
         } else {
-            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemBlue, tintColor: .label)
+            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
         }
         muteButton.translatesAutoresizingMaskIntoConstraints = false
         muteButton.startAnimatingPressActions()
@@ -62,7 +64,8 @@ class PauseView: UIView {
         }
     }
     let restartButton: UIButton = {
-        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: .systemGreen, tintColor: .label)
+        let color = PalletteManager().getActivePallette().getColor(option: .fourthColor)
+        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
         restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.startAnimatingPressActions()
         return restartButton

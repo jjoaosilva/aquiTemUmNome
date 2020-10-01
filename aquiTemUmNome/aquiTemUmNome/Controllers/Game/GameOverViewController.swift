@@ -9,13 +9,19 @@
 import UIKit
 
 class GameOverViewController: UIViewController {
-    let gameOver = GameOverView()
+    var gameOver = GameOverView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = gameOver
         gameOver.homeButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
         gameOver.restartButton.addTarget(self, action: #selector(self.restartGame), for: .touchUpInside)
     }
+
+    func setupScore(with score: Int) {
+        self.gameOver.finalScore.text = "SCORE: \(score)"
+    }
+
     @objc func backMenu() {
         let menuController = UINavigationController(rootViewController: MenuViewController())
         menuController.modalPresentationStyle = .fullScreen
@@ -23,10 +29,11 @@ class GameOverViewController: UIViewController {
         menuController.modalTransitionStyle = .crossDissolve
         present(menuController, animated: true, completion: nil)
     }
+
     @objc func restartGame() {
-        let restartController = UINavigationController(rootViewController: GameScreenViewController())
+        let restartController = UINavigationController(rootViewController: ReadyViewController())
         restartController.modalPresentationStyle = .fullScreen
         restartController.isNavigationBarHidden = true
         present(restartController, animated: true, completion: nil)
     }
-    }
+}

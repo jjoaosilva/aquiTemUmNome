@@ -26,6 +26,7 @@ class ReadyView: UIView {
         ready.translatesAutoresizingMaskIntoConstraints = false
         return ready
     }()
+
     func constraints() {
         NSLayoutConstraint.activate([
             ready.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -47,9 +48,11 @@ class ReadyView: UIView {
         circle.delegate = delegate
         self.backgroundColor = .systemGray6
     }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

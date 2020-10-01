@@ -12,12 +12,14 @@ import UIKit
 
 extension UIView {
 
-    func addObstacleAnimation(animator: UIDynamicAnimator, acceleration: CGFloat) {
+    func addObstacleAnimation(animator: UIDynamicAnimator, acceleration: CGFloat) -> UIGravityBehavior {
         var gravityBehavior: UIGravityBehavior!
 
         gravityBehavior = UIGravityBehavior(items: [self])
         gravityBehavior.setAngle(3.14/2, magnitude: acceleration)
         animator.addBehavior(gravityBehavior)
+        
+        return gravityBehavior
     }
 
     func addCollisionAnimation(animator: UIDynamicAnimator, items: [UIView]) -> UICollisionBehavior {

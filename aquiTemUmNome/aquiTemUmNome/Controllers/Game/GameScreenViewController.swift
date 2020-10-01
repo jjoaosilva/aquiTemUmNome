@@ -29,6 +29,8 @@ class GameScreenViewController: UIViewController {
         gameView.rightView.addGestureRecognizer(singleTapRight)
         gameView.rightView.isUserInteractionEnabled = true
 
+        gameView.pause.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
+
         gameView.delegate = self
         return gameView
     }()
@@ -46,6 +48,9 @@ class GameScreenViewController: UIViewController {
             switch score {
             case 0...50:
                 self.boardManager?.setDificultt(difficulty: .easy)
+                if score == 0 {
+                    musicManager.playIntro()
+                }
             case 51...100:
                 self.boardManager?.setDificultt(difficulty: .normal)
                 if score == 52 {
@@ -72,14 +77,23 @@ class GameScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = mainView
-        mainView.pause.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
     }
+
     @objc func pauseGame() {
-        let pauseController = UINavigationController(rootViewController: PauseViewController())
+        self.pauseTimer()
+
+        self.mainView.removeBehaviorsObstacle(animator: self.animator)
+        musicManager.stopMusic()
+
+        let pauseViewController = PauseViewController()
+        pauseViewController.delegate = self
+
+        let pauseController = UINavigationController(rootViewController: pauseViewController)
         pauseController.modalPresentationStyle = .overFullScreen
         pauseController.isNavigationBarHidden = true
         present(pauseController, animated: true, completion: nil)
     }
+
     override func viewWillAppear(_ animated: Bool) {
         self.boardManager = BoardManager(screenWidth: self.view.bounds.size.width)
     }
@@ -109,6 +123,11 @@ class GameScreenViewController: UIViewController {
         isTimerRunning = false
     }
 
+    func pauseTimer() {
+        timer.invalidate()
+        isTimerRunning = false
+    }
+
     @objc func updateTimer() {
         self.createObstacle()
         self.score += 2
@@ -132,6 +151,32 @@ class GameScreenViewController: UIViewController {
 extension GameScreenViewController: UICollisionBehaviorDelegate {
     func collisionBehavior(_ behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, with item2: UIDynamicItem) {
         self.cancelTimer()
-        // TODO - Colocar aqui o push do game over
+
+        let gameOverController = GameOverViewController()
+        gameOverController.setupScore(with: self.score)
+
+        let gameNavigationController = UINavigationController(rootViewController: gameOverController)
+        gameNavigationController.modalPresentationStyle = .overFullScreen
+        gameNavigationController.isNavigationBarHidden = true
+        present(gameNavigationController, animated: true, completion: nil)
+
+    }
+}
+
+extension GameScreenViewController: PauseDelegate {
+    func returnGame() {
+        self.mainView.addBehaviorsObstacle(animator: self.animator)
+        self.playTimer()
+        isTimerRunning = true
+
+        let dificult = self.boardManager?.getDificultt()
+        switch dificult! {
+        case .easy:
+            self.musicManager.playIntro()
+        case .normal:
+            self.musicManager.playEasyMusic()
+        case .hard:
+            self.musicManager.playMediumMusic()
+        }
     }
 }
