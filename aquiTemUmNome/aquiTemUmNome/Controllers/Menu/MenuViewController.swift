@@ -53,6 +53,12 @@ class MenuViewController: UIViewController {
         storeController.modalPresentationStyle = .fullScreen
         storeController.isNavigationBarHidden = true
         storeController.modalTransitionStyle = .crossDissolve
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
         present(storeController, animated: true, completion: nil)
     }
 }

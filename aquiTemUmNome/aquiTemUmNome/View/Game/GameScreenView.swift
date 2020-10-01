@@ -11,8 +11,22 @@ import UIKit
 
 class GameScreenView: UIView {
     lazy var character: CharacterView = {
-        let color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
-
+        let random = Int.random(in: 1...5)
+        let color: UIColor
+        switch random{
+        case 1:
+            color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
+        case 2:
+            color = PalletteManager().getActivePallette().getColor(option: .secondaryColor)
+        case 3:
+            color = PalletteManager().getActivePallette().getColor(option: .thirdColor)
+        case 4:
+            color = PalletteManager().getActivePallette().getColor(option: .fourthColor)
+        case 5:
+            color = PalletteManager().getActivePallette().getColor(option: .fifthColor)
+        default:
+            color = .systemTeal
+        }
         let charView = CharacterView(cor: color, screenWidth: self.bounds.size.width)
         charView.translatesAutoresizingMaskIntoConstraints = false
         return charView
