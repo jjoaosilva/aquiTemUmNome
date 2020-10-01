@@ -18,7 +18,6 @@ extension UIView {
         gravityBehavior = UIGravityBehavior(items: [self])
         gravityBehavior.setAngle(3.14/2, magnitude: acceleration)
         animator.addBehavior(gravityBehavior)
-        
         return gravityBehavior
     }
 

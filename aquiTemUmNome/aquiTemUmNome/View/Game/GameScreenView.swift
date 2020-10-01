@@ -13,7 +13,7 @@ class GameScreenView: UIView {
     lazy var character: CharacterView = {
         let random = Int.random(in: 1...5)
         let color: UIColor
-        switch random{
+        switch random {
         case 1:
             color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
         case 2:
@@ -62,7 +62,6 @@ class GameScreenView: UIView {
 
     var allObstaclesColliders: [UICollisionBehavior] = [UICollisionBehavior]()
     var allObstaclesGravities: [UIGravityBehavior] = [UIGravityBehavior]()
-    
     weak var delegate: UICollisionBehaviorDelegate?
     var constraintsHasBeenSeted: Bool = false
 
