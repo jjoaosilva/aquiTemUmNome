@@ -26,7 +26,7 @@ class PauseView: UIView {
     let circle: AnimatedCircleView = {
         let circle = AnimatedCircleView(lineWidth: 5)
         circle.translatesAutoresizingMaskIntoConstraints = false
-        circle.infinityAnimation(durationPerCycle: 3)
+        circle.infintyOpacity(durationPerCycle: 3)
         return circle
     }()
     let playButton: UIButton = {

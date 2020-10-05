@@ -101,12 +101,30 @@ class AnimatedCircleView: UIView {
         return basicAnimation
     }
 
+    private func configureOpacityAnimation(duration: CFTimeInterval) -> CABasicAnimation {
+        let basicAnimation = CABasicAnimation(keyPath: "opacity")
+        basicAnimation.fromValue = 0
+        basicAnimation.toValue = 1
+        basicAnimation.duration = duration
+        basicAnimation.fillMode = .forwards
+        basicAnimation.isRemovedOnCompletion = false
+        basicAnimation.delegate = self
+
+        return basicAnimation
+    }
+
     private func doAnimation(with duration: Float) {
         let animation = configureAnimation(fromValue: 0, toValue: 1, duration: TimeInterval(duration))
         if(self.typeAnimation == .infinity) {
             self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
         }
         self.circle.add(animation, forKey: "StrokeEnd")
+    }
+
+    private func doOpacityAnimation(with duration: Float) {
+        let animation = configureOpacityAnimation(duration: TimeInterval(duration))
+        self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
+        self.circle.add(animation, forKey: "opacity")
     }
 
     private func handleColors(circleColor: ColorType, shadowColor: ColorType) {
@@ -150,6 +168,14 @@ class AnimatedCircleView: UIView {
         self.configureColors()
         self.doAnimation(with: self.timeAnimation)
     }
+
+    func infintyOpacity(durationPerCycle time: Float) {
+        self.typeAnimation = .opacity
+        self.timeAnimation = time
+
+        self.configureColors()
+        self.doOpacityAnimation(with: time)
+    }
 }
 
 extension AnimatedCircleView: CAAnimationDelegate {
@@ -166,6 +192,11 @@ extension AnimatedCircleView: CAAnimationDelegate {
             self.configureColors()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.doAnimation(with: self.timeAnimation)
+            }
+        case .opacity:
+            self.configureColors()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.doOpacityAnimation(with: self.timeAnimation)
             }
         case .idle:
             return
