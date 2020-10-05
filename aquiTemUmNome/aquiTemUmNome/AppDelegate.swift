@@ -13,8 +13,24 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let defaults = UserDefaults.standard
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if UserDefaults.standard.bool(forKey: "First Launch") == false {
+            defaults.set(false, forKey: "mute")
+            //palletes mockup
+            let standardPallette = PallettesRepository().createNewItem(primaryColor: .systemRed, secondaryColor: .systemBlue, thirdColor: .systemOrange, fourthColor: .systemGreen, fifthColor: .magenta, boughtState: true)
+            _ = PallettesRepository().createNewItem(primaryColor: .customLightBlue, secondaryColor: .customMossGreen, thirdColor: .customOrange, fourthColor: .customDarkBlue, fifthColor: .customPink)
+            //shapes mockup
+            let ball = ShapesRepository().createNewItem(name: "Ball", symbol: "circle.fill", price: 50, boughtState: true)
+            _ = ShapesRepository().createNewItem(name: "Star", symbol: "star.fill", price: 90)
+            _ = ShapesRepository().createNewItem(name: "Shield", symbol: "shield.fill", price: 80)
+            _ = ShapesRepository().createNewItem(name: "Hexagon", symbol: "hexagon.fill", price: 70)
+            _ = PalletteManager().setActivePallete(palleteID: standardPallette.getID().uuidString)
+            _ = ShapeManager().setActiveShape(shapeID: ball.getID().uuidString)
+        }
+        UserDefaults.standard.set(true, forKey: "First Launch")
         return true
     }
 
@@ -32,4 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func applicationWillTerminate(_ application: UIApplication) {
+        defaults.synchronize()
+    }
 }
