@@ -13,7 +13,7 @@ class ReadyView: UIView {
     let circle: AnimatedCircleView = {
         let random = Int.random(in: 1...5)
         let color: UIColor
-        switch random{
+        switch random {
         case 1:
             color = PalletteManager().getActivePallette().getColor(option: .primaryColor)
         case 2:

@@ -40,6 +40,6 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     }
 
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
-        print("BATEU \(identifier)")
+        print("BATEU \(String(describing: identifier))")
     }
 }
