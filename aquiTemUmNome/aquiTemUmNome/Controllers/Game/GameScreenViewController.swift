@@ -47,18 +47,28 @@ class GameScreenViewController: UIViewController {
             self.mainView.score.setScore(score: self.score)
             switch score {
             case 0...50:
-                self.boardManager?.setDificultt(difficulty: .easy)
+                self.boardManager?.setDificultt(difficulty: .easiest)
                 if score == 0 {
                     musicManager.playIntro()
                 }
             case 51...100:
-                self.boardManager?.setDificultt(difficulty: .normal)
+                self.boardManager?.setDificultt(difficulty: .easy)
                 if score == 52 {
                     musicManager.playEasyMusic()
                 }
-            default:
-                self.boardManager?.setDificultt(difficulty: .hard)
+            case 101...150:
+                self.boardManager?.setDificultt(difficulty: .normal)
                 if score == 102 {
+                    musicManager.playMediumMusic()
+                }
+            case 151...200:
+                self.boardManager?.setDificultt(difficulty: .hard)
+                if score == 152 {
+                    musicManager.playMediumMusic()
+                }
+            default:
+                self.boardManager?.setDificultt(difficulty: .hardest)
+                if score == 202 {
                     musicManager.playMediumMusic()
                 }
             }
@@ -176,6 +186,10 @@ extension GameScreenViewController: PauseDelegate {
         case .normal:
             self.musicManager.playEasyMusic()
         case .hard:
+            self.musicManager.playMediumMusic()
+        case .easiest:
+            self.musicManager.playIntro()
+        case .hardest:
             self.musicManager.playMediumMusic()
         }
     }
