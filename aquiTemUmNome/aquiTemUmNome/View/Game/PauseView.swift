@@ -30,57 +30,61 @@ class PauseView: UIView {
         return circle
     }()
     let playButton: UIButton = {
-        let playButton = UIButton(nameIcon: "play.fill", sizeButton: 95, sizeIcon: 55, weightIcon: .bold, backgroundColor: .clear, tintColor: .label)
+        let playButton = UIButton(nameIcon: "play.fill", sizeButton: 95, sizeIcon: 55, weightIcon: .bold, backgroundColor: .clear, tintColor: .white)
         playButton.translatesAutoresizingMaskIntoConstraints = false
         playButton.startAnimatingPressActions()
         return playButton
     }()
     let homeButton: UIButton = {
         let color = PalletteManager().getActivePallette().getColor(option: .fifthColor)
-        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
+        let homeButton = UIButton(nameIcon: "house.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .bold, backgroundColor: color, tintColor: .white)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.startAnimatingPressActions()
         return homeButton
     }()
+
     let muteButton: UIButton = {
         let color = PalletteManager().getActivePallette().getColor(option: .secondaryColor)
         let status = UserDefaults.standard.bool(forKey: "mute")
         let muteButton: UIButton
         if status {
-            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
+            muteButton = UIButton(nameIcon: "speaker.slash.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .bold, backgroundColor: color, tintColor: .white)
         } else {
-            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
+            muteButton = UIButton(nameIcon: "speaker.wave.2.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .bold, backgroundColor: color, tintColor: .white)
         }
         muteButton.translatesAutoresizingMaskIntoConstraints = false
         muteButton.startAnimatingPressActions()
         return muteButton
     }()
+
     func updateMute() {
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: (Int(muteButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
+            muteButton.setCustomIcon(nameIcon: "speaker.slash.fill", sizeIcon: (Int(muteButton.bounds.size.width) / 2) - 5, weightIcon: .bold, tintColor: .white)
         } else {
-            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: (Int(muteButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
+            muteButton.setCustomIcon(nameIcon: "speaker.wave.2.fill", sizeIcon: (Int(muteButton.bounds.size.width) / 2) - 5, weightIcon: .bold, tintColor: .white)
         }
     }
     let restartButton: UIButton = {
         let color = PalletteManager().getActivePallette().getColor(option: .fourthColor)
-        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
+        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .bold, backgroundColor: color, tintColor: .white)
         restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.startAnimatingPressActions()
         return restartButton
     }()
+
     func updateCornerRadius() {
         muteButton.layer.cornerRadius = muteButton.bounds.size.width / 2
         homeButton.layer.cornerRadius = homeButton.bounds.size.width / 2
         restartButton.layer.cornerRadius = restartButton.bounds.size.width / 2
         playButton.layer.cornerRadius = playButton.bounds.size.width / 2
 
-        playButton.setCustomIcon(nameIcon: "play.fill", sizeIcon: (Int(playButton.bounds.size.width) / 2) + 5, weightIcon: .regular, tintColor: .label)
-        homeButton.setCustomIcon(nameIcon: "house", sizeIcon: (Int(homeButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
-        restartButton.setCustomIcon(nameIcon: "arrow.counterclockwise", sizeIcon: (Int(homeButton.bounds.size.width) / 2) - 5, weightIcon: .regular, tintColor: .label)
+        playButton.setCustomIcon(nameIcon: "play.fill", sizeIcon: (Int(playButton.bounds.size.width) / 2) + 5, weightIcon: .bold, tintColor: .white)
+        homeButton.setCustomIcon(nameIcon: "house.fill", sizeIcon: (Int(homeButton.bounds.size.width) / 2) - 5, weightIcon: .bold, tintColor: .white)
+        restartButton.setCustomIcon(nameIcon: "arrow.counterclockwise", sizeIcon: (Int(homeButton.bounds.size.width) / 2) - 5, weightIcon: .bold, tintColor: .white)
         updateMute()
     }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addSubview(modal)

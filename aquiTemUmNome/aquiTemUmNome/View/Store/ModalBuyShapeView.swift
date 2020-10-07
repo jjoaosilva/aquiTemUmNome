@@ -44,13 +44,13 @@ class ModalBuyShapeView: UIView {
         return img
     }()
     let cancelButton: UIButton = {
-            let btn = UIButton(nameIcon: "xmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemRed, tintColor: .label)
+            let btn = UIButton(nameIcon: "xmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemRed, tintColor: .white)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.startAnimatingPressActions()
             return btn
         }()
     let buyButton: UIButton = {
-            let btn = UIButton(nameIcon: "checkmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemGreen, tintColor: .label)
+            let btn = UIButton(nameIcon: "checkmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemGreen, tintColor: .white)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.startAnimatingPressActions()
             return btn

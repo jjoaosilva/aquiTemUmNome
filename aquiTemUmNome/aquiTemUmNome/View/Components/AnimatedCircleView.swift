@@ -124,11 +124,13 @@ class AnimatedCircleView: UIView {
     private func doOpacityAnimation(with duration: Float) {
         let animation = configureOpacityAnimation(duration: TimeInterval(duration))
         self.circle.strokeColor = self.standardPallette.getColor(option: self.circleColor).cgColor
+        self.circle.fillColor = self.standardPallette.getColor(option: self.circleColor).cgColor
         self.circle.add(animation, forKey: "opacity")
     }
 
     private func handleColors(circleColor: ColorType, shadowColor: ColorType) {
         self.shadowCircle.strokeColor = standardPallette.getColor(option: shadowColor).cgColor
+        self.shadowCircle.fillColor = standardPallette.getColor(option: shadowColor).cgColor
         self.circleColor = circleColor
     }
 
