@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             _ = ShapeManager().setActiveShape(shapeID: ball.getID().uuidString)
         }
         UserDefaults.standard.set(true, forKey: "First Launch")
+        defaults.set(false, forKey: "ConfigureMusic")
         return true
     }
 

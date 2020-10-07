@@ -11,150 +11,70 @@ import UIKit
 import AVFoundation
 
 class MusicManager {
-    private var audioPlayer: AVAudioPlayer? = AVAudioPlayer()
-    private var isPlaying = false
-    public static let shared = MusicManager()
 
-    func playIntro() {
-        let sound = Bundle.main.path(forResource: "aquiTemUmaIntro", ofType: "mp3")
+    public static var sharedInstance = MusicManager()
+    private var tracks: [Track] = []
 
-        if self.isPlaying {
-            stopMusic()
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
-            }
-        } else {
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
+    func setTracks(withNames names: [String]) {
+
+        for name in names {
+            let newTrack = Track(fileNamed: name)
+            tracks.append(newTrack)
+        }
+    }
+
+    func playAll(numberOfLoops: Int) {
+//        let now = self.tracks[0].avAudioPlayer.deviceCurrentTime
+
+        for track in self.tracks {
+            track.avAudioPlayer.numberOfLoops = numberOfLoops
+            track.avAudioPlayer.play()
+        }
+    }
+
+    func muteAll() {
+
+        for track in self.tracks {
+            track.avAudioPlayer.volume = 0
+        }
+    }
+
+    func disableTracks(named names: [String] , withFade fade: Bool) {
+
+        names.forEach { name in
+            self.tracks.filter {
+                return name == $0.fileName
+            }.forEach {
+                if fade {
+                    while ($0.avAudioPlayer.volume > 0) {
+                        $0.avAudioPlayer.volume -= 0.1
+                    }
+                } else {
+                    $0.avAudioPlayer.volume = 0
+                }
             }
         }
+    }
+
+    func enableTracks(named names: [String], volume: Float, fade: Bool) {
 
         let status = UserDefaults.standard.bool(forKey: "mute")
         if status {
-            self.audioPlayer?.setVolume(0.0, fadeDuration: 0)
-            stopMusic()
-        } else {
-            self.audioPlayer?.setVolume(1.0, fadeDuration: 0)
-        }
-    }
 
-    func playEasyMusic() {
-        let sound = Bundle.main.path(forResource: "aquiTemUmaMusicaFacil", ofType: "mp3")
-
-        if self.isPlaying {
-            stopMusic()
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
-            }
         } else {
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
+            names.forEach { name in
+                self.tracks.filter {
+                    return name == $0.fileName
+                }.forEach {
+                    if fade {
+                        while ($0.avAudioPlayer.volume < volume) {
+                            $0.avAudioPlayer.volume += 0.001
+                        }
+                    } else {
+                        $0.avAudioPlayer.volume = volume
+                    }
+                }
             }
         }
-
-        let status = UserDefaults.standard.bool(forKey: "mute")
-        if status {
-            self.audioPlayer?.setVolume(0.0, fadeDuration: 0)
-            stopMusic()
-        } else {
-            self.audioPlayer?.setVolume(1.0, fadeDuration: 0)
-        }
-    }
-
-    func playMediumMusic() {
-        let sound = Bundle.main.path(forResource: "aquiTemUmaMusicaMedia", ofType: "mp3")
-
-        if self.isPlaying {
-            stopMusic()
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
-            }
-        } else {
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
-            }
-        }
-
-        let status = UserDefaults.standard.bool(forKey: "mute")
-        if status {
-            self.audioPlayer?.setVolume(0.0, fadeDuration: 0)
-            stopMusic()
-        } else {
-            self.audioPlayer?.setVolume(1.0, fadeDuration: 0)
-        }
-    }
-
-    func playGameOver() {
-        let sound = Bundle.main.path(forResource: "aquiTemUmGameOver", ofType: "mp3")
-
-        if self.isPlaying {
-            stopMusic()
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
-            }
-        } else {
-            do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
-                self.isPlaying = true
-                self.audioPlayer?.numberOfLoops = 999999
-                self.audioPlayer?.play()
-            } catch {
-                print(error)
-            }
-        }
-
-        let status = UserDefaults.standard.bool(forKey: "mute")
-        if status {
-            self.audioPlayer?.setVolume(0.0, fadeDuration: 0)
-            stopMusic()
-        } else {
-            self.audioPlayer?.setVolume(1.0, fadeDuration: 0)
-        }
-    }
-
-    func stopMusic() {
-        self.audioPlayer?.stop()
-        self.audioPlayer?.currentTime = 0
-        self.isPlaying = false
-        self.audioPlayer = nil
-    }
-
-    func getCurrentTime() -> TimeInterval {
-        return self.audioPlayer?.currentTime ?? 0
     }
 }
