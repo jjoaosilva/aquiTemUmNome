@@ -103,6 +103,8 @@ class GameScreenViewController: UIViewController {
         super.viewDidLayoutSubviews()
         self.playTimer()
         isTimerRunning = true
+        self.view.bringSubviewToFront(self.mainView.score)
+        self.view.bringSubviewToFront(self.mainView.pause)
     }
 
     private func createObstacle() {
