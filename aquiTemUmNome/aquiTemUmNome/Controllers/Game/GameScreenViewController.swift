@@ -54,19 +54,14 @@ class GameScreenViewController: UIViewController {
                 }
             case 101...200:
                 self.boardManager?.setDificultt(difficulty: .normal)
-                if score == 102 {
-                    musicManager.playMediumMusic()
-                }
             case 201...350:
                 self.boardManager?.setDificultt(difficulty: .hard)
                 if score == 202 {
-                    musicManager.playMediumMusic()
+                    MenuViewController.musicManager.muteAll()
+                    MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[2]], volume: 1, fade: true)
                 }
             default:
                 self.boardManager?.setDificultt(difficulty: .hardest)
-                if score == 352 {
-                    musicManager.playMediumMusic()
-                }
             }
 
             self.timeFrame = self.boardManager?.getDificultt().timeFrame ?? 1
