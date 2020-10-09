@@ -10,7 +10,6 @@ import UIKit
 
 class PauseViewController: UIViewController {
     let pauseView = PauseView()
-    let musicManager = MusicManager.shared
     weak var delegate: PauseDelegate?
 
     override func viewDidLoad() {
