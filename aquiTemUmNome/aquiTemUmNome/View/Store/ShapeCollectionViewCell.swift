@@ -15,7 +15,7 @@ class ShapeCollectionViewCell: UICollectionViewCell {
         round.heightAnchor.constraint(equalToConstant: 107).isActive = true
         round.widthAnchor.constraint(equalToConstant: 107).isActive = true
         round.layer.cornerRadius = 107/2
-        round.backgroundColor = .darkGray
+        round.backgroundColor = .systemGray4
         return round
     }()
     let coinsLabel: UILabel = {
@@ -57,5 +57,9 @@ class ShapeCollectionViewCell: UICollectionViewCell {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        print("prepare")
     }
 }

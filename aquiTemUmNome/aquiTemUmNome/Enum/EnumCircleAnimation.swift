@@ -11,5 +11,6 @@ import Foundation
 enum CircleAnimation {
     case complete
     case infinity
+    case opacity
     case idle
 }

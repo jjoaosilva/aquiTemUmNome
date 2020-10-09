@@ -11,7 +11,9 @@ import UIKit
 class MenuViewController: UIViewController {
 
     let menuView = MenuView()
-    let musicManager = MusicManager.shared
+    static let tracks = ["aquiTemUmaIntro", "aquiTemUmaMusicaFacil", "aquiTemUmaMusicaMedia", "aquiTemUmGameOver"]
+    static let musicManager = MusicManager()
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,11 @@ class MenuViewController: UIViewController {
         menuView.storeButton.addTarget(self, action: #selector(self.storeButton), for: .touchUpInside)
 
         self.view = menuView
-        musicManager.playIntro()
+        let status = UserDefaults.standard.bool(forKey: "ConfigureMusic")
+        if status == false {
+            setupMusic()
+        }
+        playMusic()
     }
 
     @objc func playGame() {
@@ -39,9 +45,10 @@ class MenuViewController: UIViewController {
             UserDefaults.standard.set(false, forKey: "mute")
         } else {
             UserDefaults.standard.set(true, forKey: "mute")
+            MenuViewController.musicManager.muteAll()
         }
         menuView.updateMuteButton()
-        musicManager.playIntro()
+        MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[0]], volume: 1, fade: true)
     }
 
     @objc func gameCenter() {
@@ -60,5 +67,16 @@ class MenuViewController: UIViewController {
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         view.window!.layer.add(transition, forKey: kCATransition)
         present(storeController, animated: true, completion: nil)
+    }
+
+    func playMusic() {
+        MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[0]], volume: 1, fade: true)
+    }
+
+    func setupMusic() {
+        defaults.set(true, forKey: "ConfigureMusic")
+        MenuViewController.musicManager.setTracks(withNames: MenuViewController.tracks)
+        MenuViewController.musicManager.playAll(numberOfLoops: 99999)
+        MenuViewController.musicManager.muteAll()
     }
 }
