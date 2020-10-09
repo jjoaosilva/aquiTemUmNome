@@ -84,7 +84,7 @@ class MenuView: UIView {
     }
 
     func setupIcon() {
-        icon = UIImageView(image: UIImage(named: "Icon"))
+        icon = UIImageView(image: UIImage(named: "Icon")?.withTintColor(.systemGray6))
         self.addSubview(icon)
     }
 

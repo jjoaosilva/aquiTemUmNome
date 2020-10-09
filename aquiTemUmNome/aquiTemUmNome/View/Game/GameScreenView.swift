@@ -76,6 +76,7 @@ class GameScreenView: UIView {
             self.setupCharacterPosition()
             self.constraintsHasBeenSeted = true
         }
+        self.pause.layer.borderColor = UIColor.label.cgColor
 //        self.setupObstaclePosition()
     }
 
