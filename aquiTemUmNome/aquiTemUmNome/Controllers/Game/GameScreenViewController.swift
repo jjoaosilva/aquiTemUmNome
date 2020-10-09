@@ -12,8 +12,6 @@ import UIKit
 
 class GameScreenViewController: UIViewController {
 
-    let musicManager = MusicManager.shared
-
     lazy var mainView: GameScreenView = {
         let gameView = GameScreenView(frame: self.view.frame)
 
@@ -47,20 +45,23 @@ class GameScreenViewController: UIViewController {
             self.mainView.score.setScore(score: self.score)
             switch score {
             case 0...50:
-                self.boardManager?.setDificultt(difficulty: .easy)
-                if score == 0 {
-                    musicManager.playIntro()
-                }
+                self.boardManager?.setDificultt(difficulty: .easiest)
             case 51...100:
-                self.boardManager?.setDificultt(difficulty: .normal)
+                self.boardManager?.setDificultt(difficulty: .easy)
                 if score == 52 {
-                    musicManager.playEasyMusic()
+                    MenuViewController.musicManager.muteAll()
+                    MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[1]], volume: 1, fade: true)
+                }
+            case 101...200:
+                self.boardManager?.setDificultt(difficulty: .normal)
+            case 201...350:
+                self.boardManager?.setDificultt(difficulty: .hard)
+                if score == 202 {
+                    MenuViewController.musicManager.muteAll()
+                    MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[2]], volume: 1, fade: true)
                 }
             default:
-                self.boardManager?.setDificultt(difficulty: .hard)
-                if score == 102 {
-                    musicManager.playMediumMusic()
-                }
+                self.boardManager?.setDificultt(difficulty: .hardest)
             }
 
             self.timeFrame = self.boardManager?.getDificultt().timeFrame ?? 1
@@ -83,7 +84,7 @@ class GameScreenViewController: UIViewController {
         self.pauseTimer()
 
         self.mainView.removeBehaviorsObstacle(animator: self.animator)
-        musicManager.stopMusic()
+        MenuViewController.musicManager.muteAll()
 
         let pauseViewController = PauseViewController()
         pauseViewController.delegate = self
@@ -102,6 +103,8 @@ class GameScreenViewController: UIViewController {
         super.viewDidLayoutSubviews()
         self.playTimer()
         isTimerRunning = true
+        self.view.bringSubviewToFront(self.mainView.score)
+        self.view.bringSubviewToFront(self.mainView.pause)
     }
 
     private func createObstacle() {
@@ -172,11 +175,15 @@ extension GameScreenViewController: PauseDelegate {
         let dificult = self.boardManager?.getDificultt()
         switch dificult! {
         case .easy:
-            self.musicManager.playIntro()
+            MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[1]], volume: 1, fade: true)
         case .normal:
-            self.musicManager.playEasyMusic()
+            MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[1]], volume: 1, fade: true)
         case .hard:
-            self.musicManager.playMediumMusic()
+            MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[2]], volume: 1, fade: true)
+        case .easiest:
+            MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[0]], volume: 1, fade: true)
+        case .hardest:
+            MenuViewController.musicManager.enableTracks(named: [MenuViewController.tracks[2]], volume: 1, fade: true)
         }
     }
 }

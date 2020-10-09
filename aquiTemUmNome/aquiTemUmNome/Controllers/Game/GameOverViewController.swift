@@ -17,6 +17,7 @@ class GameOverViewController: UIViewController {
         self.view = gameOver
         gameOver.homeButton.addTarget(self, action: #selector(self.backMenu), for: .touchUpInside)
         gameOver.restartButton.addTarget(self, action: #selector(self.restartGame), for: .touchUpInside)
+        MenuViewController.musicManager.muteAll()
     }
 
     func setupScore(with score: Int) {
