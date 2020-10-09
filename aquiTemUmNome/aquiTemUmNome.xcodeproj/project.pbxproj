@@ -59,6 +59,7 @@
 		A2C34EC5251A303C002B73AB /* BoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34EC4251A303C002B73AB /* BoardManager.swift */; };
 		A2C34ECA251A39DD002B73AB /* EnumObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */; };
 		A2C34ECF251A3E05002B73AB /* EnumDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */; };
+		A2CCEBF1252DF4CD00E8A982 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCEBF0252DF4CD00E8A982 /* LogoView.swift */; };
 		A2E8B1E8251B8E8A00CEC27A /* EnumMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8B1E7251B8E8A00CEC27A /* EnumMovement.swift */; };
 		D710261525138A71001B1199 /* GameScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710261425138A71001B1199 /* GameScreenView.swift */; };
 		D710261E25138ADA001B1199 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710261D25138ADA001B1199 /* GameScreenViewController.swift */; };
@@ -150,6 +151,7 @@
 		A2C34EC4251A303C002B73AB /* BoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardManager.swift; sourceTree = "<group>"; };
 		A2C34EC9251A39DD002B73AB /* EnumObstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumObstacle.swift; sourceTree = "<group>"; };
 		A2C34ECE251A3E05002B73AB /* EnumDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDifficulty.swift; sourceTree = "<group>"; };
+		A2CCEBF0252DF4CD00E8A982 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		A2E8B1E7251B8E8A00CEC27A /* EnumMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumMovement.swift; sourceTree = "<group>"; };
 		D710261425138A71001B1199 /* GameScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenView.swift; sourceTree = "<group>"; };
 		D710261D25138ADA001B1199 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			children = (
 				A296C0B62513AC0E005CC48E /* ModalView.swift */,
 				A25692BA2514F49200BEBAEB /* AnimatedCircleView.swift */,
+				A2CCEBF0252DF4CD00E8A982 /* LogoView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				6E4FC1022513982400621BD1 /* StoreViewController.swift in Sources */,
 				54084B5C2524ABD50005EB2A /* MusicManager.swift in Sources */,
 				6E9FF95625237BD6006B5D96 /* ShapesRepository.swift in Sources */,
+				A2CCEBF1252DF4CD00E8A982 /* LogoView.swift in Sources */,
 				6E415AC82518DA0A00542A38 /* StoreTableViewCell.swift in Sources */,
 				A2E8B1E8251B8E8A00CEC27A /* EnumMovement.swift in Sources */,
 				5423279925138A4F00E9E691 /* MenuView.swift in Sources */,

@@ -28,7 +28,7 @@ class ModalBuyBoardView: UIView {
         round.heightAnchor.constraint(equalToConstant: 107).isActive = true
         round.widthAnchor.constraint(equalToConstant: 107).isActive = true
         round.layer.cornerRadius = 107/2
-        round.backgroundColor = .darkGray
+        round.backgroundColor = .systemGray4
         return round
     }()
     let coinsLabel: UILabel = {
@@ -50,13 +50,13 @@ class ModalBuyBoardView: UIView {
         return view
     }()
     let cancelButton: UIButton = {
-            let btn = UIButton(nameIcon: "xmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemRed, tintColor: .label)
+            let btn = UIButton(nameIcon: "xmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemRed, tintColor: .white)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.startAnimatingPressActions()
             return btn
         }()
     let buyButton: UIButton = {
-            let btn = UIButton(nameIcon: "checkmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemGreen, tintColor: .label)
+            let btn = UIButton(nameIcon: "checkmark", sizeButton: 68, sizeIcon: 24, weightIcon: .bold, backgroundColor: .systemGreen, tintColor: .white)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.startAnimatingPressActions()
             return btn

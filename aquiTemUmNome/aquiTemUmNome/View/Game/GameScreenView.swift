@@ -41,6 +41,7 @@ class GameScreenView: UIView {
     let pause: UIButton = {
         let button = UIButton(nameIcon: "pause.fill", sizeButton: 42, sizeIcon: 22, weightIcon: .bold, backgroundColor: .clear, tintColor: .label)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.startAnimatingPressActions()
         return button
     }()
 
@@ -102,7 +103,7 @@ class GameScreenView: UIView {
 
     private func setupPauseConstraints() {
         self.pause.layer.borderWidth = 4
-        self.pause.layer.borderColor = .init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        self.pause.layer.borderColor = UIColor.label.cgColor
 
         NSLayoutConstraint.activate([
             self.pause.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
