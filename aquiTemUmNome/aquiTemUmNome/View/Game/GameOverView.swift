@@ -86,7 +86,7 @@ class GameOverView: UIView {
 
     let homeButton: UIButton = {
         let color = PalletteManager().getActivePallette().getColor(option: .fifthColor)
-        let homeButton = UIButton(nameIcon: "house", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
+        let homeButton = UIButton(nameIcon: "house.fill", sizeButton: 56, sizeIcon: 24, weightIcon: .bold, backgroundColor: color, tintColor: .white)
         homeButton.translatesAutoresizingMaskIntoConstraints = false
         homeButton.startAnimatingPressActions()
         return homeButton
@@ -103,7 +103,7 @@ class GameOverView: UIView {
 
     let restartButton: UIButton = {
         let color = PalletteManager().getActivePallette().getColor(option: .fourthColor)
-        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .regular, backgroundColor: color, tintColor: .label)
+        let restartButton = UIButton(nameIcon: "arrow.counterclockwise", sizeButton: 56, sizeIcon: 24, weightIcon: .bold, backgroundColor: color, tintColor: .white)
         restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.startAnimatingPressActions()
         return restartButton
