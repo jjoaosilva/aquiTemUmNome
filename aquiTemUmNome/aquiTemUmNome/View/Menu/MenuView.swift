@@ -13,7 +13,7 @@ import UIKit
 class MenuView: UIView {
     var palleteManager = PalletteManager()
     var pallette: ColorPallette!
-    var icon = UIImageView()
+    var icon = UIImageView(image: UIImage(named: "Icon"))
     var playButton = UIButton()
     var storeButton = UIButton()
     var gameCenterButton = UIButton()
@@ -22,6 +22,12 @@ class MenuView: UIView {
     let circle: AnimatedCircleView = {
         let circle = AnimatedCircleView(lineWidth: 5)
         return circle
+    }()
+
+    let logo: LogoView = {
+        let view = LogoView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     override init(frame: CGRect) {
@@ -39,7 +45,7 @@ class MenuView: UIView {
 
         setupPlayButtonConstraints()
         setupCircleConstraints()
-        
+
         setupGameCenterButton()
         setupGameCenterButtonConstraints()
 
@@ -48,6 +54,9 @@ class MenuView: UIView {
 
         setupMuteButton()
         setupMuteButtonConstraints()
+
+        setupLogo()
+        setupLogoConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -59,6 +68,19 @@ class MenuView: UIView {
     func setupBackground() {
         self.backgroundColor = .systemGray6
         //self.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1.0)
+    }
+
+    func setupLogo() {
+        self.addSubview(logo)
+    }
+
+    func setupLogoConstraints() {
+        NSLayoutConstraint.activate([
+            logo.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -160),
+            logo.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logo.widthAnchor.constraint(equalToConstant: self.icon.bounds.size.width),
+            logo.heightAnchor.constraint(equalToConstant: self.icon.bounds.size.height)
+        ])
     }
 
     func setupIcon() {
