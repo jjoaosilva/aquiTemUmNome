@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PauseDelegate: class {
+protocol PauseDelegate: AnyObject {
     func returnGame()
 }
